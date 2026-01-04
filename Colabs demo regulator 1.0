@@ -1,0 +1,125 @@
+import numpy as np
+import ipywidgets as widgets
+from IPython.display import display, HTML, clear_output
+from sentence_transformers import SentenceTransformer
+
+# --- 1. THE AI CLIENT (2026 VALIDATED) ---
+class UniversalAIClient:
+    def __init__(self):
+        self.provider, self.client, self.model_name = None, None, None
+
+    def setup_openai(self, api_key, model="gpt-5.1"):
+        import openai
+        self.client = openai.OpenAI(api_key=api_key)
+        self.provider, self.model_name = "openai", model
+
+    def setup_anthropic(self, api_key, model="claude-sonnet-4-5"):
+        import anthropic
+        self.client = anthropic.Anthropic(api_key=api_key)
+        self.provider, self.model_name = "anthropic", model
+
+    def call_ai(self, prompt, system_prompt="You are a cold, technical kernel. No conversational filler."):
+        try:
+            if self.provider == "openai":
+                res = self.client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[{"role": "system", "content": system_prompt}, {"role": "user", "content": prompt}]
+                )
+                return res.choices[0].message.content
+            elif self.provider == "anthropic":
+                res = self.client.messages.create(
+                    model=self.model_name, max_tokens=1024,
+                    system=system_prompt,
+                    messages=[{"role": "user", "content": prompt}]
+                )
+                return res.content[0].text
+        except Exception as e: return f"❌ Error: {str(e)}"
+
+# --- 2. THE BRAIN (MANIFOLD GEOMETRY) ---
+class MBT5Core:
+    def __init__(self):
+        self.model = SentenceTransformer('all-MiniLM-L6-v2')
+        self.manifold_center = None
+
+    def set_manifold(self, samples):
+        if not samples: return
+        embeddings = self.model.encode(samples)
+        if len(samples) == 1:
+            self.manifold_center = embeddings[0]
+            return
+        y = np.mean(embeddings, axis=0)
+        for _ in range(30):
+            d = np.maximum(np.linalg.norm(embeddings - y, axis=1), 1e-5)
+            y = np.sum(embeddings * (1/d)[:, None], axis=0) / np.sum(1/d)
+        self.manifold_center = y
+
+    def get_shock(self, text):
+        if self.manifold_center is None: return 0
+        emb = self.model.encode([text])[0]
+        return float(np.linalg.norm(emb - self.manifold_center)**2)
+
+# --- 3. THE PILOT (SURGICAL RECURSION) ---
+class MBT5Pilot:
+    def __init__(self):
+        self.mbt5, self.ai = MBT5Core(), UniversalAIClient()
+        self.setup_ui()
+
+    def deep_heal(self, query, max_retries=3):
+        # Phase 1: Initial Generation
+        res = self.ai.call_ai(query)
+        shock = self.mbt5.get_shock(res)
+
+        attempt, threshold = 1, 0.22
+
+        while shock > threshold and attempt <= max_retries:
+            print(f"🔄 Surgery {attempt}/{max_retries} (Shock: {shock:.4f})")
+
+            # The Surgical Feedback Loop
+            feedback = f"""
+            CRITICAL GEOMETRIC BREACH. Your output is semantically {shock:.2f} units from the manifold.
+            TARGET MANIFOLD: {self.manifold_box.value}
+            INSTRUCTION: Rewrite immediately. DO NOT apologize. DO NOT say 'I understand' or 'Certainly'.
+            Strip all conversational filler. Use ONLY the logical density of the Target Manifold.
+            """
+            res = self.ai.call_ai(feedback, system_prompt="You are a raw data output stream. Start response immediately with the answer.")
+            shock = self.mbt5.get_shock(res)
+            attempt += 1
+
+        status = "Grounded" if shock <= threshold else "Manifold Tension High"
+        return res, shock, status
+
+    def setup_ui(self):
+        self.header = widgets.HTML('<div style="background:#000;color:#00ff88;padding:15px;border-radius:10px;border:1px solid #00ff88"><h2>🛡️ MBT-5 SURGICAL PILOT</h2></div>')
+        self.provider_drop = widgets.Dropdown(options=[('Claude 4.5', 'anthropic'), ('GPT-5.1', 'openai')], description='System:')
+        self.api_key_input = widgets.Password(placeholder='Paste Key...', description='Key:')
+        self.manifold_box = widgets.Textarea(value="Rust memory safety.\nCUDA kernel concurrency.\ngRPC high-throughput architecture.", description='Manifold:', layout={'height': '80px', 'width': '95%'})
+        self.lock_btn = widgets.Button(description="LOCK REALITY", button_style='info')
+        self.input_box = widgets.Textarea(placeholder='Ask a question...', layout={'height': '80px', 'width': '95%'})
+        self.run_btn = widgets.Button(description="PILOT & HEAL", button_style='success', disabled=True)
+        self.output_log = widgets.Output()
+
+        self.lock_btn.on_click(lambda b: self.on_lock())
+        self.run_btn.on_click(lambda b: self.on_run())
+
+    def on_lock(self):
+        with self.output_log:
+            clear_output()
+            samples = [s.strip() for s in self.manifold_box.value.split('\n') if s.strip()]
+            self.mbt5.set_manifold(samples)
+            key = self.api_key_input.value.strip()
+            if self.provider_drop.value == "openai": self.ai.setup_openai(key)
+            else: self.ai.setup_anthropic(key)
+            print("✅ Manifold Locked. Surgical Pilot Active."); self.run_btn.disabled = False
+
+    def on_run(self):
+        with self.output_log:
+            clear_output(); print("⚖️ Analyzing Semantic Geometry...")
+            text, shock, status = self.deep_heal(self.input_box.value)
+            color = "#00ff88" if shock <= 0.22 else "#ff3333"
+            display(HTML(f'<div style="border-left:10px solid {color};padding:20px;background:#111;color:#eee;"><b>{status.upper()}</b> | Shock: {shock:.4f}<br><br>{text}</div>'))
+
+    def render(self):
+        display(self.header, self.provider_drop, self.api_key_input, self.manifold_box, self.lock_btn, widgets.HTML("<hr>"), self.input_box, self.run_btn, self.output_log)
+
+# Create and Launch
+pilot = MBT5Pilot(); pilot.render()
