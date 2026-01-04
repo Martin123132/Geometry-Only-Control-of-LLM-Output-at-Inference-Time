@@ -1,0 +1,182 @@
+import numpy as np
+import ipywidgets as widgets
+from IPython.display import display, HTML, clear_output
+from sentence_transformers import SentenceTransformer
+
+# ============================================================
+# 1. UNIVERSAL AI CLIENT
+# ============================================================
+class UniversalAIClient:
+    def __init__(self):
+        self.provider = None
+        self.client = None
+        self.model_name = None
+
+    def setup_openai(self, api_key, model="gpt-5.1"):
+        import openai
+        self.client = openai.OpenAI(api_key=api_key)
+        self.provider = "openai"
+        self.model_name = model
+
+    def setup_anthropic(self, api_key, model="claude-sonnet-4-5"):
+        import anthropic
+        self.client = anthropic.Anthropic(api_key=api_key)
+        self.provider = "anthropic"
+        self.model_name = model
+
+    def call_ai(self, prompt, system_prompt):
+        try:
+            if self.provider == "openai":
+                res = self.client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": prompt},
+                    ],
+                )
+                return res.choices[0].message.content
+
+            if self.provider == "anthropic":
+                res = self.client.messages.create(
+                    model=self.model_name,
+                    max_tokens=800,
+                    system=system_prompt,
+                    messages=[{"role": "user", "content": prompt}],
+                )
+                return res.content[0].text
+
+        except Exception as e:
+            return f"❌ Error: {e}"
+
+
+# ============================================================
+# 2. MBT-5 CORE — STABILITY ONLY
+# ============================================================
+class MBT5StabilityCore:
+    def __init__(self):
+        self.embedder = SentenceTransformer("all-MiniLM-L6-v2")
+
+    def internal_entropy(self, responses):
+        """
+        Measures how much multiple answers disagree with each other.
+        Higher = less stable / more hallucination-prone.
+        """
+        embs = self.embedder.encode(responses)
+        center = np.median(embs, axis=0)
+        return float(np.mean([np.linalg.norm(e - center) ** 2 for e in embs]))
+
+
+# ============================================================
+# 3. ZERO-BOX PILOT (CONFIDENCE SCORING)
+# ============================================================
+class ZeroBoxStabilityPilot:
+    def __init__(self):
+        self.ai = UniversalAIClient()
+        self.core = MBT5StabilityCore()
+        self.setup_ui()
+
+    def classify(self, entropy):
+        if entropy < 0.12:
+            return "✅ HIGH CONFIDENCE", "#00ff88"
+        elif entropy < 0.30:
+            return "⚠️ LOW CONFIDENCE OUTPUT", "#ffaa00"
+        else:
+            return "🚨 UNSTABLE / POSSIBLE HALLUCINATION", "#ff3333"
+
+    def run_query(self, query):
+        samples = []
+        for i in range(3):
+            p = f"{query}\n\n(Answer variation {i})"
+            samples.append(
+                self.ai.call_ai(
+                    p,
+                    system_prompt="You are a helpful assistant. Answer clearly and directly.",
+                )
+            )
+
+        entropy = self.core.internal_entropy(samples)
+        response = samples[0]
+
+        return response, entropy
+
+    # ----------------------------
+    # UI
+    # ----------------------------
+    def setup_ui(self):
+        self.header = widgets.HTML(
+            "<div style='background:#000;color:#00d4ff;padding:15px;"
+            "border-radius:10px;border:1px solid #00d4ff'>"
+            "<h2>🛡️ MBT-5 ZERO-BOX STABILITY PILOT</h2>"
+            "<small>Inference-time confidence via self-consistency</small>"
+            "</div>"
+        )
+
+        self.provider = widgets.Dropdown(
+            options=[("Claude 4.5", "anthropic"), ("GPT-5.1", "openai")],
+            description="AI:"
+        )
+
+        self.api_key = widgets.Password(
+            placeholder="Paste API key…",
+            description="Key:"
+        )
+
+        self.input_box = widgets.Textarea(
+            placeholder="Just talk normally…",
+            layout={"height": "90px", "width": "95%"}
+        )
+
+        self.run_btn = widgets.Button(
+            description="SEND MESSAGE",
+            button_style="primary"
+        )
+
+        self.output = widgets.Output()
+        self.run_btn.on_click(lambda b: self.on_run())
+
+    def on_run(self):
+        with self.output:
+            clear_output()
+
+            key = self.api_key.value.strip()
+            if not key:
+                print("❌ API key required.")
+                return
+
+            if self.provider.value == "openai":
+                self.ai.setup_openai(key)
+            else:
+                self.ai.setup_anthropic(key)
+
+            print("🔍 Auditing model stability…")
+
+            response, entropy = self.run_query(self.input_box.value)
+            label, color = self.classify(entropy)
+
+            display(HTML(
+                f"""
+<div style="border-left:10px solid {color};padding:20px;background:#111;color:#eee;">
+<b>{label}</b><br>
+Internal Entropy: {entropy:.4f}
+<hr>
+{response}
+</div>
+"""
+            ))
+
+    def render(self):
+        display(
+            self.header,
+            self.provider,
+            self.api_key,
+            self.input_box,
+            self.run_btn,
+            self.output
+        )
+
+
+# ============================================================
+# 4. LAUNCH
+# ============================================================
+pilot = ZeroBoxStabilityPilot()
+pilot.render()
