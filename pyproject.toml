@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mbt-ai-tools"
+version = "0.1.0"
+description = "MBT-5 geometry-only inference-time regulator utilities"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "MBT-5 Contributors" }]
+dependencies = [
+  "numpy",
+  "sentence-transformers",
+  "scipy"
+]
+
+[project.urls]
+Homepage = "https://example.com/mbt-ai-tools"
+Repository = "https://example.com/mbt-ai-tools"
+
+[project.scripts]
+mbt-check = "mbt_ai_tools.cli:main"
+
+[tool.setuptools]
+packages = ["mbt_ai_tools", "mbt_ai_tools.mbt"]
