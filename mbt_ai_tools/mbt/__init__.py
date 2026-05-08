@@ -1,9 +1,8 @@
 """
 MBT-5 geometry-only inference-time regulator public API.
 
-This package exposes light-weight helpers for computing semantic stability and
-geometric shock without introducing new abstractions beyond the original
-notebook scripts.
+This package exposes light-weight helpers for semantic stability, geometric
+shock, and reference-bound MBT-5 v11 candidate regulation.
 """
 
 from .embeddings import load_embedder, embed_texts
@@ -16,6 +15,14 @@ from .stability import (
 )
 from .tokens import token_shock_map
 from .consensus import ManifoldRegulator, ZeroBoxConsensus
+from .regulator import (
+    CandidateEvaluation,
+    ReferenceManifold,
+    RegulationResult,
+    evaluate_candidate,
+    extract_relations,
+    regulate_candidates,
+)
 
 __all__ = [
     "load_embedder",
@@ -30,4 +37,10 @@ __all__ = [
     "token_shock_map",
     "ManifoldRegulator",
     "ZeroBoxConsensus",
+    "CandidateEvaluation",
+    "ReferenceManifold",
+    "RegulationResult",
+    "evaluate_candidate",
+    "extract_relations",
+    "regulate_candidates",
 ]

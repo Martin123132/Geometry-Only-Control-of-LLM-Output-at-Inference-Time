@@ -1,8 +1,8 @@
 """
 Public entrypoint for MBT-5 geometry-only tools.
 
-The functions exposed here mirror the notebook behaviors without adding new
-abstractions or altering thresholds.
+The functions exposed here include the original stability helpers plus the
+reference-bound MBT-5 v11 candidate-regulation API.
 """
 
 from .mbt import (  # noqa: F401
@@ -12,6 +12,12 @@ from .mbt import (  # noqa: F401
     confidence_score,
     hallucination_risk,
     token_shock_map,
+    CandidateEvaluation,
+    ReferenceManifold,
+    RegulationResult,
+    evaluate_candidate,
+    extract_relations,
+    regulate_candidates,
 )
 
 __all__ = [
@@ -21,4 +27,10 @@ __all__ = [
     "ManifoldRegulator",
     "ZeroBoxConsensus",
     "classify_entropy",
+    "CandidateEvaluation",
+    "ReferenceManifold",
+    "RegulationResult",
+    "evaluate_candidate",
+    "extract_relations",
+    "regulate_candidates",
 ]

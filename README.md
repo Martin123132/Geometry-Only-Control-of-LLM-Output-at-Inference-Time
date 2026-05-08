@@ -220,6 +220,27 @@ print(score)
 print(risk)
 print(shocks)
 
+Candidate Regulation
+
+```python
+from mbt_ai_tools import regulate_candidates
+
+references = [
+    "The capital of France is Paris.",
+    "Paris is the capital city of France.",
+]
+candidates = [
+    "The capital of France is London.",
+    "The capital of France is Paris.",
+]
+
+result = regulate_candidates(candidates, references)
+print(result.action)        # emit
+print(result.emitted_text)  # The capital of France is Paris.
+```
+
+For offline literal/relation-only checks, pass `use_embeddings=False`. The regulator still applies literal drift, relation, negation, overclaim, reference-member, and abstention clamps.
+
 CLI
 
 mbt-check "The capital of France is Paris."

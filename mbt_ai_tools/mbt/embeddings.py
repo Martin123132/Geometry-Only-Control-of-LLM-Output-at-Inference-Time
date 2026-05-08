@@ -1,19 +1,20 @@
 from functools import lru_cache
-from typing import Iterable, List, Optional
+from typing import Iterable, Optional, Any
 
 import numpy as np
-from sentence_transformers import SentenceTransformer
 
 
 @lru_cache(maxsize=2)
-def load_embedder(model_name: str = "all-MiniLM-L6-v2") -> SentenceTransformer:
+def load_embedder(model_name: str = "all-MiniLM-L6-v2") -> Any:
     """
     Load and cache the default sentence-transformer used across MBT-5 helpers.
 
     The original scripts relied on ``all-MiniLM-L6-v2`` for geometric
-    measurements; this keeps the exact same model without introducing new
-    options or behaviors.
+    measurements; this keeps the same model while loading the optional heavy
+    dependency only when embeddings are actually requested.
     """
+
+    from sentence_transformers import SentenceTransformer
 
     return SentenceTransformer(model_name)
 
@@ -22,7 +23,7 @@ def embed_texts(
     texts: Iterable[str],
     *,
     model_name: str = "all-MiniLM-L6-v2",
-    embedder: Optional[SentenceTransformer] = None,
+    embedder: Optional[Any] = None,
 ) -> np.ndarray:
     """
     Encode an iterable of texts into embeddings.
