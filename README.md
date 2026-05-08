@@ -1,5 +1,5 @@
-# MBT-5
-**Geometry-only inference-time hallucination regulator for AI outputs.**
+<img width="1920" height="640" alt="a653b64f-4fd4-46ec-b425-dcab2cb3c7b4" src="https://github.com/user-attachments/assets/57aa4d12-7d14-4726-a8f1-bd921692d94e" />
+
 MBT-5 tests whether an AI output stays inside a supplied semantic and relational reference manifold.
 It runs at inference time.
 No training.  
@@ -51,6 +51,8 @@ In the frozen EXP20 ledger, MBT-5 produced no locked false positives and no lock
 Supported claim:
 
 MBT-5 v11 blocked hallucinated AI outputs against supplied reference manifolds and relation constraints. In the frozen EXP20 ledger, it achieved confusion [[97, 0], [0, 160]] over 257 labelled candidates across 53 cases.
+
+<img width="1448" height="1086" alt="5fc1387a-ba8a-49a9-aa92-fae7671591b1" src="https://github.com/user-attachments/assets/1f61db20-f95b-4d31-b325-9dfd5f37cdfc" />
 
 What MBT-5 Checks
 
@@ -160,6 +162,8 @@ Water is not liquid at room temperature.
 Sound does not need a material medium to travel.
 Scientific descriptions do not use measurements or predictions.
 General relativity proves gravity has no connection to mass or energy.
+
+<img width="1448" height="1086" alt="a2c6cb64-aff1-4f53-b7ea-ca7beb634eef" src="https://github.com/user-attachments/assets/8e598225-bda0-4ff2-a402-3ea6a5d7a5ae" />
 
 7. Abstention
 
