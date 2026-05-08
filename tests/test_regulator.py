@@ -73,3 +73,12 @@ def test_negated_positive_support_clamp():
 
     assert evaluation.safe_to_emit is False
     assert "negated_positive_support_clamp" in evaluation.clamp_summary
+
+
+def test_multi_word_capital_relations_are_not_truncated():
+    assert ("mexico", "capital", "mexico city") in extract_relations(
+        "The capital of Mexico is Mexico City."
+    )
+    assert ("argentina", "capital", "buenos aires") in extract_relations(
+        "Buenos Aires is the capital city of Argentina."
+    )

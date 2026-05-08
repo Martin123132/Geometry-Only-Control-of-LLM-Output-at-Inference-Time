@@ -1,0 +1,21 @@
+case_id,candidate_index,text,label_hallucinated,relation_type,subject,supported,noncopular_relation_block,coord_shared_subject,raw,src,dst,object,objects,count
+photosynthesis_all_bad_extended,0,Photosynthesis converts oxygen into carbon dioxide and water.,1,convert,photosynthesi,0,1,0,photosynthesis converts oxygen into carbon dioxide and water,oxygen,"carbon,dioxide,water",,,
+photosynthesis_all_bad_extended,1,Photosynthesis converts sugars into carbon dioxide and water.,1,convert,photosynthesi,0,1,0,photosynthesis converts sugars into carbon dioxide and water,sugar,"carbon,dioxide,water",,,
+photosynthesis_all_bad_extended,2,Photosynthesis converts oxygen into plastic.,1,convert,photosynthesi,0,1,0,photosynthesis converts oxygen into plastic,oxygen,plastic,,,
+photosynthesis_all_bad_extended,3,Photosynthesis converts light energy into metal.,1,convert,photosynthesi,0,1,0,photosynthesis converts light energy into metal,"energy,light",metal,,,
+orbit_all_bad_extended,0,Earth orbits the Moon.,1,orbit,earth,0,1,0,earth orbits the moon,,,moon,,
+orbit_all_bad_extended,1,The Sun orbits Earth.,1,orbit,sun,0,1,0,the sun orbits earth,,,earth,,
+orbit_all_bad_extended,2,The Moon orbits the Sun.,1,orbit,moon,0,1,0,the moon orbits the sun,,,sun,,
+orbit_all_bad_extended,3,Earth goes around the Moon.,1,orbit,earth,0,1,0,earth goes around the moon,,,moon,,
+orbit_all_bad_extended,4,The Sun is orbited by Mars.,1,orbit,mars,0,1,0,the sun is orbited by mars,,,sun,,
+dna_location_all_bad_extended,0,DNA contains the nucleus.,1,contain,dna,0,1,0,dna contains the nucleus,,,,nucleu,
+dna_location_all_bad_extended,1,DNA contains human cells.,1,contain,dna,0,1,0,dna contains human cells,,,,"cells,human",
+dna_location_all_bad_extended,2,Mitochondria contain the nucleus.,1,contain,mitochondria,0,1,0,mitochondria contain the nucleus,,,,nucleu,
+dna_location_all_bad_extended,3,The nucleus contains keyboards.,1,contain,nucleu,0,1,0,the nucleus contains keyboards,,,,keyboard,
+friction_heat_all_bad_extended,0,Heat produces friction.,1,produce,heat,0,1,0,heat produces friction,,,,friction,
+friction_heat_all_bad_extended,1,Heat converts friction into motion.,1,convert,heat,0,1,0,heat converts friction into motion,friction,motion,,,
+friction_heat_all_bad_extended,2,Friction converts heat into motion.,1,convert,friction,0,1,0,friction converts heat into motion,heat,motion,,,
+friction_heat_all_bad_extended,4,Friction generates cold by destroying heat.,1,produce,friction,1,0,0,friction generates cold by destroying heat,,,,"cold,destroy,heat",
+mars_moons_all_bad_extended,0,"Mars has one moon, Phobos.",1,has_count,mars,0,1,0,mars has one moon,,,moon,,1
+mars_moons_all_bad_extended,1,Mars has three moons.,1,has_count,mars,0,1,0,mars has three moons,,,moons,,3
+mars_moons_all_bad_extended,2,"Mars has two moons, Luna and Titan.",1,has_count,mars,1,0,0,mars has two moons,,,moons,,2

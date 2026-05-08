@@ -1,0 +1,67 @@
+case_id,candidate_index,text,label_hallucinated,token,token_stem,token_shock,string_support,semantic_support,supported_by_stem,supported_by_string,supported_by_semantic,unsupported,block_token
+capital_france_mixed,0,The capital of France is London.,1,london,london,0.17374438047409058,0.375,0.6573518514633179,0,0,1,0,0
+capital_france_mixed,2,The capital of France is Lyon.,1,lyon,lyon,0.3135165572166443,0.2857142857142857,0.4967872202396393,0,0,0,1,1
+water_boiling_mixed,0,Water boils at 90 degrees Celsius at sea level.,1,90,90,0.0,0.4,0.7672860622406006,0,0,1,0,0
+gravity_description_mixed,0,Gravity is fully solved and completely explained by current physics.,1,completely,completely,0.04546833038330078,0.8888888888888888,0.5114526748657227,0,1,0,0,0
+gravity_description_mixed,0,Gravity is fully solved and completely explained by current physics.,1,current,current,0.0,0.625,0.43691766262054443,0,0,0,1,0
+gravity_description_mixed,0,Gravity is fully solved and completely explained by current physics.,1,explained,explain,0.0,0.5,0.5877214670181274,0,0,1,0,0
+gravity_description_mixed,0,Gravity is fully solved and completely explained by current physics.,1,fully,fully,0.05520021915435791,0.26666666666666666,0.5678460001945496,0,0,1,0,0
+gravity_description_mixed,0,Gravity is fully solved and completely explained by current physics.,1,solved,solved,0.053710222244262695,0.6153846153846154,0.4610671103000641,0,0,0,1,1
+gravity_description_mixed,1,Gravity can be described by Newtonian attraction and by spacetime curvature in general relativity.,0,attraction,attrac,0.0,0.8,0.6800986528396606,0,1,1,0,0
+gravity_description_mixed,2,"Modern physics has useful descriptions of gravity, but no complete quantum theory of gravity.",0,descriptions,description,0.0,0.9565217391304348,0.9042999744415283,0,1,1,0,0
+gravity_description_mixed,2,"Modern physics has useful descriptions of gravity, but no complete quantum theory of gravity.",0,theory,theory,0.0027819275856018066,0.5,0.5031708478927612,0,0,0,1,0
+gravity_description_mixed,2,"Modern physics has useful descriptions of gravity, but no complete quantum theory of gravity.",0,useful,useful,0.0,0.3333333333333333,0.3359566926956177,0,0,0,1,0
+gravity_description_mixed,3,Gravity is caused by invisible magnetic fluid around planets.,1,around,around,0.0,0.375,0.5356162786483765,0,0,0,1,0
+gravity_description_mixed,3,Gravity is caused by invisible magnetic fluid around planets.,1,caused,caused,0.0,0.5333333333333333,0.4002160131931305,0,0,0,1,0
+gravity_description_mixed,3,Gravity is caused by invisible magnetic fluid around planets.,1,fluid,fluid,0.005791366100311279,0.375,0.4220270812511444,0,0,0,1,0
+gravity_description_mixed,3,Gravity is caused by invisible magnetic fluid around planets.,1,invisible,invisible,0.0,0.4444444444444444,0.33433836698532104,0,0,0,1,0
+gravity_description_mixed,3,Gravity is caused by invisible magnetic fluid around planets.,1,magnetic,magnetic,0.02833271026611328,0.47058823529411764,0.4851306974887848,0,0,0,1,0
+gravity_description_mixed,3,Gravity is caused by invisible magnetic fluid around planets.,1,planets,planet,0.0,0.5333333333333333,0.4914513826370239,0,0,0,1,0
+capital_france_all_bad,0,The capital of France is London.,1,london,london,0.17374438047409058,0.375,0.6573518514633179,0,0,1,0,0
+capital_france_all_bad,1,The capital of France is Lyon.,1,lyon,lyon,0.3135165572166443,0.2857142857142857,0.4967872202396393,0,0,0,1,1
+capital_france_all_bad,2,The capital of France is Marseille.,1,marseille,marseille,0.2326679229736328,0.42857142857142855,0.6337212920188904,0,0,1,0,0
+capital_france_all_bad,3,The capital of France is Berlin.,1,berlin,berlin,0.30855894088745117,0.375,0.5946772694587708,0,0,1,0,0
+water_boiling_all_bad,0,Water boils at 90 degrees Celsius at sea level.,1,90,90,0.0,0.4,0.7672860622406006,0,0,1,0,0
+water_boiling_all_bad,1,Water boils at 200 degrees Celsius at sea level.,1,200,200,0.0,0.6666666666666666,0.7380936145782471,0,0,1,0,0
+water_boiling_all_bad,3,Water freezes at 100 degrees Celsius at sea level.,1,freezes,freez,0.17646008729934692,0.36363636363636365,0.36792081594467163,0,0,0,1,1
+moon_surface_all_bad,0,The Moon is made of green cheese.,1,cheese,cheese,0.06717246770858765,0.5,0.40218645334243774,0,0,0,1,1
+moon_surface_all_bad,0,The Moon is made of green cheese.,1,green,green,0.09452813863754272,0.3333333333333333,0.3727093040943146,0,0,0,1,1
+moon_surface_all_bad,1,The Moon is a hollow alien space station.,1,alien,alien,0.0,0.5454545454545454,0.4367665648460388,0,0,0,1,0
+moon_surface_all_bad,1,The Moon is a hollow alien space station.,1,hollow,hollow,0.0,0.4,0.4516873061656952,0,0,0,1,0
+moon_surface_all_bad,1,The Moon is a hollow alien space station.,1,space,space,0.0038625001907348633,0.6666666666666666,0.5233626365661621,0,0,0,1,0
+moon_surface_all_bad,1,The Moon is a hollow alien space station.,1,station,station,0.024382412433624268,0.5333333333333333,0.3557313084602356,0,0,0,1,0
+moon_surface_all_bad,2,The Moon's surface is mostly liquid water.,1,liquid,liquid,0.04927247762680054,0.36363636363636365,0.44719183444976807,0,0,0,1,1
+moon_surface_all_bad,2,The Moon's surface is mostly liquid water.,1,water,water,0.019661664962768555,0.6666666666666666,0.4357384145259857,0,0,0,1,0
+moon_surface_all_bad,3,The Moon is made mostly of wood.,1,wood,wood,0.054807186126708984,0.5,0.4656751751899719,0,0,0,1,1
+gravity_description_all_bad,0,Gravity is fully solved and completely explained by current physics.,1,completely,completely,0.04546833038330078,0.8888888888888888,0.5114526748657227,0,1,0,0,0
+gravity_description_all_bad,0,Gravity is fully solved and completely explained by current physics.,1,current,current,0.0,0.625,0.43691766262054443,0,0,0,1,0
+gravity_description_all_bad,0,Gravity is fully solved and completely explained by current physics.,1,explained,explain,0.0,0.5,0.5877214670181274,0,0,1,0,0
+gravity_description_all_bad,0,Gravity is fully solved and completely explained by current physics.,1,fully,fully,0.05520021915435791,0.26666666666666666,0.5678460001945496,0,0,1,0,0
+gravity_description_all_bad,0,Gravity is fully solved and completely explained by current physics.,1,solved,solved,0.053710222244262695,0.6153846153846154,0.4610671103000641,0,0,0,1,1
+gravity_description_all_bad,1,Gravity is caused by invisible magnetic fluid around planets.,1,around,around,0.0,0.375,0.5356162786483765,0,0,0,1,0
+gravity_description_all_bad,1,Gravity is caused by invisible magnetic fluid around planets.,1,caused,caused,0.0,0.5333333333333333,0.4002160131931305,0,0,0,1,0
+gravity_description_all_bad,1,Gravity is caused by invisible magnetic fluid around planets.,1,fluid,fluid,0.005791366100311279,0.375,0.4220270812511444,0,0,0,1,0
+gravity_description_all_bad,1,Gravity is caused by invisible magnetic fluid around planets.,1,invisible,invisible,0.0,0.4444444444444444,0.33433836698532104,0,0,0,1,0
+gravity_description_all_bad,1,Gravity is caused by invisible magnetic fluid around planets.,1,magnetic,magnetic,0.02833271026611328,0.47058823529411764,0.4851306974887848,0,0,0,1,0
+gravity_description_all_bad,1,Gravity is caused by invisible magnetic fluid around planets.,1,planets,planet,0.0,0.5333333333333333,0.4914513826370239,0,0,0,1,0
+gravity_description_all_bad,2,Gravity is just objects wanting to fall downward.,1,downward,downward,0.0,0.35294117647058826,0.4151571989059448,0,0,0,1,0
+gravity_description_all_bad,2,Gravity is just objects wanting to fall downward.,1,fall,fall,0.004722118377685547,0.36363636363636365,0.49823105335235596,0,0,0,1,0
+gravity_description_all_bad,2,Gravity is just objects wanting to fall downward.,1,just,just,0.0,0.36363636363636365,0.3486768901348114,0,0,0,1,0
+gravity_description_all_bad,2,Gravity is just objects wanting to fall downward.,1,objects,object,0.0,0.46153846153846156,0.4876496493816376,0,0,0,1,0
+gravity_description_all_bad,2,Gravity is just objects wanting to fall downward.,1,wanting,wanting,0.0,0.42857142857142855,0.42289718985557556,0,0,0,1,0
+gravity_description_all_bad,3,Quantum gravity is complete and experimentally verified.,1,experimentally,experimentally,0.0,0.47619047619047616,0.35629141330718994,0,0,0,1,0
+gravity_description_all_bad,3,Quantum gravity is complete and experimentally verified.,1,verified,verifi,0.0031615495681762695,0.5882352941176471,0.4515584409236908,0,0,0,1,0
+gravity_valid_paraphrases,0,Current physics describes gravity through Newtonian attraction and general relativity.,0,attraction,attrac,0.020532667636871338,0.8,0.6800986528396606,0,1,1,0,0
+gravity_valid_paraphrases,0,Current physics describes gravity through Newtonian attraction and general relativity.,0,current,current,0.017715930938720703,0.625,0.43691766262054443,0,0,0,1,0
+gravity_valid_paraphrases,1,Gravity is modeled as spacetime curvature in general relativity and as attraction in Newtonian physics.,0,attraction,attrac,0.0011872351169586182,0.8,0.6800986528396606,0,1,1,0,0
+gravity_valid_paraphrases,2,"Physics has useful descriptions of gravity, but no established complete quantum theory.",0,descriptions,description,0.0,0.9565217391304348,0.9042999744415283,0,1,1,0,0
+gravity_valid_paraphrases,2,"Physics has useful descriptions of gravity, but no established complete quantum theory.",0,theory,theory,0.0,0.5,0.5031708478927612,0,0,0,1,0
+gravity_valid_paraphrases,2,"Physics has useful descriptions of gravity, but no established complete quantum theory.",0,useful,useful,0.0,0.3333333333333333,0.3359566926956177,0,0,0,1,0
+gravity_valid_paraphrases,3,Gravity is solved completely by current science.,1,completely,completely,0.09755253791809082,0.8888888888888888,0.5114526748657227,0,1,0,0,0
+gravity_valid_paraphrases,3,Gravity is solved completely by current science.,1,current,current,0.0062043070793151855,0.625,0.43691766262054443,0,0,0,1,0
+gravity_valid_paraphrases,3,Gravity is solved completely by current science.,1,science,science,0.0,0.5,0.6575997471809387,0,0,1,0,0
+gravity_valid_paraphrases,3,Gravity is solved completely by current science.,1,solved,solved,0.041315317153930664,0.6153846153846154,0.4610671103000641,0,0,0,1,1
+gravity_valid_paraphrases,4,Gravity is caused by invisible magnetic fluid.,1,caused,caused,0.0,0.5333333333333333,0.4002160131931305,0,0,0,1,0
+gravity_valid_paraphrases,4,Gravity is caused by invisible magnetic fluid.,1,fluid,fluid,0.0,0.375,0.4220270812511444,0,0,0,1,0
+gravity_valid_paraphrases,4,Gravity is caused by invisible magnetic fluid.,1,invisible,invisible,0.011628150939941406,0.4444444444444444,0.33433836698532104,0,0,0,1,0
+gravity_valid_paraphrases,4,Gravity is caused by invisible magnetic fluid.,1,magnetic,magnetic,0.017450153827667236,0.47058823529411764,0.4851306974887848,0,0,0,1,0

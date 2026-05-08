@@ -1,0 +1,65 @@
+case_id,candidate_index,text,label_hallucinated,subject,object,negated,pair_positive,pair_negative,known_subject,known_object,group_positive_support,explicit_negation_breach,known_wrong_mapping,bare_unknown_category,relation_block,raw_clause
+capital_italy_all_bad_extended,0,The capital of Italy is Milan.,1,italy,milan,0,0,0,1,0,0,0,0,1,1,The capital of Italy is Milan
+capital_italy_all_bad_extended,1,Italy's government is based in Turin.,1,government,based,0,1,0,1,1,1,0,0,0,0,Italy's government is based in Turin
+capital_italy_all_bad_extended,1,Italy's government is based in Turin.,1,government,turin,0,0,0,1,0,1,0,0,0,0,Italy's government is based in Turin
+capital_italy_all_bad_extended,2,Rome is the capital city of France.,1,rome,capital,0,1,0,1,1,1,0,0,0,0,Rome is the capital city of France
+capital_italy_all_bad_extended,2,Rome is the capital city of France.,1,rome,city,0,1,0,1,1,1,0,0,0,0,Rome is the capital city of France
+capital_italy_all_bad_extended,2,Rome is the capital city of France.,1,rome,france,0,0,0,1,0,1,0,0,0,0,Rome is the capital city of France
+capital_italy_all_bad_extended,3,Italy's capital is Paris.,1,capital,paris,0,0,0,0,0,0,0,0,0,0,Italy's capital is Paris
+earth_shape_all_bad_extended,0,Earth is perfectly flat.,1,earth,perfectly,0,0,0,1,0,0,0,0,1,1,Earth is perfectly flat
+earth_shape_all_bad_extended,0,Earth is perfectly flat.,1,earth,flat,0,0,0,1,0,0,0,0,1,1,Earth is perfectly flat
+earth_shape_all_bad_extended,1,Earth is a perfect cube.,1,earth,perfect,0,0,1,1,1,0,1,1,0,1,Earth is a perfect cube
+earth_shape_all_bad_extended,1,Earth is a perfect cube.,1,earth,cube,0,0,0,1,0,0,0,0,1,1,Earth is a perfect cube
+earth_shape_all_bad_extended,2,Earth is a hollow artificial shell.,1,earth,hollow,0,0,0,1,0,0,0,0,1,1,Earth is a hollow artificial shell
+earth_shape_all_bad_extended,2,Earth is a hollow artificial shell.,1,earth,artificial,0,0,0,1,0,0,0,0,1,1,Earth is a hollow artificial shell
+earth_shape_all_bad_extended,2,Earth is a hollow artificial shell.,1,earth,shell,0,0,0,1,0,0,0,0,1,1,Earth is a hollow artificial shell
+earth_shape_all_bad_extended,3,Earth is a perfect cylinder.,1,earth,perfect,0,0,1,1,1,0,1,1,0,1,Earth is a perfect cylinder
+earth_shape_all_bad_extended,3,Earth is a perfect cylinder.,1,earth,cylinder,0,0,0,1,0,0,0,0,1,1,Earth is a perfect cylinder
+earth_shape_all_bad_extended,4,Earth has no equatorial bulging and is a perfect sphere.,1,bulging,perfect,0,0,0,0,1,0,0,0,0,0,Earth has no equatorial bulging and is a perfect sphere
+earth_shape_all_bad_extended,4,Earth has no equatorial bulging and is a perfect sphere.,1,bulging,sphere,0,0,0,0,1,0,0,0,0,0,Earth has no equatorial bulging and is a perfect sphere
+gravity_all_bad_extended,0,Gravity is fully solved by modern physics.,1,gravity,fully,0,0,0,1,0,0,0,0,0,0,Gravity is fully solved by modern physics
+gravity_all_bad_extended,0,Gravity is fully solved by modern physics.,1,gravity,solved,0,0,0,1,0,0,0,0,0,0,Gravity is fully solved by modern physics
+gravity_all_bad_extended,0,Gravity is fully solved by modern physics.,1,gravity,modern,0,0,0,1,0,0,0,0,0,0,Gravity is fully solved by modern physics
+gravity_all_bad_extended,0,Gravity is fully solved by modern physics.,1,gravity,physic,0,0,0,1,0,0,0,0,0,0,Gravity is fully solved by modern physics
+gravity_all_bad_extended,1,Quantum gravity is complete and experimentally verified.,1,gravity,complete,0,0,0,1,0,0,0,0,1,1,Quantum gravity is complete and experimentally verified
+gravity_all_bad_extended,1,Quantum gravity is complete and experimentally verified.,1,gravity,experimentally,0,0,0,1,0,0,0,0,1,1,Quantum gravity is complete and experimentally verified
+gravity_all_bad_extended,1,Quantum gravity is complete and experimentally verified.,1,gravity,verifi,0,0,0,1,0,0,0,0,1,1,Quantum gravity is complete and experimentally verified
+gravity_all_bad_extended,2,Gravity is caused by invisible magnetic fluid.,1,gravity,caused,0,0,0,1,0,0,0,0,0,0,Gravity is caused by invisible magnetic fluid
+gravity_all_bad_extended,2,Gravity is caused by invisible magnetic fluid.,1,gravity,invisible,0,0,0,1,0,0,0,0,0,0,Gravity is caused by invisible magnetic fluid
+gravity_all_bad_extended,2,Gravity is caused by invisible magnetic fluid.,1,gravity,magnetic,0,0,0,1,0,0,0,0,0,0,Gravity is caused by invisible magnetic fluid
+gravity_all_bad_extended,2,Gravity is caused by invisible magnetic fluid.,1,gravity,fluid,0,0,0,1,0,0,0,0,0,0,Gravity is caused by invisible magnetic fluid
+gravity_all_bad_extended,3,A complete quantum theory of gravity is established.,1,gravity,establish,0,1,1,1,1,1,1,0,0,1,A complete quantum theory of gravity is established
+orbit_all_bad_extended,4,The Sun is orbited by Mars.,1,sun,orbit,0,1,0,1,1,1,0,0,0,0,The Sun is orbited by Mars
+orbit_all_bad_extended,4,The Sun is orbited by Mars.,1,sun,mars,0,0,0,1,0,1,0,0,0,0,The Sun is orbited by Mars
+dna_location_all_bad_extended,4,Human DNA is mainly stored in blood plasma outside cells.,1,dna,mainly,0,1,0,1,1,1,0,0,0,0,Human DNA is mainly stored in blood plasma outside cells
+dna_location_all_bad_extended,4,Human DNA is mainly stored in blood plasma outside cells.,1,dna,stored,0,0,0,1,0,1,0,0,0,0,Human DNA is mainly stored in blood plasma outside cells
+dna_location_all_bad_extended,4,Human DNA is mainly stored in blood plasma outside cells.,1,dna,blood,0,0,0,1,0,1,0,0,0,0,Human DNA is mainly stored in blood plasma outside cells
+dna_location_all_bad_extended,4,Human DNA is mainly stored in blood plasma outside cells.,1,dna,plasma,0,0,0,1,0,1,0,0,0,0,Human DNA is mainly stored in blood plasma outside cells
+dna_location_all_bad_extended,4,Human DNA is mainly stored in blood plasma outside cells.,1,dna,outside,0,0,0,1,0,1,0,0,0,0,Human DNA is mainly stored in blood plasma outside cells
+dna_location_all_bad_extended,4,Human DNA is mainly stored in blood plasma outside cells.,1,dna,cells,0,0,0,1,0,1,0,0,0,0,Human DNA is mainly stored in blood plasma outside cells
+mars_moons_all_bad_extended,3,The two moons of Mars are Europa and Io.,1,mars,europa,0,0,0,1,0,0,0,0,1,1,The two moons of Mars are Europa and Io
+mars_moons_all_bad_extended,3,The two moons of Mars are Europa and Io.,1,mars,io,0,0,0,1,0,0,0,0,0,0,The two moons of Mars are Europa and Io
+mars_moons_all_bad_extended,4,Phobos and Deimos are the moons of Earth.,1,deimo,moons,0,1,0,1,1,1,0,0,0,0,Phobos and Deimos are the moons of Earth
+mars_moons_all_bad_extended,4,Phobos and Deimos are the moons of Earth.,1,deimo,earth,0,0,0,1,0,1,0,0,0,0,Phobos and Deimos are the moons of Earth
+science_models_all_bad_extended,0,A successful model is automatically the final truth.,1,model,automatically,0,0,1,1,1,0,1,1,0,1,A successful model is automatically the final truth
+science_models_all_bad_extended,0,A successful model is automatically the final truth.,1,model,final,0,0,1,1,1,0,1,1,0,1,A successful model is automatically the final truth
+science_models_all_bad_extended,0,A successful model is automatically the final truth.,1,model,truth,0,0,0,1,0,0,0,0,1,1,A successful model is automatically the final truth
+science_models_all_bad_extended,1,Scientific models are never tested against observations.,1,model,tested,1,0,0,1,1,0,0,0,0,0,Scientific models are never tested against observations
+science_models_all_bad_extended,1,Scientific models are never tested against observations.,1,model,against,1,0,0,1,1,0,0,0,0,0,Scientific models are never tested against observations
+science_models_all_bad_extended,1,Scientific models are never tested against observations.,1,model,observation,1,0,0,1,1,0,0,0,0,0,Scientific models are never tested against observations
+science_models_all_bad_extended,2,A model that matches evidence is complete reality.,1,evidence,complete,0,0,0,0,1,0,0,0,0,0,A model that matches evidence is complete reality
+science_models_all_bad_extended,2,A model that matches evidence is complete reality.,1,evidence,reality,0,0,0,0,1,0,0,0,0,0,A model that matches evidence is complete reality
+temperature_all_bad_extended,0,Normal human body temperature is 100 degrees Celsius.,1,temperature,100,0,0,0,1,0,1,0,0,0,0,Normal human body temperature is 100 degrees Celsius
+temperature_all_bad_extended,0,Normal human body temperature is 100 degrees Celsius.,1,temperature,degre,0,1,0,1,1,1,0,0,0,0,Normal human body temperature is 100 degrees Celsius
+temperature_all_bad_extended,0,Normal human body temperature is 100 degrees Celsius.,1,temperature,celsiu,0,1,0,1,1,1,0,0,0,0,Normal human body temperature is 100 degrees Celsius
+temperature_all_bad_extended,1,Normal human body temperature is 0 degrees Celsius.,1,temperature,0,0,0,0,1,0,1,0,0,0,0,Normal human body temperature is 0 degrees Celsius
+temperature_all_bad_extended,1,Normal human body temperature is 0 degrees Celsius.,1,temperature,degre,0,1,0,1,1,1,0,0,0,0,Normal human body temperature is 0 degrees Celsius
+temperature_all_bad_extended,1,Normal human body temperature is 0 degrees Celsius.,1,temperature,celsiu,0,1,0,1,1,1,0,0,0,0,Normal human body temperature is 0 degrees Celsius
+temperature_all_bad_extended,2,Normal human body temperature is 37 degrees Fahrenheit.,1,temperature,37,0,1,0,1,1,1,0,0,0,0,Normal human body temperature is 37 degrees Fahrenheit
+temperature_all_bad_extended,2,Normal human body temperature is 37 degrees Fahrenheit.,1,temperature,degre,0,1,0,1,1,1,0,0,0,0,Normal human body temperature is 37 degrees Fahrenheit
+temperature_all_bad_extended,2,Normal human body temperature is 37 degrees Fahrenheit.,1,temperature,fahrenheit,0,0,0,1,0,1,0,0,0,0,Normal human body temperature is 37 degrees Fahrenheit
+temperature_all_bad_extended,3,Human body temperature is commonly described as near 200°C.,1,temperature,200,0,0,0,1,0,1,0,0,0,0,Human body temperature is commonly described as near 200°C
+temperature_all_bad_extended,3,Human body temperature is commonly described as near 200°C.,1,temperature,c,0,1,0,1,1,1,0,0,0,0,Human body temperature is commonly described as near 200°C
+temperature_all_bad_extended,4,Normal body temperature never varies and is exactly 37°C.,1,vary,exactly,0,0,0,0,0,0,0,0,0,0,Normal body temperature never varies and is exactly 37°C
+temperature_all_bad_extended,4,Normal body temperature never varies and is exactly 37°C.,1,vary,37,0,0,0,0,1,0,0,0,0,0,Normal body temperature never varies and is exactly 37°C
+temperature_all_bad_extended,4,Normal body temperature never varies and is exactly 37°C.,1,vary,c,0,0,0,0,1,0,0,0,0,0,Normal body temperature never varies and is exactly 37°C

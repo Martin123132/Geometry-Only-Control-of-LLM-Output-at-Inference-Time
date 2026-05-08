@@ -1,0 +1,6 @@
+case_id,prompt,expected_has_valid,baseline_text,baseline_label_hallucinated,baseline_score,action_v4,emitted_text_v4,emitted_label_hallucinated_v4,emitted_score_v4,num_candidates,num_safe_candidates_v4,correct_case_decision_v4
+sun_classification_all_bad_exp07_fn,What kind of object is the Sun?,0,The Sun is a planet.,1,0.31381627917289734,emit,The Sun is a planet.,1,0.31381627917289734,5,2,0
+earth_shape_all_bad_exp07_fn,What is the shape of Earth?,0,Earth is a perfect cube.,1,0.7602445006370544,emit,Earth is a perfect cylinder.,1,0.7595223307609558,5,2,0
+negation_polarity_all_bad,Test negation polarity failures.,0,The Sun is a planet.,1,0.6795048713684082,emit,Earth is flat.,1,0.6474887132644653,4,2,0
+category_substitution_all_bad,Test short category substitutions.,0,A dog is a bird.,1,0.5435255765914917,emit,A whale is a fish.,1,0.43497776985168457,4,4,0
+mixed_control_sun_earth,Mixed pool control with valid candidates present.,1,The Sun is a planet.,1,0.299621045589447,emit,The Sun is a planet.,1,0.299621045589447,5,4,0

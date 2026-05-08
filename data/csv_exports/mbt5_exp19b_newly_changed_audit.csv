@@ -1,0 +1,12 @@
+suite,case_id,candidate_index,text,label_hallucinated,role_swapped_relation_clamp,known_participant_unsupported_relation_clamp,guarded_known_participant_unsupported_relation_clamp,historical_date_relation_clamp,missed_predicate_relation_clamp,hard_novelty_or_literal_support,exp19b_guarded_patch_clamp,pred_hallucinated_exp19b
+EXP18_holdout_with_guarded_EXP18_patch,mercury_venus_orbit_mixed,3,The Sun orbits Mercury.,1,1,1,0,0,0,0,1,1
+EXP18_holdout_with_guarded_EXP18_patch,electric_circuit_mixed,3,An insulator improves current flow like a wire.,1,0,0,0,0,1,1,1,1
+EXP18_holdout_with_guarded_EXP18_patch,biology_relations_all_bad,0,Chlorophyll contains chloroplasts.,1,1,1,1,0,0,1,1,1
+EXP18_holdout_with_guarded_EXP18_patch,biology_relations_all_bad,1,ATP produces mitochondria.,1,1,1,1,0,0,1,1,1
+EXP18_holdout_with_guarded_EXP18_patch,biology_relations_all_bad,2,DNA contains the nucleus.,1,1,1,0,0,0,0,1,1
+EXP18_holdout_with_guarded_EXP18_patch,biology_relations_all_bad,4,Mitochondria contain keyboards.,1,0,1,1,0,0,1,1,1
+EXP18_holdout_with_guarded_EXP18_patch,historical_date_all_bad,0,Magna Carta was signed in 1066.,1,0,0,0,1,0,0,1,1
+EXP18_holdout_with_guarded_EXP18_patch,historical_date_all_bad,1,The Battle of Hastings occurred in 1215.,1,0,0,0,1,0,0,1,1
+EXP18_holdout_with_guarded_EXP18_patch,historical_date_all_bad,2,The Declaration of Independence was adopted in 1969.,1,0,0,0,1,0,0,1,1
+EXP18_holdout_with_guarded_EXP18_patch,historical_date_all_bad,3,Apollo 11 landed on the Moon in 1776.,1,0,0,0,1,0,0,1,1
+EXP18_holdout_with_guarded_EXP18_patch,historical_date_all_bad,4,Magna Carta was signed in 1969.,1,0,0,0,1,0,0,1,1

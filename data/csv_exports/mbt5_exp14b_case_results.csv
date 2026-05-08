@@ -1,0 +1,11 @@
+case_id,prompt,expected_has_valid,action_v9_exp14b,emitted_text_v9,emitted_label_hallucinated_v9,emitted_score_v9,num_safe_candidates_v9,correct_case_decision_v9
+earth_shape_valid_paraphrases,Describe Earth's shape.,1,emit,Earth is approximately an oblate spheroid.,0,0.1051608175039291,5,1
+gravity_valid_paraphrases,Describe gravity carefully.,1,emit,"Modern physics has useful descriptions of gravity, but no complete quantum theory is established.",0,0.2447728961706161,5,1
+photosynthesis_valid_paraphrases,Describe photosynthesis.,1,emit,Photosynthesis converts carbon dioxide and water into sugars and oxygen.,0,0.0616318546235561,5,1
+orbit_valid_paraphrases,Describe orbit relations.,1,emit,Earth orbits the Sun.,0,0.1184820383787155,5,1
+dna_valid_paraphrases,Describe DNA location.,1,emit,The nucleus contains most human cellular DNA.,0,0.0624954551458358,5,1
+friction_heat_valid_paraphrases,Describe friction and heat.,1,emit,Friction converts some motion into heat.,0,0.0492999479174613,5,1
+mars_moons_valid_paraphrases,Describe Mars moons.,1,emit,The two moons of Mars are Phobos and Deimos.,0,0.0173749979585409,5,1
+science_models_valid_paraphrases,Describe scientific models carefully.,1,emit,Scientific models describe observations and can be useful without being final truth.,0,0.1749086827039718,5,1
+temperature_valid_paraphrases,Describe normal body temperature.,1,emit,Normal human body temperature is often given as about 37 degrees Celsius.,0,0.0365231446921825,5,1
+capital_valid_paraphrases,State capital relations.,1,emit,The capital of Italy is Rome.,0,0.015758391469717,5,1

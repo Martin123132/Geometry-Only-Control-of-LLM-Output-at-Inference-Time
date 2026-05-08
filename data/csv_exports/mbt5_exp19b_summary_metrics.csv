@@ -1,0 +1,8 @@
+suite,N_candidates,accuracy,precision,recall,F1,TN,FP,FN,TP,confusion
+EXP16B_before_EXP18_patch,207,1.0,1.0,1.0,1.0,79,0,0,128,"[[79, 0], [0, 128]]"
+EXP19_overbroad_patch_on_EXP16B,207,0.961352657004831,0.9411764705882353,1.0,0.9696969696969697,71,8,0,128,"[[71, 8], [0, 128]]"
+EXP19B_guarded_patch_on_EXP16B,207,1.0,1.0,1.0,1.0,79,0,0,128,"[[79, 0], [0, 128]]"
+EXP17_holdout_before_patch,50,0.78,1.0,0.65625,0.7924528301886793,18,0,11,21,"[[18, 0], [11, 21]]"
+EXP18_overbroad_patch_on_holdout,50,1.0,1.0,1.0,1.0,18,0,0,32,"[[18, 0], [0, 32]]"
+EXP19B_guarded_patch_on_holdout,50,1.0,1.0,1.0,1.0,18,0,0,32,"[[18, 0], [0, 32]]"
+COMBINED_EXP16B_PLUS_EXP18_GUARDED,257,1.0,1.0,1.0,1.0,97,0,0,160,"[[97, 0], [0, 160]]"

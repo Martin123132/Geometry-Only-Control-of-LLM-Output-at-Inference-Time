@@ -1,0 +1,15 @@
+case_id,candidate_index,text,label_hallucinated,token,token_stem,token_shock,string_support,semantic_support,supported_by_stem,supported_by_string,supported_by_semantic,unsupported,block_token
+sun_classification_all_bad_exp07_fn,1,The Sun is a galaxy.,1,galaxy,galaxy,0.029936909675598145,0.36363636363636365,0.5688717365264893,0,0,1,0,0
+sun_classification_all_bad_exp07_fn,2,The Sun is an asteroid.,1,asteroid,asteroid,0.11092483997344971,0.5,0.5405824184417725,0,0,0,1,1
+sun_classification_all_bad_exp07_fn,3,The Sun is a comet.,1,comet,comet,0.1317157745361328,0.5454545454545454,0.46284550428390503,0,0,0,1,1
+sun_classification_all_bad_exp07_fn,4,The Sun is a moon.,1,moon,moon,0.12515133619308472,0.2857142857142857,0.5821782350540161,0,0,1,0,0
+earth_shape_all_bad_exp07_fn,0,Earth is a perfect cube.,1,cube,cube,0.0,0.4,0.4911370873451233,0,0,0,1,0
+earth_shape_all_bad_exp07_fn,1,Earth is a flat disk.,1,disk,disk,0.01934915781021118,0.2222222222222222,0.4556390941143036,0,0,0,1,0
+earth_shape_all_bad_exp07_fn,1,Earth is a flat disk.,1,flat,flat,0.0,0.6153846153846154,0.8729459047317505,0,0,1,0,0
+earth_shape_all_bad_exp07_fn,2,Earth is a hollow artificial shell.,1,artificial,artificial,0.021835684776306152,0.5263157894736842,0.353318452835083,0,0,0,1,0
+earth_shape_all_bad_exp07_fn,2,Earth is a hollow artificial shell.,1,hollow,hollow,0.0,0.36363636363636365,0.5754595994949341,0,0,1,0,0
+earth_shape_all_bad_exp07_fn,2,Earth is a hollow artificial shell.,1,shell,shell,0.0,0.6,0.4371970593929291,0,0,0,1,0
+earth_shape_all_bad_exp07_fn,3,Earth is a pyramid.,1,pyramid,pyramid,0.02956104278564453,0.5333333333333333,0.37410926818847656,0,0,0,1,0
+earth_shape_all_bad_exp07_fn,4,Earth is a perfect cylinder.,1,cylinder,cylinder,0.0,0.42857142857142855,0.4569509029388428,0,0,0,1,0
+mixed_control_sun_earth,3,Earth is a perfect cube.,1,cube,cube,0.0,0.4,0.4020555913448334,0,0,0,1,0
+mixed_control_sun_earth,3,Earth is a perfect cube.,1,perfect,perfect,0.04637455940246582,0.5,0.366321325302124,0,0,0,1,1

@@ -1,0 +1,6 @@
+case_id,prompt,baseline_text,baseline_label_hallucinated,baseline_score,regulated_text,regulated_label_hallucinated,regulated_score,blocked_hallucination
+capital_france,What is the capital of France?,The capital of France is London.,1,0.6219638466835022,The capital of France is Paris.,0,0.0053429193794727325,1
+water_boiling,"At sea level, what temperature does water boil at?",Water boils at 90 degrees Celsius at sea level.,1,0.46758565604686736,Water boils at 100 degrees Celsius at sea level.,0,0.09867069870233536,1
+moon_surface,What is the Moon's surface made of?,The Moon is made of green cheese.,1,1.070241594314575,"The Moon's surface is made of rock, dust, basalt, and regolith.",0,0.09879672527313232,1
+gravity_description,Describe gravity.,Gravity is fully solved and completely explained by current physics.,1,0.9766176342964172,Gravity can be described by Newtonian attraction and by spacetime curvature in general relativity.,0,0.314186629652977,1
+python_beginner,Is Python beginner-friendly?,Python is often considered beginner-friendly because of its readable syntax.,0,0.10562440752983093,Python is often considered beginner-friendly because of its readable syntax.,0,0.10562440752983093,0

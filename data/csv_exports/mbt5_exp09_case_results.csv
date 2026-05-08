@@ -1,0 +1,6 @@
+case_id,prompt,expected_has_valid,action_v5_exp09,emitted_text_v5,emitted_label_hallucinated_v5,emitted_score_v5,num_safe_candidates_v5,correct_case_decision_v5
+sun_classification_all_bad_exp07_fn,What kind of object is the Sun?,0,block,,,,0,1
+earth_shape_all_bad_exp07_fn,What is the shape of Earth?,0,block,,,,0,1
+negation_polarity_all_bad,Test negation polarity failures.,0,block,,,,0,1
+category_substitution_all_bad,Test short category substitutions.,0,block,,,,0,1
+mixed_control_sun_earth,Mixed pool control with valid candidates present.,1,emit,The Sun is a star.,0.0,0.3686389625072479,2,1

@@ -1,0 +1,50 @@
+case_id,candidate_index,text,label_hallucinated,token,token_stem,token_shock,string_support,semantic_support,supported_by_stem,supported_by_string,supported_by_semantic,unsupported,block_token
+capital_italy_all_bad_extended,0,The capital of Italy is Milan.,1,milan,milan,0.12100151181221008,0.4,0.6637154817581177,0,0,1,0,0
+capital_italy_all_bad_extended,1,Italy's government is based in Turin.,1,turin,turin,0.03286463022232056,0.2222222222222222,0.6297390460968018,0,0,1,0,0
+capital_italy_all_bad_extended,2,Rome is the capital city of France.,1,france,france,0.13916084170341492,0.4,0.7252786159515381,0,0,1,0,0
+capital_italy_all_bad_extended,3,Italy's capital is Paris.,1,paris,paris,0.15759575366973877,0.4,0.56976318359375,0,0,1,0,0
+capital_italy_all_bad_extended,4,Rome serves as Germany's capital.,1,germany's,germany',0.13971465826034546,0.5263157894736842,0.712029218673706,0,0,1,0,0
+earth_shape_all_bad_extended,0,Earth is perfectly flat.,1,flat,flat,0.0,0.6153846153846154,0.8729459047317505,0,0,1,0,0
+earth_shape_all_bad_extended,0,Earth is perfectly flat.,1,perfectly,perfectly,0.0,0.875,0.6073377132415771,0,1,1,0,0
+earth_shape_all_bad_extended,1,Earth is a perfect cube.,1,cube,cube,0.0,0.4,0.4911370873451233,0,0,0,1,0
+earth_shape_all_bad_extended,2,Earth is a hollow artificial shell.,1,artificial,artificial,0.021835684776306152,0.5263157894736842,0.353318452835083,0,0,0,1,0
+earth_shape_all_bad_extended,2,Earth is a hollow artificial shell.,1,hollow,hollow,0.0,0.36363636363636365,0.5754595994949341,0,0,1,0,0
+earth_shape_all_bad_extended,2,Earth is a hollow artificial shell.,1,shell,shell,0.0,0.6,0.4371970593929291,0,0,0,1,0
+earth_shape_all_bad_extended,3,Earth is a perfect cylinder.,1,cylinder,cylinder,0.0,0.42857142857142855,0.4569509029388428,0,0,0,1,0
+gravity_all_bad_extended,0,Gravity is fully solved by modern physics.,1,fully,fully,0.028200745582580566,0.5454545454545454,0.5678460001945496,0,0,1,0,0
+gravity_all_bad_extended,0,Gravity is fully solved by modern physics.,1,solved,solved,0.015187561511993408,0.5,0.4610671103000641,0,0,0,1,0
+gravity_all_bad_extended,2,Gravity is caused by invisible magnetic fluid.,1,caused,caused,0.0,0.5333333333333333,0.4002160131931305,0,0,0,1,0
+gravity_all_bad_extended,2,Gravity is caused by invisible magnetic fluid.,1,fluid,fluid,0.0,0.46153846153846156,0.4220270812511444,0,0,0,1,0
+gravity_all_bad_extended,2,Gravity is caused by invisible magnetic fluid.,1,invisible,invisible,0.0,0.35294117647058826,0.33001044392585754,0,0,0,1,0
+gravity_all_bad_extended,2,Gravity is caused by invisible magnetic fluid.,1,magnetic,magnetic,0.0018222928047180176,0.47058823529411764,0.4851306974887848,0,0,0,1,0
+gravity_all_bad_extended,4,General relativity proves gravity has no connection to mass or energy.,1,connection,connec,0.00801384449005127,0.45454545454545453,0.43910032510757446,0,0,0,1,0
+gravity_all_bad_extended,4,General relativity proves gravity has no connection to mass or energy.,1,proves,prove,0.0,0.5,0.46537911891937256,0,0,0,1,0
+photosynthesis_all_bad_extended,2,Photosynthesis converts oxygen into plastic.,1,plastic,plastic,0.13213059306144714,0.6153846153846154,0.5156007409095764,0,0,0,1,1
+photosynthesis_all_bad_extended,3,Photosynthesis converts light energy into metal.,1,metal,metal,0.07882291078567505,0.46153846153846156,0.5893800258636475,0,0,1,0,0
+photosynthesis_all_bad_extended,4,Plants use photosynthesis to make soil from oxygen.,1,soil,soil,0.128909170627594,0.4,0.523768961429596,0,0,0,1,1
+orbit_all_bad_extended,3,Earth goes around the Moon.,1,goes,goes,0.0,0.4,0.3563697338104248,0,0,0,1,0
+orbit_all_bad_extended,4,The Sun is orbited by Mars.,1,mars,mars,0.14070194959640503,0.4444444444444444,0.5823596715927124,0,0,1,0,0
+dna_location_all_bad_extended,3,The nucleus contains keyboards.,1,keyboards,keyboard,0.1543838381767273,0.35294117647058826,0.2479962706565857,0,0,0,1,1
+dna_location_all_bad_extended,4,Human DNA is mainly stored in blood plasma outside cells.,1,blood,blood,0.018538355827331543,0.5,0.4330272674560547,0,0,0,1,0
+dna_location_all_bad_extended,4,Human DNA is mainly stored in blood plasma outside cells.,1,outside,outside,0.011384189128875732,0.42857142857142855,0.38134506344795227,0,0,0,1,0
+dna_location_all_bad_extended,4,Human DNA is mainly stored in blood plasma outside cells.,1,plasma,plasma,0.040604472160339355,0.36363636363636365,0.29921454191207886,0,0,0,1,1
+dna_location_all_bad_extended,4,Human DNA is mainly stored in blood plasma outside cells.,1,stored,stored,0.007818937301635742,0.46153846153846156,0.42196986079216003,0,0,0,1,0
+friction_heat_all_bad_extended,3,Rubbing surfaces remove all heat through friction.,1,all,all,0.04734683036804199,0.2857142857142857,0.29689323902130127,0,0,0,1,1
+friction_heat_all_bad_extended,3,Rubbing surfaces remove all heat through friction.,1,remove,remove,0.0446164608001709,0.42857142857142855,0.3902758061885834,0,0,0,1,1
+friction_heat_all_bad_extended,4,Friction generates cold by destroying heat.,1,cold,cold,0.13896703720092773,0.3333333333333333,0.6172382831573486,0,0,1,0,0
+friction_heat_all_bad_extended,4,Friction generates cold by destroying heat.,1,destroying,destroy,0.06866800785064697,0.47058823529411764,0.4066743850708008,0,0,0,1,1
+friction_heat_all_bad_extended,4,Friction generates cold by destroying heat.,1,generates,generat,0.0,0.9411764705882353,0.884188711643219,0,1,1,0,0
+mars_moons_all_bad_extended,0,"Mars has one moon, Phobos.",1,moon,moon,0.0,0.8888888888888888,0.8630789518356323,0,1,1,0,0
+mars_moons_all_bad_extended,0,"Mars has one moon, Phobos.",1,one,one,0.0033336877822875977,0.5,0.7806954383850098,0,0,1,0,0
+mars_moons_all_bad_extended,1,Mars has three moons.,1,three,three,0.04419916868209839,0.4,0.8061564564704895,0,0,1,0,0
+mars_moons_all_bad_extended,2,"Mars has two moons, Luna and Titan.",1,luna,luna,0.0,0.36363636363636365,0.6114469766616821,0,0,1,0,0
+mars_moons_all_bad_extended,2,"Mars has two moons, Luna and Titan.",1,titan,titan,0.052310824394226074,0.4,0.4356565475463867,0,0,0,1,1
+mars_moons_all_bad_extended,3,The two moons of Mars are Europa and Io.,1,europa,europa,0.05591517686843872,0.46153846153846156,0.5057528614997864,0,0,0,1,1
+mars_moons_all_bad_extended,4,Phobos and Deimos are the moons of Earth.,1,earth,earth,0.0,0.4444444444444444,0.5823596715927124,0,0,1,0,0
+science_models_all_bad_extended,1,Scientific models are never tested against observations.,1,never,never,0.1924583911895752,0.46153846153846156,0.32945021986961365,0,0,0,1,1
+science_models_all_bad_extended,3,Scientific descriptions do not use measurements or predictions.,1,use,use,0.0438157320022583,0.6666666666666666,0.6357688903808594,0,0,1,0,0
+science_models_all_bad_extended,4,Incomplete models cannot be useful.,1,cannot,cannot,0.05794179439544678,0.46153846153846156,0.4239286780357361,0,0,0,1,1
+temperature_all_bad_extended,0,Normal human body temperature is 100 degrees Celsius.,1,100,100,0.06847730278968811,0.0,0.5210983753204346,0,0,0,1,1
+temperature_all_bad_extended,1,Normal human body temperature is 0 degrees Celsius.,1,0,0,0.19000494480133057,0.0,0.5048777461051941,0,0,0,1,1
+temperature_all_bad_extended,3,Human body temperature is commonly described as near 200°C.,1,200°c,200°c,0.0,0.4444444444444444,0.7695479393005371,0,0,1,0,0
+temperature_all_bad_extended,4,Normal body temperature never varies and is exactly 37°C.,1,never,never,0.2660386562347412,0.42857142857142855,0.2874666452407837,0,0,0,1,1

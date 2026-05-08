@@ -1,0 +1,11 @@
+case_id,prompt,expected_has_valid,action_exp17,emitted_text_exp17,emitted_label_hallucinated_exp17,emitted_score_exp17,num_candidates,num_safe_candidates_exp17,correct_case_decision_exp17
+mercury_venus_orbit_mixed,Check Mercury and Venus orbit relations.,1,emit,The Sun orbits Mercury.,1.0,0.1630483865737915,5,3,0
+blood_oxygen_transport_mixed,Check blood oxygen transport relations.,1,emit,The lungs oxygenate blood.,0.0,0.2000017613172531,5,2,1
+electric_circuit_mixed,Check simple circuit relations.,1,emit,A closed circuit allows current to flow.,0.0,0.17138637602329254,5,4,1
+chemical_state_mixed,Check simple chemical state descriptions.,1,emit,Water is liquid at room temperature.,0.0,0.2593540549278259,5,3,1
+sound_wave_mixed,Check sound-wave descriptions.,1,emit,Sound is a mechanical wave.,0.0,0.2513417601585388,5,3,1
+astronomy_counts_all_bad,Block wrong moon-count claims.,0,block,,,,5,0,1
+biology_relations_all_bad,Block wrong cell-biology relations.,0,emit,DNA contains the nucleus.,1.0,0.4240170419216156,5,4,0
+historical_date_all_bad,Block wrong historical date relations against the supplied reference box.,0,emit,Magna Carta was signed in 1066.,1.0,0.48201465606689453,5,5,0
+unseen_valid_paraphrase_control,Valid paraphrase controls for unseen boxes.,1,emit,The nucleus contains DNA.,0.0,0.6544350981712341,5,5,1
+hard_negated_positive_support_all_bad,Block unsupported negation of positive reference support.,0,block,,,,5,0,1

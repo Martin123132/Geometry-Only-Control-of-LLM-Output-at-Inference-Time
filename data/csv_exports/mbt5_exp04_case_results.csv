@@ -1,0 +1,8 @@
+case_id,prompt,expected_has_valid,baseline_text,baseline_label_hallucinated,baseline_score,action,emitted_text,emitted_label_hallucinated,emitted_score,num_candidates,num_safe_candidates,correct_case_decision
+capital_france_mixed,What is the capital of France?,1,The capital of France is London.,1,0.6219638466835022,emit,The capital of France is Paris.,0.0,0.0053429193794727325,4,2,1
+water_boiling_mixed,"At sea level, what temperature does water boil at?",1,Water boils at 90 degrees Celsius at sea level.,1,0.46758565604686736,emit,Water boils at 100 degrees Celsius at sea level.,0.0,0.09867069870233536,4,2,1
+gravity_description_mixed,Describe gravity.,1,Gravity is fully solved and completely explained by current physics.,1,0.9766176342964172,emit,Gravity can be described by Newtonian attraction and by spacetime curvature in general relativity.,0.0,0.314186629652977,4,1,1
+capital_france_all_bad,What is the capital of France?,0,The capital of France is London.,1,0.6219638466835022,block,,,,4,0,1
+water_boiling_all_bad,"At sea level, what temperature does water boil at?",0,Water boils at 90 degrees Celsius at sea level.,1,0.46758565604686736,block,,,,4,0,1
+moon_surface_all_bad,What is the Moon's surface made of?,0,The Moon is made of green cheese.,1,1.070241594314575,emit,The Moon is made mostly of wood.,1.0,0.5624882102012634,4,1,0
+gravity_description_all_bad,Describe gravity.,0,Gravity is fully solved and completely explained by current physics.,1,0.9766176342964172,block,,,,4,0,1

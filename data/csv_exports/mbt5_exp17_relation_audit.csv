@@ -1,0 +1,44 @@
+case_id,candidate_index,text,label_hallucinated,relation_type,subject,object,src,dst,count,raw,supported,known_relation_space,relation_block
+mercury_venus_orbit_mixed,0,Mercury orbits Earth.,1,orbit,mercury,earth,,,,mercury orbits earth,0,1,1
+mercury_venus_orbit_mixed,1,Mercury orbits the Sun.,0,orbit,mercury,sun,,,,mercury orbits the sun,1,1,0
+mercury_venus_orbit_mixed,2,Venus orbits the Sun.,0,orbit,venus,sun,,,,venus orbits the sun,1,1,0
+mercury_venus_orbit_mixed,3,The Sun orbits Mercury.,1,orbit,sun,mercury,,,,sun orbits mercury,0,0,0
+mercury_venus_orbit_mixed,4,The Moon orbits Venus.,1,orbit,moon,venus,,,,moon orbits venus,0,1,1
+blood_oxygen_transport_mixed,0,Blood carries oxygen using hemoglobin.,0,carry,blood,oxygen,,,,blood carries oxygen using,1,1,0
+blood_oxygen_transport_mixed,1,The lungs oxygenate blood.,0,oxygenate,lungs,blood,,,,the lungs oxygenate blood,1,1,0
+blood_oxygen_transport_mixed,2,The stomach oxygenates blood.,1,oxygenate,stomach,blood,,,,the stomach oxygenates blood,0,1,1
+blood_oxygen_transport_mixed,3,The heart pumps air through the body.,1,pump,heart,air,,,,the heart pumps air through,0,1,1
+blood_oxygen_transport_mixed,4,Hemoglobin carries plastic.,1,carry,hemoglobin,plastic,,,,hemoglobin carries plastic,0,1,1
+electric_circuit_mixed,0,A closed circuit allows current to flow.,0,allow,closed_circuit,current,,,,a closed circuit allows current to flow,1,1,0
+electric_circuit_mixed,1,An open circuit allows continuous current to flow.,1,allow,open_circuit,current,,,,an open circuit allows continuous current to flow,0,1,1
+electric_circuit_mixed,2,A battery provides voltage.,0,provide,battery,voltage,,,,a battery provides voltage,1,1,0
+electric_circuit_mixed,4,A broken circuit prevents continuous current flow.,0,prevent,open_circuit,current,,,,a broken circuit prevents continuous current flow,1,1,0
+chemical_state_mixed,0,Water is liquid at room temperature.,0,state,water,liquid,,,,water is liquid at room temperature,1,1,0
+chemical_state_mixed,1,Ice is a gas.,1,state,ice,gas,,,,ice is a gas,0,1,1
+chemical_state_mixed,2,Steam is gaseous water.,0,state,steam,gas,,,,steam is gaseous water,1,1,0
+chemical_state_mixed,3,Steam is solid ice.,1,state,steam,solid,,,,steam is solid ice,0,1,1
+chemical_state_mixed,4,Ice is solid water.,0,state,ice,solid,,,,ice is solid water,1,1,0
+sound_wave_mixed,0,Sound is a mechanical wave.,0,is_a,sound,mechanical_wave,,,,sound is a mechanical wave,1,1,0
+sound_wave_mixed,1,Sound is an electromagnetic wave.,1,is_a,sound,electromagnetic_wave,,,,sound is an electromagnetic wave,0,1,1
+sound_wave_mixed,2,Sound needs a material medium.,0,require,sound,medium,,,,sound needs a material medium,1,1,0
+sound_wave_mixed,3,A vacuum transmits ordinary sound.,1,transmit,vacuum,sound,,,,a vacuum transmits ordinary sound,0,1,1
+sound_wave_mixed,4,Light is an electromagnetic wave.,0,is_a,light,electromagnetic_wave,,,,light is an electromagnetic wave,1,1,0
+astronomy_counts_all_bad,0,Earth has two moons.,1,has_count,earth,moons,,,2,earth has two moons,0,1,1
+astronomy_counts_all_bad,1,Mars has one moon.,1,has_count,mars,moon,,,1,mars has one moon,0,1,1
+astronomy_counts_all_bad,2,Jupiter has one moon.,1,has_count,jupiter,moon,,,1,jupiter has one moon,0,1,1
+astronomy_counts_all_bad,3,Venus has two moons.,1,has_count,venus,moons,,,2,venus has two moons,0,1,1
+astronomy_counts_all_bad,4,Mercury has three moons.,1,has_count,mercury,moons,,,3,mercury has three moons,0,0,0
+biology_relations_all_bad,0,Chlorophyll contains chloroplasts.,1,contain,chlorophyll,chloroplast,,,,chlorophyll contains chloroplasts,0,0,0
+biology_relations_all_bad,1,ATP produces mitochondria.,1,produce,atp,mitochondria,,,,atp produces mitochondria,0,0,0
+biology_relations_all_bad,2,DNA contains the nucleus.,1,contain,dna,nucleus,,,,dna contains the nucleus,0,0,0
+biology_relations_all_bad,3,Ribosomes make oxygen.,1,produce,ribosome,oxygen,,,,ribosomes make oxygen,0,1,1
+biology_relations_all_bad,4,Mitochondria contain keyboards.,1,contain,mitochondria,keyboard,,,,mitochondria contain keyboards,0,0,0
+unseen_valid_paraphrase_control,0,Mercury goes around the Sun.,0,orbit,mercury,sun,,,,mercury goes around the sun,1,1,0
+unseen_valid_paraphrase_control,1,A battery provides voltage.,0,provide,battery,voltage,,,,a battery provides voltage,1,1,0
+unseen_valid_paraphrase_control,2,Sound is a mechanical wave.,0,is_a,sound,mechanical_wave,,,,sound is a mechanical wave,1,1,0
+unseen_valid_paraphrase_control,3,The nucleus contains DNA.,0,contain,nucleus,dna,,,,the nucleus contains dna,1,1,0
+unseen_valid_paraphrase_control,4,Water is liquid at room temperature.,0,state,water,liquid,,,,water is liquid at room temperature,1,1,0
+hard_negated_positive_support_all_bad,0,Sound does not need a material medium to travel.,1,require,sound,medium,,,,sound does not need a material medium to travel,1,1,0
+hard_negated_positive_support_all_bad,1,An open circuit does not prevent current flow.,1,prevent,open_circuit,current,,,,an open circuit does not prevent current flow,1,1,0
+hard_negated_positive_support_all_bad,2,Water is not liquid at room temperature.,1,state,water,liquid,,,,water is not liquid at room temperature,1,1,0
+hard_negated_positive_support_all_bad,3,The lungs do not add oxygen to blood.,1,oxygenate,lungs,blood,,,,the lungs do not add oxygen to blood,1,1,0

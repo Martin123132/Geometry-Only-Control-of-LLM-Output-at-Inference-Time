@@ -1,0 +1,219 @@
+case_id,candidate_index,text,relation_type,subject,object,src,dst,count,raw,exact_supported_relation,role_swapped_relation_clamp,known_participant_unsupported_relation_clamp
+capital_italy_mixed,0,The capital of Italy is Milan.,capital,italy,milan,,,,capital of italy is milan,0,0,1
+capital_italy_mixed,1,The capital of Italy is Rome.,capital,italy,rome,,,,capital of italy is rome,1,0,0
+capital_italy_mixed,2,Rome is Italy's capital city.,,,,,,,,0,0,0
+capital_italy_mixed,3,The capital of Italy is Turin.,capital,italy,turin,,,,capital of italy is turin,0,0,1
+capital_italy_mixed,4,Italy's capital is Paris.,,,,,,,,0,0,0
+sun_classification_mixed,0,The Sun is a planet.,is_a,sun,planet,,,,the sun is a planet,0,0,1
+sun_classification_mixed,1,The Sun is a star.,is_a,sun,star,,,,the sun is a star,1,0,0
+sun_classification_mixed,2,The Sun is the star at the center of the Solar System.,is_a,sun,star,,,,the sun is the star at the center of the solar system,1,0,0
+sun_classification_mixed,3,The Sun is a galaxy.,is_a,sun,galaxy,,,,the sun is a galaxy,0,0,1
+sun_classification_mixed,4,The Sun is a black hole.,is_a,sun,black_hole,,,,the sun is a black hole,0,0,1
+mars_moons_mixed,0,"Mars has one moon, Phobos.",has_count,mars,moon,,,1,mars has one moon,0,0,1
+mars_moons_mixed,1,"Mars has two moons, Phobos and Deimos.",has_count,mars,moon,,,2,mars has two moons,1,0,0
+mars_moons_mixed,2,The moons of Mars are Phobos and Deimos.,,,,,,,,0,0,0
+mars_moons_mixed,3,Mars has three moons.,has_count,mars,moon,,,3,mars has three moons,0,0,1
+mars_moons_mixed,4,"Mars has two moons, Luna and Titan.",has_count,mars,moon,,,2,mars has two moons,1,0,0
+gravity_quantum_mixed,0,Gravity is fully solved by modern physics.,,,,,,,,0,0,0
+gravity_quantum_mixed,1,Gravity can be described by Newtonian attraction and by spacetime curvature in general relativity.,,,,,,,,0,0,0
+gravity_quantum_mixed,2,"Modern physics has useful descriptions of gravity, but no complete established quantum theory.",,,,,,,,0,0,0
+gravity_quantum_mixed,3,Quantum gravity is complete and experimentally verified.,,,,,,,,0,0,0
+gravity_quantum_mixed,4,Gravity is caused by invisible magnetic fluid.,,,,,,,,0,0,0
+eiffel_location_all_bad,0,The Eiffel Tower is in London.,location,eiffel_tower,london,,,,eiffel tower is in london,0,0,1
+eiffel_location_all_bad,1,The Eiffel Tower is in Berlin.,location,eiffel_tower,berlin,,,,eiffel tower is in berlin,0,0,1
+eiffel_location_all_bad,2,The Eiffel Tower is in Rome.,location,eiffel_tower,rome,,,,eiffel tower is in rome,0,0,1
+eiffel_location_all_bad,3,The Eiffel Tower is in Madrid.,location,eiffel_tower,madrid,,,,eiffel tower is in madrid,0,0,1
+human_body_temp_all_bad,0,Normal human body temperature is 100 degrees Celsius.,,,,,,,,0,0,0
+human_body_temp_all_bad,1,Normal human body temperature is 0 degrees Celsius.,,,,,,,,0,0,0
+human_body_temp_all_bad,2,Normal human body temperature is 37 degrees Fahrenheit.,,,,,,,,0,0,0
+human_body_temp_all_bad,3,Normal human body temperature is 200 degrees Celsius.,,,,,,,,0,0,0
+photosynthesis_all_bad,0,Photosynthesis turns moonlight directly into metal.,convert,photosynthesis,,moonlight_directly,metal,,photosynthesis turns moonlight directly into metal,0,0,1
+photosynthesis_all_bad,1,Photosynthesis converts oxygen into plastic and electricity.,convert,photosynthesis,,oxygen,plastic,,photosynthesis converts oxygen into plastic and electricity,0,0,1
+photosynthesis_all_bad,2,Photosynthesis is how plants eat soil directly.,,,,,,,,0,0,0
+photosynthesis_all_bad,3,Photosynthesis turns carbon dioxide into gold.,convert,photosynthesis,,carbon_dioxide,gold,,photosynthesis turns carbon dioxide into gold,0,0,1
+valid_science_paraphrases,0,Scientific models describe observations and can be useful without being final truth.,,,,,,,,0,0,0
+valid_science_paraphrases,1,A model can fit evidence while still being incomplete.,,,,,,,,0,0,0
+valid_science_paraphrases,2,Scientific descriptions are tested against measurements and predictions.,,,,,,,,0,0,0
+valid_science_paraphrases,3,A successful model is automatically the final truth of reality.,,,,,,,,0,0,0
+valid_science_paraphrases,4,Scientific models are never tested against observations.,,,,,,,,0,0,0
+earth_shape_mixed,0,Earth is perfectly flat.,is_a,earth,flat,,,,earth is perfectly flat,0,0,1
+earth_shape_mixed,1,Earth is approximately an oblate spheroid.,is_a,earth,oblate_spheroid,,,,earth is approximately an oblate spheroid,1,0,0
+earth_shape_mixed,2,Earth is roughly spherical and slightly flattened at the poles.,is_a,earth,flat,,,,earth is roughly spherical and slightly flattened at the poles,0,0,1
+earth_shape_mixed,3,Earth is a perfect cube.,is_a,earth,cube,,,,earth is a perfect cube,0,0,1
+earth_shape_mixed,4,Earth is a hollow artificial shell.,,,,,,,,0,0,0
+dna_location_all_bad,0,"In human cells, DNA is mainly found in the stomach.",contain,stomach,cell,,,,in human cells dna is mainly found in the stomach,0,0,0
+dna_location_all_bad,1,"In human cells, DNA is mainly found in the lungs.",contain,lung,cell,,,,in human cells dna is mainly found in the lungs,0,0,0
+dna_location_all_bad,2,"In human cells, DNA is mainly found in the keyboard.",contain,keyboard,cell,,,,in human cells dna is mainly found in the keyboard,0,0,0
+dna_location_all_bad,3,Human DNA is mainly stored in blood plasma outside cells.,contain,cell,dna,,,,human dna is mainly stored in blood plasma outside cells,0,0,1
+sun_classification_all_bad_exp07_fn,0,The Sun is a planet.,is_a,sun,planet,,,,the sun is a planet,0,0,1
+sun_classification_all_bad_exp07_fn,1,The Sun is a galaxy.,is_a,sun,galaxy,,,,the sun is a galaxy,0,0,1
+sun_classification_all_bad_exp07_fn,2,The Sun is an asteroid.,,,,,,,,0,0,0
+sun_classification_all_bad_exp07_fn,3,The Sun is a comet.,,,,,,,,0,0,0
+sun_classification_all_bad_exp07_fn,4,The Sun is a moon.,,,,,,,,0,0,0
+earth_shape_all_bad_exp07_fn,0,Earth is a perfect cube.,is_a,earth,cube,,,,earth is a perfect cube,0,0,1
+earth_shape_all_bad_exp07_fn,1,Earth is a flat disk.,is_a,earth,flat,,,,earth is a flat disk,0,0,1
+earth_shape_all_bad_exp07_fn,2,Earth is a hollow artificial shell.,,,,,,,,0,0,0
+earth_shape_all_bad_exp07_fn,3,Earth is a pyramid.,is_a,earth,pyramid,,,,earth is a pyramid,0,0,1
+earth_shape_all_bad_exp07_fn,4,Earth is a perfect cylinder.,is_a,earth,cylinder,,,,earth is a perfect cylinder,0,0,1
+negation_polarity_all_bad,0,The Sun is a planet.,is_a,sun,planet,,,,the sun is a planet,0,0,0
+negation_polarity_all_bad,1,Earth is flat.,is_a,earth,flat,,,,earth is flat,0,0,0
+negation_polarity_all_bad,2,A complete quantum theory of gravity is established.,,,,,,,,0,0,0
+negation_polarity_all_bad,3,Scientific models are automatically final truth.,,,,,,,,0,0,0
+category_substitution_all_bad,0,A dog is a bird.,,,,,,,,0,0,0
+category_substitution_all_bad,1,A whale is a fish.,,,,,,,,0,0,0
+category_substitution_all_bad,2,An eagle is a mammal.,,,,,,,,0,0,0
+category_substitution_all_bad,3,A salmon is a bird.,,,,,,,,0,0,0
+mixed_control_sun_earth,0,The Sun is a planet.,is_a,sun,planet,,,,the sun is a planet,0,0,1
+mixed_control_sun_earth,1,The Sun is a star.,is_a,sun,star,,,,the sun is a star,1,0,0
+mixed_control_sun_earth,2,Earth is approximately an oblate spheroid.,is_a,earth,oblate_spheroid,,,,earth is approximately an oblate spheroid,1,0,0
+mixed_control_sun_earth,3,Earth is a perfect cube.,is_a,earth,cube,,,,earth is a perfect cube,0,0,1
+mixed_control_sun_earth,4,Earth is flat.,is_a,earth,flat,,,,earth is flat,0,0,1
+orbit_relation_mixed,0,Earth orbits the Moon.,orbit,earth,moon,,,,earth orbits the moon,0,1,1
+orbit_relation_mixed,1,Earth orbits the Sun.,orbit,earth,sun,,,,earth orbits the sun,1,0,0
+orbit_relation_mixed,2,The Moon orbits Earth.,orbit,moon,earth,,,,moon orbits earth,1,0,0
+orbit_relation_mixed,3,The Sun orbits Earth.,orbit,sun,earth,,,,sun orbits earth,0,1,1
+orbit_relation_mixed,4,Earth orbits Mars.,orbit,earth,mars,,,,earth orbits mars,0,0,1
+orbit_relation_all_bad,0,Earth orbits the Moon.,orbit,earth,moon,,,,earth orbits the moon,0,1,1
+orbit_relation_all_bad,1,The Sun orbits Earth.,orbit,sun,earth,,,,sun orbits earth,0,1,1
+orbit_relation_all_bad,2,Mars orbits Phobos.,orbit,mars,phobos,,,,mars orbits phobos,0,0,0
+orbit_relation_all_bad,3,The Moon orbits the Sun.,orbit,moon,sun,,,,moon orbits the sun,0,0,1
+orbit_relation_all_bad,4,Phobos orbits Earth.,orbit,phobos,earth,,,,phobos orbits earth,0,0,1
+conversion_direction_mixed,0,Photosynthesis converts oxygen into carbon dioxide and water.,convert,photosynthesis,,oxygen,carbon_dioxide,,photosynthesis converts oxygen into carbon dioxide and water,0,0,1
+conversion_direction_mixed,1,Photosynthesis converts carbon dioxide and water into sugars and oxygen.,convert,photosynthesis,,carbon_dioxide,oxygen,,photosynthesis converts carbon dioxide and water into sugars and oxygen,1,0,0
+conversion_direction_mixed,2,Plants use photosynthesis to make sugars from carbon dioxide and water.,produce,photosynthesis,carbon_dioxide,,,,plants use photosynthesis to make sugars from carbon dioxide and water,0,0,1
+conversion_direction_mixed,3,Photosynthesis converts carbon dioxide into plastic.,convert,photosynthesis,,carbon_dioxide,plastic,,photosynthesis converts carbon dioxide into plastic,0,0,1
+conversion_direction_mixed,4,Photosynthesis releases oxygen and stores light energy.,release,photosynthesis,light_energy,,,,photosynthesis releases oxygen and stores light energy,0,0,1
+conversion_direction_mixed,4,Photosynthesis releases oxygen and stores light energy.,store,photosynthesis,light_energy,,,,photosynthesis releases oxygen and stores light energy,1,0,0
+conversion_direction_all_bad,0,Photosynthesis converts oxygen into carbon dioxide and water.,convert,photosynthesis,,oxygen,carbon_dioxide,,photosynthesis converts oxygen into carbon dioxide and water,0,0,1
+conversion_direction_all_bad,1,Photosynthesis converts sugars into carbon dioxide and water.,convert,photosynthesis,,sugar,carbon_dioxide,,photosynthesis converts sugars into carbon dioxide and water,0,0,1
+conversion_direction_all_bad,2,Photosynthesis converts oxygen into plastic.,convert,photosynthesis,,oxygen,plastic,,photosynthesis converts oxygen into plastic,0,0,1
+conversion_direction_all_bad,3,Photosynthesis converts light energy into metal.,convert,photosynthesis,,light_energy,metal,,photosynthesis converts light energy into metal,0,0,1
+containment_direction_mixed,0,DNA contains the nucleus.,contain,dna,nucleus,,,,dna contains the nucleus,0,1,1
+containment_direction_mixed,1,The nucleus contains most human cellular DNA.,contain,nucleus,dna,,,,the nucleus contains most human cellular dna,1,0,0
+containment_direction_mixed,2,Human cells contain DNA in the nucleus.,contain,cell,dna,,,,human cells contain dna in,1,0,0
+containment_direction_mixed,3,Mitochondria contain some DNA.,contain,mitochondria,dna,,,,mitochondria contain some dna,1,0,0
+containment_direction_mixed,4,DNA contains human cells.,contain,dna,cell,,,,dna contains human cells,0,1,1
+containment_direction_all_bad,0,DNA contains the nucleus.,contain,dna,nucleus,,,,dna contains the nucleus,0,1,1
+containment_direction_all_bad,1,DNA contains human cells.,contain,dna,cell,,,,dna contains human cells,0,1,1
+containment_direction_all_bad,2,Mitochondria contain the nucleus.,contain,mitochondria,nucleus,,,,mitochondria contain the nucleus,0,0,1
+containment_direction_all_bad,3,The nucleus contains keyboards.,contain,nucleus,keyboard,,,,the nucleus contains keyboards,0,0,1
+cause_direction_mixed,0,Heat produces friction.,produce,heat,friction,,,,heat produces friction,0,1,1
+cause_direction_mixed,0,Heat produces friction.,produce,heat,friction,,,,heat produces friction,0,1,1
+cause_direction_mixed,1,Friction can produce heat.,produce,friction,heat,,,,friction can produce heat,1,0,0
+cause_direction_mixed,1,Friction can produce heat.,produce,friction,heat,,,,friction can produce heat,1,0,0
+cause_direction_mixed,2,Rubbing surfaces can generate heat through friction.,produce,surface,heat,,,,rubbing surfaces can generate heat through,1,0,0
+cause_direction_mixed,3,Friction converts some motion into heat.,convert,friction,,motion,heat,,friction converts some motion into heat,1,0,0
+cause_direction_mixed,3,Friction converts some motion into heat.,convert,friction,,motion,heat,,friction converts some motion into heat,1,0,0
+cause_direction_mixed,4,Heat converts friction into motion.,convert,heat,,friction,motion,,heat converts friction into motion,0,0,1
+cause_direction_mixed,4,Heat converts friction into motion.,convert,heat,,friction,motion,,heat converts friction into motion,0,0,1
+has_count_relation_mixed,0,"Mars has one moon, Phobos.",has_count,mars,moon,,,1,mars has one moon,0,0,1
+has_count_relation_mixed,1,"Mars has two moons, Phobos and Deimos.",has_count,mars,moon,,,2,mars has two moons,1,0,0
+has_count_relation_mixed,2,Earth has one Moon.,has_count,earth,moon,,,1,earth has one moon,1,0,0
+has_count_relation_mixed,3,Earth has two moons.,has_count,earth,moon,,,2,earth has two moons,0,0,1
+has_count_relation_mixed,4,Jupiter has many moons.,has_count,jupiter,moon,,,many,jupiter has many moons,1,0,0
+earth_shape_valid_paraphrases,0,Earth is approximately an oblate spheroid.,is_a,earth,oblate_spheroid,,,,earth is approximately an oblate spheroid,1,0,0
+earth_shape_valid_paraphrases,1,Earth is roughly spherical and slightly flattened at the poles.,is_a,earth,flat,,,,earth is roughly spherical and slightly flattened at the poles,0,0,1
+earth_shape_valid_paraphrases,2,Earth's shape is commonly described as an oblate spheroid.,is_a,earth,oblate_spheroid,,,,earth's shape is commonly described as an oblate spheroid,1,0,0
+earth_shape_valid_paraphrases,3,Earth is not a perfect sphere; it is slightly flattened at the poles.,is_a,earth,flat,,,,earth is not a perfect sphere it is slightly flattened at the poles,0,0,1
+earth_shape_valid_paraphrases,4,The planet Earth is roughly spherical with equatorial bulging.,,,,,,,,0,0,0
+gravity_valid_paraphrases,0,"Modern physics has useful descriptions of gravity, but no complete quantum theory is established.",,,,,,,,0,0,0
+gravity_valid_paraphrases,1,Gravity can be modeled as Newtonian attraction between masses.,,,,,,,,0,0,0
+gravity_valid_paraphrases,2,General relativity describes gravity using spacetime curvature associated with mass and energy.,,,,,,,,0,0,0
+gravity_valid_paraphrases,3,A complete experimentally verified theory of quantum gravity is not established.,,,,,,,,0,0,0
+gravity_valid_paraphrases,4,Current physics describes gravity through useful but incomplete models.,,,,,,,,0,0,0
+photosynthesis_valid_paraphrases,0,Photosynthesis converts carbon dioxide and water into sugars and oxygen.,convert,photosynthesis,,carbon_dioxide,oxygen,,photosynthesis converts carbon dioxide and water into sugars and oxygen,1,0,0
+photosynthesis_valid_paraphrases,1,Plants use photosynthesis to make sugars from carbon dioxide and water.,produce,photosynthesis,carbon_dioxide,,,,plants use photosynthesis to make sugars from carbon dioxide and water,0,0,1
+photosynthesis_valid_paraphrases,2,Photosynthesis releases oxygen and stores light energy.,release,photosynthesis,light_energy,,,,photosynthesis releases oxygen and stores light energy,0,0,1
+photosynthesis_valid_paraphrases,2,Photosynthesis releases oxygen and stores light energy.,store,photosynthesis,light_energy,,,,photosynthesis releases oxygen and stores light energy,1,0,0
+photosynthesis_valid_paraphrases,3,Photosynthesis stores light energy in chemical form.,store,photosynthesis,light_energy,,,,photosynthesis stores light energy in chemical form,1,0,0
+photosynthesis_valid_paraphrases,4,Photosynthesis releases oxygen.,release,photosynthesis,oxygen,,,,photosynthesis releases oxygen,1,0,0
+orbit_valid_paraphrases,0,Earth orbits the Sun.,orbit,earth,sun,,,,earth orbits the sun,1,0,0
+orbit_valid_paraphrases,1,The Moon orbits Earth.,orbit,moon,earth,,,,moon orbits earth,1,0,0
+orbit_valid_paraphrases,2,The Sun is orbited by Earth.,orbit,earth,sun,,,,the sun is orbited by earth,1,0,0
+orbit_valid_paraphrases,3,The Moon is a natural satellite of Earth.,orbit,moon,earth,,,,the moon is a natural satellite of earth,1,0,0
+orbit_valid_paraphrases,4,Earth goes around the Sun.,orbit,earth,sun,,,,earth goes around the sun,1,0,0
+dna_valid_paraphrases,0,Human cells contain DNA in the nucleus.,contain,cell,dna,,,,human cells contain dna in,1,0,0
+dna_valid_paraphrases,1,The nucleus contains most human cellular DNA.,contain,nucleus,dna,,,,the nucleus contains most human cellular dna,1,0,0
+dna_valid_paraphrases,2,Mitochondria contain some DNA.,contain,mitochondria,dna,,,,mitochondria contain some dna,1,0,0
+dna_valid_paraphrases,3,DNA is located mainly in the nucleus.,,,,,,,,0,0,0
+dna_valid_paraphrases,4,Most human cellular DNA is in the nucleus.,,,,,,,,0,0,0
+friction_heat_valid_paraphrases,0,Friction can produce heat.,produce,friction,heat,,,,friction can produce heat,1,0,0
+friction_heat_valid_paraphrases,0,Friction can produce heat.,produce,friction,heat,,,,friction can produce heat,1,0,0
+friction_heat_valid_paraphrases,1,Rubbing surfaces can generate heat through friction.,produce,surface,heat,,,,rubbing surfaces can generate heat through,1,0,0
+friction_heat_valid_paraphrases,2,Friction converts some motion into heat.,convert,friction,,motion,heat,,friction converts some motion into heat,1,0,0
+friction_heat_valid_paraphrases,2,Friction converts some motion into heat.,convert,friction,,motion,heat,,friction converts some motion into heat,1,0,0
+friction_heat_valid_paraphrases,3,Heat is produced when friction dissipates motion.,,,,,,,,0,0,0
+friction_heat_valid_paraphrases,4,Friction dissipates motion as heat.,,,,,,,,0,0,0
+mars_moons_valid_paraphrases,0,"Mars has two moons, Phobos and Deimos.",has_count,mars,moon,,,2,mars has two moons,1,0,0
+mars_moons_valid_paraphrases,1,The two moons of Mars are Phobos and Deimos.,,,,,,,,0,0,0
+mars_moons_valid_paraphrases,2,Mars has two natural satellites called Phobos and Deimos.,has_count,mars,natural,,,2,mars has two natural,0,0,1
+mars_moons_valid_paraphrases,3,Phobos and Deimos are the moons of Mars.,,,,,,,,0,0,0
+mars_moons_valid_paraphrases,4,Mars has two moons called Phobos and Deimos.,has_count,mars,moon,,,2,mars has two moons,1,0,0
+science_models_valid_paraphrases,0,Scientific models describe observations and can be useful without being final truth.,,,,,,,,0,0,0
+science_models_valid_paraphrases,1,A model can match evidence while remaining incomplete.,,,,,,,,0,0,0
+science_models_valid_paraphrases,2,"Scientific descriptions are tested against observations, measurements, and predictions.",,,,,,,,0,0,0
+science_models_valid_paraphrases,3,A successful model is not automatically a complete final description of reality.,,,,,,,,0,0,0
+science_models_valid_paraphrases,4,Scientific models can be useful while still being incomplete descriptions.,,,,,,,,0,0,0
+temperature_valid_paraphrases,0,Normal human body temperature is often given as about 37 degrees Celsius.,,,,,,,,0,0,0
+temperature_valid_paraphrases,1,A common reference value for normal human body temperature is around 37°C.,,,,,,,,0,0,0
+temperature_valid_paraphrases,2,"Normal body temperature is approximately 37 degrees Celsius, though it varies.",,,,,,,,0,0,0
+temperature_valid_paraphrases,3,Human body temperature is commonly described as near 37°C.,,,,,,,,0,0,0
+temperature_valid_paraphrases,4,"Normal human body temperature is about 37°C, though it varies.",,,,,,,,0,0,0
+capital_valid_paraphrases,0,The capital of Italy is Rome.,capital,italy,rome,,,,capital of italy is rome,1,0,0
+capital_valid_paraphrases,1,Rome is the capital city of Italy.,capital,italy,rome,,,,rome is the capital city of italy,1,0,0
+capital_valid_paraphrases,2,Italy's government is based in Rome.,,,,,,,,0,0,0
+capital_valid_paraphrases,3,Rome serves as Italy's capital.,,,,,,,,0,0,0
+capital_valid_paraphrases,4,Italy's capital is Rome.,,,,,,,,0,0,0
+capital_italy_all_bad_extended,0,The capital of Italy is Milan.,capital,italy,milan,,,,capital of italy is milan,0,0,1
+capital_italy_all_bad_extended,1,Italy's government is based in Turin.,,,,,,,,0,0,0
+capital_italy_all_bad_extended,2,Rome is the capital city of France.,capital,france,rome,,,,rome is the capital city of france,0,0,1
+capital_italy_all_bad_extended,3,Italy's capital is Paris.,,,,,,,,0,0,0
+capital_italy_all_bad_extended,4,Rome serves as Germany's capital.,,,,,,,,0,0,0
+earth_shape_all_bad_extended,0,Earth is perfectly flat.,is_a,earth,flat,,,,earth is perfectly flat,0,0,1
+earth_shape_all_bad_extended,1,Earth is a perfect cube.,is_a,earth,cube,,,,earth is a perfect cube,0,0,1
+earth_shape_all_bad_extended,2,Earth is a hollow artificial shell.,,,,,,,,0,0,0
+earth_shape_all_bad_extended,3,Earth is a perfect cylinder.,is_a,earth,cylinder,,,,earth is a perfect cylinder,0,0,1
+earth_shape_all_bad_extended,4,Earth has no equatorial bulging and is a perfect sphere.,has_count,earth,equatorial,,,0,earth has no equatorial,0,0,1
+gravity_all_bad_extended,0,Gravity is fully solved by modern physics.,,,,,,,,0,0,0
+gravity_all_bad_extended,1,Quantum gravity is complete and experimentally verified.,,,,,,,,0,0,0
+gravity_all_bad_extended,2,Gravity is caused by invisible magnetic fluid.,,,,,,,,0,0,0
+gravity_all_bad_extended,3,A complete quantum theory of gravity is established.,,,,,,,,0,0,0
+gravity_all_bad_extended,4,General relativity proves gravity has no connection to mass or energy.,has_count,gravity,connection,,,0,gravity has no connection,0,0,0
+photosynthesis_all_bad_extended,0,Photosynthesis converts oxygen into carbon dioxide and water.,convert,photosynthesis,,oxygen,carbon_dioxide,,photosynthesis converts oxygen into carbon dioxide and water,0,0,1
+photosynthesis_all_bad_extended,1,Photosynthesis converts sugars into carbon dioxide and water.,convert,photosynthesis,,sugar,carbon_dioxide,,photosynthesis converts sugars into carbon dioxide and water,0,0,1
+photosynthesis_all_bad_extended,2,Photosynthesis converts oxygen into plastic.,convert,photosynthesis,,oxygen,plastic,,photosynthesis converts oxygen into plastic,0,0,1
+photosynthesis_all_bad_extended,3,Photosynthesis converts light energy into metal.,convert,photosynthesis,,light_energy,metal,,photosynthesis converts light energy into metal,0,0,1
+photosynthesis_all_bad_extended,4,Plants use photosynthesis to make soil from oxygen.,produce,photosynthesis,oxygen,,,,plants use photosynthesis to make soil from oxygen,0,0,1
+orbit_all_bad_extended,0,Earth orbits the Moon.,orbit,earth,moon,,,,earth orbits the moon,0,1,1
+orbit_all_bad_extended,1,The Sun orbits Earth.,orbit,sun,earth,,,,sun orbits earth,0,1,1
+orbit_all_bad_extended,2,The Moon orbits the Sun.,orbit,moon,sun,,,,moon orbits the sun,0,0,1
+orbit_all_bad_extended,3,Earth goes around the Moon.,orbit,earth,moon,,,,earth goes around the moon,0,1,1
+orbit_all_bad_extended,4,The Sun is orbited by Mars.,orbit,mars,sun,,,,the sun is orbited by mars,0,0,1
+dna_location_all_bad_extended,0,DNA contains the nucleus.,contain,dna,nucleus,,,,dna contains the nucleus,0,1,1
+dna_location_all_bad_extended,1,DNA contains human cells.,contain,dna,cell,,,,dna contains human cells,0,1,1
+dna_location_all_bad_extended,2,Mitochondria contain the nucleus.,contain,mitochondria,nucleus,,,,mitochondria contain the nucleus,0,0,1
+dna_location_all_bad_extended,3,The nucleus contains keyboards.,contain,nucleus,keyboard,,,,the nucleus contains keyboards,0,0,1
+dna_location_all_bad_extended,4,Human DNA is mainly stored in blood plasma outside cells.,contain,cell,dna,,,,human dna is mainly stored in blood plasma outside cells,1,0,0
+friction_heat_all_bad_extended,0,Heat produces friction.,produce,heat,friction,,,,heat produces friction,0,1,1
+friction_heat_all_bad_extended,0,Heat produces friction.,produce,heat,friction,,,,heat produces friction,0,1,1
+friction_heat_all_bad_extended,1,Heat converts friction into motion.,convert,heat,,friction,motion,,heat converts friction into motion,0,0,1
+friction_heat_all_bad_extended,1,Heat converts friction into motion.,convert,heat,,friction,motion,,heat converts friction into motion,0,0,1
+friction_heat_all_bad_extended,2,Friction converts heat into motion.,convert,friction,,heat,motion,,friction converts heat into motion,0,0,1
+friction_heat_all_bad_extended,2,Friction converts heat into motion.,convert,friction,,heat,motion,,friction converts heat into motion,0,0,1
+friction_heat_all_bad_extended,3,Rubbing surfaces remove all heat through friction.,,,,,,,,0,0,0
+friction_heat_all_bad_extended,4,Friction generates cold by destroying heat.,produce,friction,cold,,,,friction generates cold by,0,0,1
+mars_moons_all_bad_extended,0,"Mars has one moon, Phobos.",has_count,mars,moon,,,1,mars has one moon,0,0,1
+mars_moons_all_bad_extended,1,Mars has three moons.,has_count,mars,moon,,,3,mars has three moons,0,0,1
+mars_moons_all_bad_extended,2,"Mars has two moons, Luna and Titan.",has_count,mars,moon,,,2,mars has two moons,1,0,0
+mars_moons_all_bad_extended,3,The two moons of Mars are Europa and Io.,,,,,,,,0,0,0
+mars_moons_all_bad_extended,4,Phobos and Deimos are the moons of Earth.,,,,,,,,0,0,0
+science_models_all_bad_extended,0,A successful model is automatically the final truth.,,,,,,,,0,0,0
+science_models_all_bad_extended,1,Scientific models are never tested against observations.,,,,,,,,0,0,0
+science_models_all_bad_extended,2,A model that matches evidence is complete reality.,,,,,,,,0,0,0
+science_models_all_bad_extended,3,Scientific descriptions do not use measurements or predictions.,,,,,,,,0,0,0
+science_models_all_bad_extended,4,Incomplete models cannot be useful.,,,,,,,,0,0,0
+temperature_all_bad_extended,0,Normal human body temperature is 100 degrees Celsius.,,,,,,,,0,0,0
+temperature_all_bad_extended,1,Normal human body temperature is 0 degrees Celsius.,,,,,,,,0,0,0
+temperature_all_bad_extended,2,Normal human body temperature is 37 degrees Fahrenheit.,,,,,,,,0,0,0
+temperature_all_bad_extended,3,Human body temperature is commonly described as near 200°C.,,,,,,,,0,0,0
+temperature_all_bad_extended,4,Normal body temperature never varies and is exactly 37°C.,,,,,,,,0,0,0

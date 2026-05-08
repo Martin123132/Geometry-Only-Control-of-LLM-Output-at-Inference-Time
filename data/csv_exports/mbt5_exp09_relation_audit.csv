@@ -1,0 +1,33 @@
+case_id,candidate_index,text,label_hallucinated,subject,object,negated,pair_positive,pair_negative,known_subject,known_object,explicit_negation_breach,known_wrong_mapping,bare_unknown_category,relation_block,raw_clause
+sun_classification_all_bad_exp07_fn,0,The Sun is a planet.,1,sun,planet,0,0,1,1,1,1,1,0,1,The Sun is a planet
+sun_classification_all_bad_exp07_fn,1,The Sun is a galaxy.,1,sun,galaxy,0,0,0,1,0,0,0,1,1,The Sun is a galaxy
+sun_classification_all_bad_exp07_fn,2,The Sun is an asteroid.,1,sun,asteroid,0,0,0,1,0,0,0,1,1,The Sun is an asteroid
+sun_classification_all_bad_exp07_fn,3,The Sun is a comet.,1,sun,comet,0,0,0,1,0,0,0,1,1,The Sun is a comet
+sun_classification_all_bad_exp07_fn,4,The Sun is a moon.,1,sun,moon,0,0,0,1,0,0,0,1,1,The Sun is a moon
+earth_shape_all_bad_exp07_fn,0,Earth is a perfect cube.,1,earth,perfect,0,0,1,1,1,1,1,0,1,Earth is a perfect cube
+earth_shape_all_bad_exp07_fn,0,Earth is a perfect cube.,1,earth,cube,0,0,0,1,0,0,0,1,1,Earth is a perfect cube
+earth_shape_all_bad_exp07_fn,1,Earth is a flat disk.,1,earth,flat,0,0,0,1,0,0,0,1,1,Earth is a flat disk
+earth_shape_all_bad_exp07_fn,1,Earth is a flat disk.,1,earth,disk,0,0,0,1,0,0,0,1,1,Earth is a flat disk
+earth_shape_all_bad_exp07_fn,2,Earth is a hollow artificial shell.,1,earth,hollow,0,0,0,1,0,0,0,1,1,Earth is a hollow artificial shell
+earth_shape_all_bad_exp07_fn,2,Earth is a hollow artificial shell.,1,earth,artificial,0,0,0,1,0,0,0,1,1,Earth is a hollow artificial shell
+earth_shape_all_bad_exp07_fn,2,Earth is a hollow artificial shell.,1,earth,shell,0,0,0,1,0,0,0,1,1,Earth is a hollow artificial shell
+earth_shape_all_bad_exp07_fn,3,Earth is a pyramid.,1,earth,pyramid,0,0,0,1,0,0,0,1,1,Earth is a pyramid
+earth_shape_all_bad_exp07_fn,4,Earth is a perfect cylinder.,1,earth,perfect,0,0,1,1,1,1,1,0,1,Earth is a perfect cylinder
+earth_shape_all_bad_exp07_fn,4,Earth is a perfect cylinder.,1,earth,cylinder,0,0,0,1,0,0,0,1,1,Earth is a perfect cylinder
+negation_polarity_all_bad,0,The Sun is a planet.,1,sun,planet,0,0,1,1,1,1,1,0,1,The Sun is a planet
+negation_polarity_all_bad,1,Earth is flat.,1,earth,flat,0,0,1,1,1,1,1,0,1,Earth is flat
+negation_polarity_all_bad,2,A complete quantum theory of gravity is established.,1,gravity,established,0,0,1,1,1,1,1,0,1,A complete quantum theory of gravity is established
+negation_polarity_all_bad,3,Scientific models are automatically final truth.,1,models,automatically,0,0,1,1,1,1,1,0,1,Scientific models are automatically final truth
+negation_polarity_all_bad,3,Scientific models are automatically final truth.,1,models,final,0,0,1,1,1,1,1,0,1,Scientific models are automatically final truth
+negation_polarity_all_bad,3,Scientific models are automatically final truth.,1,models,truth,0,0,1,1,1,1,1,0,1,Scientific models are automatically final truth
+category_substitution_all_bad,0,A dog is a bird.,1,dog,bird,0,0,0,1,1,0,1,0,1,A dog is a bird
+category_substitution_all_bad,1,A whale is a fish.,1,whale,fish,0,0,0,1,1,0,1,0,1,A whale is a fish
+category_substitution_all_bad,2,An eagle is a mammal.,1,eagle,mammal,0,0,0,1,1,0,1,0,1,An eagle is a mammal
+category_substitution_all_bad,3,A salmon is a bird.,1,salmon,bird,0,0,0,1,1,0,1,0,1,A salmon is a bird
+mixed_control_sun_earth,0,The Sun is a planet.,1,sun,planet,0,0,1,1,1,1,1,0,1,The Sun is a planet
+mixed_control_sun_earth,1,The Sun is a star.,0,sun,star,0,1,0,1,1,0,0,0,0,The Sun is a star
+mixed_control_sun_earth,2,Earth is approximately an oblate spheroid.,0,earth,oblate,0,1,0,1,1,0,0,0,0,Earth is approximately an oblate spheroid
+mixed_control_sun_earth,2,Earth is approximately an oblate spheroid.,0,earth,spheroid,0,1,0,1,1,0,0,0,0,Earth is approximately an oblate spheroid
+mixed_control_sun_earth,3,Earth is a perfect cube.,1,earth,perfect,0,0,0,1,0,0,0,1,1,Earth is a perfect cube
+mixed_control_sun_earth,3,Earth is a perfect cube.,1,earth,cube,0,0,0,1,0,0,0,1,1,Earth is a perfect cube
+mixed_control_sun_earth,4,Earth is flat.,1,earth,flat,0,0,1,1,1,1,1,0,1,Earth is flat

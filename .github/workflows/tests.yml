@@ -1,0 +1,29 @@
+name: MBT-5 offline regression tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install offline test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest numpy scipy
+          pip install -e . --no-deps
+
+      - name: Regenerate public corpus
+        run: python examples/build_regression_corpus.py
+
+      - name: Run tests
+        run: pytest -q

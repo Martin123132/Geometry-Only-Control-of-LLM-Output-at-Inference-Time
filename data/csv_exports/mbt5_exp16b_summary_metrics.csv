@@ -1,0 +1,7 @@
+suite,N_candidates,accuracy,precision,recall,F1,TN,FP,FN,TP,confusion
+EXP07_adversarial_suite_LOCKED_EXP10B,46,1.0,1.0,1.0,1.0,13,0,0,33,"[[13, 0], [0, 33]]"
+EXP08_false_negative_stress_LOCKED_EXP11,23,1.0,1.0,1.0,1.0,2,0,0,21,"[[2, 0], [0, 21]]"
+EXP13_noncopular_relation_LOCKED_EXP13C,38,1.0,1.0,1.0,1.0,14,0,0,24,"[[14, 0], [0, 24]]"
+EXP14_valid_paraphrase_LOCKED_EXP14B,50,1.0,0.0,0.0,0.0,50,0,0,0,"[[50, 0], [0, 0]]"
+EXP15_large_all_bad_LOCKED_EXP15B,50,1.0,1.0,1.0,1.0,0,0,0,50,"[[0, 0], [0, 50]]"
+COMBINED_LOCKED_REGRESSION,207,1.0,1.0,1.0,1.0,79,0,0,128,"[[79, 0], [0, 128]]"

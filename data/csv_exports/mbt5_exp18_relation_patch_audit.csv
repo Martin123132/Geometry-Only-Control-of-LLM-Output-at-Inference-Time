@@ -1,0 +1,44 @@
+case_id,candidate_index,text,label_hallucinated,relation_type,subject,object,src,dst,count,exact_supported_relation,role_swapped_relation_clamp,known_participant_unsupported_relation_clamp
+mercury_venus_orbit_mixed,0,Mercury orbits Earth.,1,orbit,mercury,earth,,,,0,0,1
+mercury_venus_orbit_mixed,1,Mercury orbits the Sun.,0,orbit,mercury,sun,,,,1,0,0
+mercury_venus_orbit_mixed,2,Venus orbits the Sun.,0,orbit,venus,sun,,,,1,0,0
+mercury_venus_orbit_mixed,3,The Sun orbits Mercury.,1,orbit,sun,mercury,,,,0,1,1
+mercury_venus_orbit_mixed,4,The Moon orbits Venus.,1,orbit,moon,venus,,,,0,0,1
+blood_oxygen_transport_mixed,0,Blood carries oxygen using hemoglobin.,0,carry,blood,oxygen,,,,1,0,0
+blood_oxygen_transport_mixed,1,The lungs oxygenate blood.,0,oxygenate,lungs,blood,,,,1,0,0
+blood_oxygen_transport_mixed,2,The stomach oxygenates blood.,1,oxygenate,stomach,blood,,,,0,0,1
+blood_oxygen_transport_mixed,3,The heart pumps air through the body.,1,pump,heart,air,,,,0,0,1
+blood_oxygen_transport_mixed,4,Hemoglobin carries plastic.,1,carry,hemoglobin,plastic,,,,0,0,1
+electric_circuit_mixed,0,A closed circuit allows current to flow.,0,allow,closed_circuit,current,,,,1,0,0
+electric_circuit_mixed,1,An open circuit allows continuous current to flow.,1,allow,open_circuit,current,,,,0,0,1
+electric_circuit_mixed,2,A battery provides voltage.,0,provide,battery,voltage,,,,1,0,0
+electric_circuit_mixed,4,A broken circuit prevents continuous current flow.,0,prevent,open_circuit,current,,,,1,0,0
+chemical_state_mixed,0,Water is liquid at room temperature.,0,state,water,liquid,,,,1,0,0
+chemical_state_mixed,1,Ice is a gas.,1,state,ice,gas,,,,0,0,1
+chemical_state_mixed,2,Steam is gaseous water.,0,state,steam,gas,,,,1,0,0
+chemical_state_mixed,3,Steam is solid ice.,1,state,steam,solid,,,,0,0,1
+chemical_state_mixed,4,Ice is solid water.,0,state,ice,solid,,,,1,0,0
+sound_wave_mixed,0,Sound is a mechanical wave.,0,is_a,sound,mechanical_wave,,,,1,0,0
+sound_wave_mixed,1,Sound is an electromagnetic wave.,1,is_a,sound,electromagnetic_wave,,,,0,0,1
+sound_wave_mixed,2,Sound needs a material medium.,0,require,sound,medium,,,,1,0,0
+sound_wave_mixed,3,A vacuum transmits ordinary sound.,1,transmit,vacuum,sound,,,,0,0,1
+sound_wave_mixed,4,Light is an electromagnetic wave.,0,is_a,light,electromagnetic_wave,,,,1,0,0
+astronomy_counts_all_bad,0,Earth has two moons.,1,has_count,earth,moons,,,2.0,0,0,1
+astronomy_counts_all_bad,1,Mars has one moon.,1,has_count,mars,moon,,,1.0,0,0,1
+astronomy_counts_all_bad,2,Jupiter has one moon.,1,has_count,jupiter,moon,,,1.0,0,0,1
+astronomy_counts_all_bad,3,Venus has two moons.,1,has_count,venus,moons,,,2.0,0,0,1
+astronomy_counts_all_bad,4,Mercury has three moons.,1,has_count,mercury,moons,,,3.0,0,0,0
+biology_relations_all_bad,0,Chlorophyll contains chloroplasts.,1,contain,chlorophyll,chloroplast,,,,0,1,1
+biology_relations_all_bad,1,ATP produces mitochondria.,1,produce,atp,mitochondria,,,,0,1,1
+biology_relations_all_bad,2,DNA contains the nucleus.,1,contain,dna,nucleus,,,,0,1,1
+biology_relations_all_bad,3,Ribosomes make oxygen.,1,produce,ribosome,oxygen,,,,0,0,1
+biology_relations_all_bad,4,Mitochondria contain keyboards.,1,contain,mitochondria,keyboard,,,,0,0,1
+unseen_valid_paraphrase_control,0,Mercury goes around the Sun.,0,orbit,mercury,sun,,,,1,0,0
+unseen_valid_paraphrase_control,1,A battery provides voltage.,0,provide,battery,voltage,,,,1,0,0
+unseen_valid_paraphrase_control,2,Sound is a mechanical wave.,0,is_a,sound,mechanical_wave,,,,1,0,0
+unseen_valid_paraphrase_control,3,The nucleus contains DNA.,0,contain,nucleus,dna,,,,1,0,0
+unseen_valid_paraphrase_control,4,Water is liquid at room temperature.,0,state,water,liquid,,,,1,0,0
+hard_negated_positive_support_all_bad,0,Sound does not need a material medium to travel.,1,require,sound,medium,,,,1,0,0
+hard_negated_positive_support_all_bad,1,An open circuit does not prevent current flow.,1,prevent,open_circuit,current,,,,1,0,0
+hard_negated_positive_support_all_bad,2,Water is not liquid at room temperature.,1,state,water,liquid,,,,1,0,0
+hard_negated_positive_support_all_bad,3,The lungs do not add oxygen to blood.,1,oxygenate,lungs,blood,,,,1,0,0
