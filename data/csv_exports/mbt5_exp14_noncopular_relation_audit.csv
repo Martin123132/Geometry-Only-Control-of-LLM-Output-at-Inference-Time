@@ -1,0 +1,20 @@
+case_id,candidate_index,text,label_hallucinated,relation_type,subject,supported,noncopular_relation_block,coord_shared_subject,raw,src,dst,objects,object,count
+photosynthesis_valid_paraphrases,0,Photosynthesis converts carbon dioxide and water into sugars and oxygen.,0,convert,photosynthesi,1,0,0,photosynthesis converts carbon dioxide and water into sugars and oxygen,"carbon,dioxide,water","oxygen,sugar",,,
+photosynthesis_valid_paraphrases,2,Photosynthesis releases oxygen and stores light energy.,0,release,photosynthesi,1,0,1,photosynthesis releases oxygen and stores light energy,,,oxygen,,
+photosynthesis_valid_paraphrases,2,Photosynthesis releases oxygen and stores light energy.,0,store,photosynthesi,1,0,1,photosynthesis releases oxygen and stores light energy,,,"energy,light",,
+photosynthesis_valid_paraphrases,3,Photosynthesis stores light energy in chemical form.,0,store,photosynthesi,1,0,0,photosynthesis stores light energy in chemical form,,,"chemical,energy,form,light",,
+photosynthesis_valid_paraphrases,4,Photosynthesis releases oxygen.,0,release,photosynthesi,1,0,0,photosynthesis releases oxygen,,,oxygen,,
+orbit_valid_paraphrases,0,Earth orbits the Sun.,0,orbit,earth,1,0,0,earth orbits the sun,,,,sun,
+orbit_valid_paraphrases,1,The Moon orbits Earth.,0,orbit,moon,1,0,0,the moon orbits earth,,,,earth,
+orbit_valid_paraphrases,2,The Sun is orbited by Earth.,0,orbit,earth,1,0,0,the sun is orbited by earth,,,,sun,
+orbit_valid_paraphrases,4,Earth goes around the Sun.,0,orbit,earth,1,0,0,earth goes around the sun,,,,sun,
+dna_valid_paraphrases,0,Human cells contain DNA in the nucleus.,0,contain,cells,1,0,0,human cells contain dna in the nucleus,,,"dna,nucleu",,
+dna_valid_paraphrases,1,The nucleus contains most human cellular DNA.,0,contain,nucleu,1,0,0,the nucleus contains most human cellular dna,,,"cellular,dna,human",,
+dna_valid_paraphrases,2,Mitochondria contain some DNA.,0,contain,mitochondria,1,0,0,mitochondria contain some dna,,,dna,,
+friction_heat_valid_paraphrases,0,Friction can produce heat.,0,produce,friction,1,0,0,friction can produce heat,,,heat,,
+friction_heat_valid_paraphrases,1,Rubbing surfaces can generate heat through friction.,0,produce,surfac,1,0,0,rubbing surfaces can generate heat through friction,,,"friction,heat",,
+friction_heat_valid_paraphrases,2,Friction converts some motion into heat.,0,convert,friction,1,0,0,friction converts some motion into heat,motion,heat,,,
+friction_heat_valid_paraphrases,3,Heat is produced when friction dissipates motion.,0,produce,motion,1,0,0,heat is produced when friction dissipates motion,,,heat,,
+mars_moons_valid_paraphrases,0,"Mars has two moons, Phobos and Deimos.",0,has_count,mars,1,0,0,mars has two moons,,,,moons,2
+mars_moons_valid_paraphrases,2,Mars has two natural satellites called Phobos and Deimos.,0,has_count,mars,1,0,0,mars has two natural,,,,natural,2
+mars_moons_valid_paraphrases,4,Mars has two moons called Phobos and Deimos.,0,has_count,mars,1,0,0,mars has two moons,,,,moons,2

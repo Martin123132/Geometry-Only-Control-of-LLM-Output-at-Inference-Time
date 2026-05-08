@@ -32,6 +32,12 @@ and relation constraints. In the frozen EXP20 ledger, it achieved confusion
 [[97, 0], [0, 160]] over 257 labelled candidates across 53 cases.
 ```
 
+## Claims and Scope
+
+See [`CLAIMS.md`](CLAIMS.md) for the claim register. The short version: MBT-5 regulates outputs against supplied references and the public offline corpus; it is not claimed to be a universal fact checker.
+
+Continuous integration for the offline corpus lives in [`.github/workflows/tests.yml`](.github/workflows/tests.yml).
+
 ## Current Locked Result
 
 Frozen ledger:
@@ -204,18 +210,18 @@ uv run --with pytest python -m pytest -q
 
 ## Experiment Lineage
 
-The full EXP01-EXP20 record is in `MBT5_EXP01_EXP20_TECHNICAL_LEDGER.md`.
+The full EXP01-EXP20 record is in `MBT5_EXP01_EXP20_TECHNICAL_LEDGER.md`. The expanded CSV experiment exports live in `data/csv_exports/`.
 
 Key frozen output artifacts:
 
 ```text
-mbt5_exp20_master_candidate_ledger.csv
-mbt5_exp20_master_case_ledger.csv
-mbt5_exp20_summary_metrics.csv
-mbt5_exp20_case_summary.csv
-mbt5_exp20_clamp_counts.csv
-mbt5_exp20_failure_table.csv
-mbt5_exp20_patch_lineage.csv
+data/csv_exports/mbt5_exp20_master_candidate_ledger.csv
+data/csv_exports/mbt5_exp20_master_case_ledger.csv
+data/csv_exports/mbt5_exp20_summary_metrics.csv
+data/csv_exports/mbt5_exp20_case_summary.csv
+data/csv_exports/mbt5_exp20_clamp_counts.csv
+data/csv_exports/mbt5_exp20_failure_table.csv
+data/csv_exports/mbt5_exp20_patch_lineage.csv
 ```
 
 ## Project Layout
@@ -230,11 +236,17 @@ mbt_ai_tools/
     consensus.py       multi-agent / council logic
     regulator.py       v11 candidate regulator
   cli.py               mbt-check command
+.github/workflows/
+  tests.yml            GitHub Actions offline regression test workflow
+CLAIMS.md             scoped public claims register
+data/csv_exports/     expanded EXP01-EXP20 CSV exports
 examples/
+  build_regression_corpus.py
   regression_corpus.jsonl
 tests/
   test_regulator.py
   test_regression_corpus.py
+REPLICATION.md        local/GitHub/Colab replication instructions
 pyproject.toml
 README.md
 LICENSE

@@ -1,0 +1,2 @@
+suite,N_cases,correct_cases,case_accuracy,emitted_cases,blocked_cases,expected_has_valid_cases,expected_all_bad_cases
+COMBINED_LOCKED_REGRESSION,43,43,1.0,22,21,22,21

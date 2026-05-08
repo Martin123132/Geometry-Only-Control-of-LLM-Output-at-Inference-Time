@@ -1,0 +1,9 @@
+case_id,prompt,expected_has_valid,action_v8_exp13c,emitted_text_v8,emitted_label_hallucinated_v8,emitted_score_v8,num_safe_candidates_v8,correct_case_decision_v8
+orbit_relation_mixed,Which object orbits which?,1,emit,Earth orbits the Sun.,0.0,0.1184820383787155,2,1
+orbit_relation_all_bad,Block wrong orbit relations.,0,block,,,,0,1
+conversion_direction_mixed,What does photosynthesis convert?,1,emit,Photosynthesis converts carbon dioxide and water into sugars and oxygen.,0.0,0.0616318546235561,3,1
+conversion_direction_all_bad,Block wrong conversion relations.,0,block,,,,0,1
+containment_direction_mixed,Where is DNA contained?,1,emit,The nucleus contains most human cellular DNA.,0.0,0.0624954551458358,3,1
+containment_direction_all_bad,Block wrong containment relations.,0,block,,,,0,1
+cause_direction_mixed,Which direction is the causal relation?,1,emit,Friction converts some motion into heat.,0.0,0.0492999479174613,3,1
+has_count_relation_mixed,Check object-count relations.,1,emit,"Mars has two moons, Phobos and Deimos.",0.0,0.027212930843234,3,1

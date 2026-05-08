@@ -1,0 +1,7 @@
+suite,model,N_candidates,accuracy,precision,recall,F1,TN,FP,FN,TP,confusion
+EXP07_adversarial_suite_with_EXP10B_v6,base_v4_before_relation_core_patch,46,0.9347826086956522,1.0,0.9090909090909091,0.9523809523809523,13,0,3,30,"[[13, 0], [3, 30]]"
+EXP07_adversarial_suite_with_EXP10B_v6,locked_v6_EXP10B,46,1.0,1.0,1.0,1.0,13,0,0,33,"[[13, 0], [0, 33]]"
+EXP08_false_negative_stress_with_EXP10B_v6,base_v4_before_relation_core_patch,23,0.4782608695652174,1.0,0.42857142857142855,0.6,2,0,12,9,"[[2, 0], [12, 9]]"
+EXP08_false_negative_stress_with_EXP10B_v6,locked_v6_EXP10B,23,1.0,1.0,1.0,1.0,2,0,0,21,"[[2, 0], [0, 21]]"
+COMBINED_EXP07_EXP08_REGRESSION,base_v4_before_relation_core_patch,69,0.782608695652174,1.0,0.7222222222222222,0.8387096774193549,15,0,15,39,"[[15, 0], [15, 39]]"
+COMBINED_EXP07_EXP08_REGRESSION,locked_v6_EXP10B,69,1.0,1.0,1.0,1.0,15,0,0,54,"[[15, 0], [0, 54]]"

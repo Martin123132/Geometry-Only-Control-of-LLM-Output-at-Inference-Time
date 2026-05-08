@@ -1,0 +1,2 @@
+suite,N_candidates,accuracy,precision,recall,F1,TN,FP,FN,TP,confusion
+COMBINED_LOCKED_REGRESSION,207,1.0,1.0,1.0,1.0,79,0,0,128,"[[79, 0], [0, 128]]"

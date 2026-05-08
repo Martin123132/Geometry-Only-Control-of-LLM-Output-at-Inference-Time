@@ -1,0 +1,4 @@
+suite,N_candidates,accuracy,precision,recall,F1,TN,FP,FN,TP,confusion
+EXP16B_MASTER_LOCKED_PLUS_GUARDED_EXP18,207,1.0,1.0,1.0,1.0,79,0,0,128,"[[79, 0], [0, 128]]"
+EXP18_UNSEEN_HOLDOUT_GUARDED,50,1.0,1.0,1.0,1.0,18,0,0,32,"[[18, 0], [0, 32]]"
+COMBINED_LOCKED_V11,257,1.0,1.0,1.0,1.0,97,0,0,160,"[[97, 0], [0, 160]]"

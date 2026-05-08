@@ -240,13 +240,13 @@ def extract_relations(text: str) -> Set[Relation]:
     relations: Set[Relation] = set()
 
     # Capital relations: "capital of France is Paris", "France's capital is Paris".
-    m = re.search(r"capital of ([a-z][a-z ]+?) is ([a-z][a-z ]+?)(?:$|\b)", normalized)
+    m = re.search(r"capital of ([a-z][a-z ]+?) is ([a-z][a-z ]+?)(?:\.|$)", normalized)
     if m:
         relations.add((_clean_span(m.group(1)), "capital", _clean_span(m.group(2))))
-    m = re.search(r"([a-z][a-z ]+?)s capital (?:city )?is ([a-z][a-z ]+?)(?:$|\b)", normalized)
+    m = re.search(r"([a-z][a-z ]+?)s capital (?:city )?is ([a-z][a-z ]+?)(?:\.|$)", normalized)
     if m:
         relations.add((_clean_span(m.group(1)), "capital", _clean_span(m.group(2))))
-    m = re.search(r"([a-z][a-z ]+?) is (?:the )?capital (?:city )?of ([a-z][a-z ]+?)(?:$|\b)", normalized)
+    m = re.search(r"([a-z][a-z ]+?) is (?:the )?capital (?:city )?of ([a-z][a-z ]+?)(?:\.|$)", normalized)
     if m:
         relations.add((_clean_span(m.group(2)), "capital", _clean_span(m.group(1))))
 
@@ -261,6 +261,7 @@ def extract_relations(text: str) -> Set[Relation]:
             subj
             and obj
             and "capital of" not in subj
+            and not obj.startswith(("capital of", "capital city of"))
             and len(subj.split()) <= 5
             and len(obj.split()) <= 7
         ):

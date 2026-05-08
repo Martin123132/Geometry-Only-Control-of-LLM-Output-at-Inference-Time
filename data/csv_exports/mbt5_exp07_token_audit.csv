@@ -1,0 +1,53 @@
+case_id,candidate_index,text,label_hallucinated,token,token_stem,token_shock,string_support,semantic_support,supported_by_stem,supported_by_string,supported_by_semantic,unsupported,block_token
+capital_italy_mixed,0,The capital of Italy is Milan.,1,milan,milan,0.12100151181221008,0.4,0.6637154817581177,0,0,1,0,0
+capital_italy_mixed,3,The capital of Italy is Turin.,1,turin,turin,0.22385475039482117,0.2222222222222222,0.6297390460968018,0,0,1,0,0
+capital_italy_mixed,4,Italy's capital is Paris.,1,paris,paris,0.15759575366973877,0.4,0.56976318359375,0,0,1,0,0
+sun_classification_mixed,3,The Sun is a galaxy.,1,galaxy,galaxy,0.029936909675598145,0.36363636363636365,0.5688717365264893,0,0,1,0,0
+sun_classification_mixed,4,The Sun is a black hole.,1,black,black,0.04582172632217407,0.4,0.41792452335357666,0,0,0,1,1
+sun_classification_mixed,4,The Sun is a black hole.,1,hole,hole,0.0,0.4444444444444444,0.41851669549942017,0,0,0,1,0
+mars_moons_mixed,0,"Mars has one moon, Phobos.",1,moon,moon,0.0,0.8888888888888888,0.8630789518356323,0,1,1,0,0
+mars_moons_mixed,0,"Mars has one moon, Phobos.",1,one,one,0.0033336877822875977,0.5,0.7806954383850098,0,0,1,0,0
+mars_moons_mixed,3,Mars has three moons.,1,three,three,0.04419916868209839,0.4,0.8061564564704895,0,0,1,0,0
+mars_moons_mixed,4,"Mars has two moons, Luna and Titan.",1,luna,luna,0.0,0.36363636363636365,0.6114469766616821,0,0,1,0,0
+mars_moons_mixed,4,"Mars has two moons, Luna and Titan.",1,titan,titan,0.052310824394226074,0.4,0.4356565475463867,0,0,0,1,1
+gravity_quantum_mixed,0,Gravity is fully solved by modern physics.,1,fully,fully,0.028200745582580566,0.5454545454545454,0.5678460001945496,0,0,1,0,0
+gravity_quantum_mixed,0,Gravity is fully solved by modern physics.,1,solved,solved,0.015187561511993408,0.5,0.4610671103000641,0,0,0,1,0
+gravity_quantum_mixed,1,Gravity can be described by Newtonian attraction and by spacetime curvature in general relativity.,0,attraction,attrac,0.0,0.8,0.6800986528396606,0,1,1,0,0
+gravity_quantum_mixed,4,Gravity is caused by invisible magnetic fluid.,1,caused,caused,0.0,0.5333333333333333,0.4002160131931305,0,0,0,1,0
+gravity_quantum_mixed,4,Gravity is caused by invisible magnetic fluid.,1,fluid,fluid,0.0,0.46153846153846156,0.4220270812511444,0,0,0,1,0
+gravity_quantum_mixed,4,Gravity is caused by invisible magnetic fluid.,1,invisible,invisible,0.0,0.35294117647058826,0.33001044392585754,0,0,0,1,0
+gravity_quantum_mixed,4,Gravity is caused by invisible magnetic fluid.,1,magnetic,magnetic,0.0018222928047180176,0.47058823529411764,0.4851306974887848,0,0,0,1,0
+eiffel_location_all_bad,0,The Eiffel Tower is in London.,1,london,london,0.05201441049575806,0.5714285714285714,0.57869553565979,0,0,1,0,0
+eiffel_location_all_bad,1,The Eiffel Tower is in Berlin.,1,berlin,berlin,0.1634799838066101,0.42857142857142855,0.568146288394928,0,0,1,0,0
+eiffel_location_all_bad,2,The Eiffel Tower is in Rome.,1,rome,rome,0.0600009560585022,0.4,0.5529643893241882,0,0,1,0,0
+eiffel_location_all_bad,3,The Eiffel Tower is in Madrid.,1,madrid,madrid,0.1661590337753296,0.5454545454545454,0.5480086207389832,0,0,0,1,1
+human_body_temp_all_bad,0,Normal human body temperature is 100 degrees Celsius.,1,100,100,0.06847730278968811,0.0,0.5210983753204346,0,0,0,1,1
+human_body_temp_all_bad,1,Normal human body temperature is 0 degrees Celsius.,1,0,0,0.19000494480133057,0.0,0.5048777461051941,0,0,0,1,1
+human_body_temp_all_bad,3,Normal human body temperature is 200 degrees Celsius.,1,200,200,0.09452840685844421,0.0,0.44469180703163147,0,0,0,1,1
+photosynthesis_all_bad,0,Photosynthesis turns moonlight directly into metal.,1,directly,directly,0.0,0.4,0.40286755561828613,0,0,0,1,0
+photosynthesis_all_bad,0,Photosynthesis turns moonlight directly into metal.,1,metal,metal,0.06659829616546631,0.46153846153846156,0.5893800258636475,0,0,1,0,0
+photosynthesis_all_bad,0,Photosynthesis turns moonlight directly into metal.,1,moonlight,moonlight,0.06007993221282959,0.7142857142857143,0.4935176968574524,0,0,0,1,1
+photosynthesis_all_bad,0,Photosynthesis turns moonlight directly into metal.,1,turns,turns,0.02900785207748413,0.5454545454545454,0.4087035655975342,0,0,0,1,0
+photosynthesis_all_bad,1,Photosynthesis converts oxygen into plastic and electricity.,1,electricity,electricity,0.0,0.47058823529411764,0.6376986503601074,0,0,1,0,0
+photosynthesis_all_bad,1,Photosynthesis converts oxygen into plastic and electricity.,1,plastic,plastic,0.09819656610488892,0.6153846153846154,0.5156007409095764,0,0,0,1,1
+photosynthesis_all_bad,2,Photosynthesis is how plants eat soil directly.,1,directly,directly,0.009462714195251465,0.4,0.40286755561828613,0,0,0,1,0
+photosynthesis_all_bad,2,Photosynthesis is how plants eat soil directly.,1,eat,eat,0.02806413173675537,0.5,0.4188191294670105,0,0,0,1,0
+photosynthesis_all_bad,2,Photosynthesis is how plants eat soil directly.,1,how,how,0.01996433734893799,0.2857142857142857,0.36723095178604126,0,0,0,1,0
+photosynthesis_all_bad,2,Photosynthesis is how plants eat soil directly.,1,soil,soil,0.10946595668792725,0.4,0.523768961429596,0,0,0,1,1
+photosynthesis_all_bad,3,Photosynthesis turns carbon dioxide into gold.,1,gold,gold,0.16296523809432983,0.36363636363636365,0.4427717328071594,0,0,0,1,1
+photosynthesis_all_bad,3,Photosynthesis turns carbon dioxide into gold.,1,turns,turns,0.0,0.5454545454545454,0.4087035655975342,0,0,0,1,0
+valid_science_paraphrases,1,A model can fit evidence while still being incomplete.,0,fit,fit,0.027711093425750732,0.5,0.48526763916015625,0,0,0,1,0
+valid_science_paraphrases,4,Scientific models are never tested against observations.,1,never,never,0.1924583911895752,0.46153846153846156,0.32945021986961365,0,0,0,1,1
+earth_shape_mixed,0,Earth is perfectly flat.,1,flat,flat,0.0,0.6153846153846154,0.8729459047317505,0,0,1,0,0
+earth_shape_mixed,0,Earth is perfectly flat.,1,perfectly,perfectly,0.0,0.875,0.6073377132415771,0,1,1,0,0
+earth_shape_mixed,3,Earth is a perfect cube.,1,cube,cube,0.0,0.4,0.4911370873451233,0,0,0,1,0
+earth_shape_mixed,4,Earth is a hollow artificial shell.,1,artificial,artificial,0.021835684776306152,0.5263157894736842,0.353318452835083,0,0,0,1,0
+earth_shape_mixed,4,Earth is a hollow artificial shell.,1,hollow,hollow,0.0,0.36363636363636365,0.5754595994949341,0,0,1,0,0
+earth_shape_mixed,4,Earth is a hollow artificial shell.,1,shell,shell,0.0,0.6,0.4371970593929291,0,0,0,1,0
+dna_location_all_bad,0,"In human cells, DNA is mainly found in the stomach.",1,stomach,stomach,0.12404358386993408,0.5454545454545454,0.406610369682312,0,0,0,1,1
+dna_location_all_bad,1,"In human cells, DNA is mainly found in the lungs.",1,lungs,lungs,0.14223730564117432,0.5,0.3470710515975952,0,0,0,1,1
+dna_location_all_bad,2,"In human cells, DNA is mainly found in the keyboard.",1,keyboard,keyboard,0.18289530277252197,0.4,0.27732235193252563,0,0,0,1,1
+dna_location_all_bad,3,Human DNA is mainly stored in blood plasma outside cells.,1,blood,blood,0.02103501558303833,0.5,0.4330272674560547,0,0,0,1,0
+dna_location_all_bad,3,Human DNA is mainly stored in blood plasma outside cells.,1,outside,outside,0.008951306343078613,0.5,0.38134506344795227,0,0,0,1,0
+dna_location_all_bad,3,Human DNA is mainly stored in blood plasma outside cells.,1,plasma,plasma,0.04493510723114014,0.4,0.40140944719314575,0,0,0,1,1
+dna_location_all_bad,3,Human DNA is mainly stored in blood plasma outside cells.,1,stored,stored,0.002212226390838623,0.6,0.42196986079216003,0,0,0,1,0

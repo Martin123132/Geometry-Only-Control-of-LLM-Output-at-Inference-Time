@@ -1,0 +1,7 @@
+stage,description,N_candidates,confusion,status
+EXP16B,Locked master regression before unseen holdout patch,207,"[[79, 0], [0, 128]]",clean
+EXP17,Unseen holdout exposed relation recall misses,50,"[[18, 0], [11, 21]]",failed recall
+EXP18,Relation recall patch fixed EXP17 holdout,50,"[[18, 0], [0, 32]]",clean on holdout
+EXP19,Ungarded EXP18 patch regressed EXP16B with 8 false positives,207,"[[71, 8], [0, 128]]",regression found
+EXP19B,Guarded known-participant patch restored EXP16B and retained EXP18,257,"[[97, 0], [0, 160]]",clean combined
+EXP20,Frozen combined guarded master ledger,257,"[[97, 0], [0, 160]]",frozen ledger

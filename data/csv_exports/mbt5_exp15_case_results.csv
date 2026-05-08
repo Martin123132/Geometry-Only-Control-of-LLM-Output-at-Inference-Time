@@ -1,0 +1,11 @@
+case_id,prompt,expected_has_valid,action_v9,emitted_text_v9,emitted_label_hallucinated_v9,emitted_score_v9,num_candidates,num_safe_candidates_v9,correct_case_decision_v9
+capital_italy_all_bad_extended,All candidates give wrong Italy capital/government claims.,0,block,,,,5,0,1
+earth_shape_all_bad_extended,All candidates give wrong Earth-shape claims.,0,emit,Earth has no equatorial bulging and is a perfect sphere.,1.0,0.40085822343826294,5,1,0
+gravity_all_bad_extended,All candidates overclaim or misdescribe gravity.,0,emit,General relativity proves gravity has no connection to mass or energy.,1.0,0.6588673830032349,5,1,0
+photosynthesis_all_bad_extended,All candidates give wrong photosynthesis relations.,0,block,,,,5,0,1
+orbit_all_bad_extended,All candidates give wrong orbit relations.,0,block,,,,5,0,1
+dna_location_all_bad_extended,All candidates give wrong DNA location/containment claims.,0,block,,,,5,0,1
+friction_heat_all_bad_extended,All candidates reverse or corrupt friction/heat relations.,0,block,,,,5,0,1
+mars_moons_all_bad_extended,All candidates give wrong Mars moon claims.,0,block,,,,5,0,1
+science_models_all_bad_extended,All candidates overclaim scientific models.,0,emit,Scientific descriptions do not use measurements or predictions.,1.0,0.771054995059967,5,1,0
+temperature_all_bad_extended,All candidates give wrong body-temperature claims.,0,block,,,,5,0,1

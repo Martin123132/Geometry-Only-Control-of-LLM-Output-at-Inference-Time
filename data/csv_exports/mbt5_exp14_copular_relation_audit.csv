@@ -1,0 +1,67 @@
+case_id,candidate_index,text,label_hallucinated,subject,object,negated,pair_positive,pair_negative,known_subject,known_object,group_positive_support,explicit_negation_breach,known_wrong_mapping,bare_unknown_category,relation_block,raw_clause
+earth_shape_valid_paraphrases,0,Earth is approximately an oblate spheroid.,0,earth,oblate,0,1,0,1,1,1,0,0,0,0,Earth is approximately an oblate spheroid
+earth_shape_valid_paraphrases,0,Earth is approximately an oblate spheroid.,0,earth,spheroid,0,1,0,1,1,1,0,0,0,0,Earth is approximately an oblate spheroid
+earth_shape_valid_paraphrases,1,Earth is roughly spherical and slightly flattened at the poles.,0,earth,spherical,0,1,0,1,1,1,0,0,0,0,Earth is roughly spherical and slightly flattened at the poles
+earth_shape_valid_paraphrases,1,Earth is roughly spherical and slightly flattened at the poles.,0,earth,flatten,0,1,0,1,1,1,0,0,0,0,Earth is roughly spherical and slightly flattened at the poles
+earth_shape_valid_paraphrases,1,Earth is roughly spherical and slightly flattened at the poles.,0,earth,poles,0,1,0,1,1,1,0,0,0,0,Earth is roughly spherical and slightly flattened at the poles
+earth_shape_valid_paraphrases,2,Earth's shape is commonly described as an oblate spheroid.,0,shape,oblate,0,1,0,1,1,1,0,0,0,0,Earth's shape is commonly described as an oblate spheroid
+earth_shape_valid_paraphrases,2,Earth's shape is commonly described as an oblate spheroid.,0,shape,spheroid,0,1,0,1,1,1,0,0,0,0,Earth's shape is commonly described as an oblate spheroid
+earth_shape_valid_paraphrases,3,Earth is not a perfect sphere; it is slightly flattened at the poles.,0,earth,perfect,1,0,1,1,1,1,0,0,0,0,Earth is not a perfect sphere
+earth_shape_valid_paraphrases,3,Earth is not a perfect sphere; it is slightly flattened at the poles.,0,earth,sphere,1,0,1,1,1,1,0,0,0,0,Earth is not a perfect sphere
+earth_shape_valid_paraphrases,3,Earth is not a perfect sphere; it is slightly flattened at the poles.,0,earth,flatten,0,1,0,1,1,1,0,0,0,0,it is slightly flattened at the poles
+earth_shape_valid_paraphrases,3,Earth is not a perfect sphere; it is slightly flattened at the poles.,0,earth,poles,0,1,0,1,1,1,0,0,0,0,it is slightly flattened at the poles
+earth_shape_valid_paraphrases,4,The planet Earth is roughly spherical with equatorial bulging.,0,earth,spherical,0,1,0,1,1,1,0,0,0,0,The planet Earth is roughly spherical with equatorial bulging
+earth_shape_valid_paraphrases,4,The planet Earth is roughly spherical with equatorial bulging.,0,earth,equatorial,0,1,0,1,1,1,0,0,0,0,The planet Earth is roughly spherical with equatorial bulging
+earth_shape_valid_paraphrases,4,The planet Earth is roughly spherical with equatorial bulging.,0,earth,bulging,0,1,0,1,1,1,0,0,0,0,The planet Earth is roughly spherical with equatorial bulging
+gravity_valid_paraphrases,0,"Modern physics has useful descriptions of gravity, but no complete quantum theory is established.",0,theory,establish,0,0,0,0,1,0,0,0,0,0,"Modern physics has useful descriptions of gravity, but no complete quantum theory is established"
+gravity_valid_paraphrases,3,A complete experimentally verified theory of quantum gravity is not established.,0,gravity,establish,1,1,1,1,1,1,0,0,0,0,A complete experimentally verified theory of quantum gravity is not established
+orbit_valid_paraphrases,2,The Sun is orbited by Earth.,0,sun,orbit,0,1,0,1,1,1,0,0,0,0,The Sun is orbited by Earth
+orbit_valid_paraphrases,2,The Sun is orbited by Earth.,0,sun,earth,0,1,0,1,1,1,0,0,0,0,The Sun is orbited by Earth
+orbit_valid_paraphrases,3,The Moon is a natural satellite of Earth.,0,moon,natural,0,1,0,1,1,1,0,0,0,0,The Moon is a natural satellite of Earth
+orbit_valid_paraphrases,3,The Moon is a natural satellite of Earth.,0,moon,satellite,0,1,0,1,1,1,0,0,0,0,The Moon is a natural satellite of Earth
+orbit_valid_paraphrases,3,The Moon is a natural satellite of Earth.,0,moon,earth,0,1,0,1,1,1,0,0,0,0,The Moon is a natural satellite of Earth
+dna_valid_paraphrases,3,DNA is located mainly in the nucleus.,0,dna,mainly,0,1,0,1,1,1,0,0,0,0,DNA is located mainly in the nucleus
+dna_valid_paraphrases,3,DNA is located mainly in the nucleus.,0,dna,nucleu,0,1,0,1,1,1,0,0,0,0,DNA is located mainly in the nucleus
+dna_valid_paraphrases,4,Most human cellular DNA is in the nucleus.,0,dna,nucleu,0,1,0,1,1,1,0,0,0,0,Most human cellular DNA is in the nucleus
+friction_heat_valid_paraphrases,3,Heat is produced when friction dissipates motion.,0,heat,produc,0,1,0,1,1,1,0,0,0,0,Heat is produced when friction dissipates motion
+friction_heat_valid_paraphrases,3,Heat is produced when friction dissipates motion.,0,heat,when,0,1,0,1,1,1,0,0,0,0,Heat is produced when friction dissipates motion
+friction_heat_valid_paraphrases,3,Heat is produced when friction dissipates motion.,0,heat,friction,0,1,0,1,1,1,0,0,0,0,Heat is produced when friction dissipates motion
+friction_heat_valid_paraphrases,3,Heat is produced when friction dissipates motion.,0,heat,dissipat,0,1,0,1,1,1,0,0,0,0,Heat is produced when friction dissipates motion
+friction_heat_valid_paraphrases,3,Heat is produced when friction dissipates motion.,0,heat,motion,0,1,0,1,1,1,0,0,0,0,Heat is produced when friction dissipates motion
+mars_moons_valid_paraphrases,1,The two moons of Mars are Phobos and Deimos.,0,mars,phobo,0,1,0,1,1,1,0,0,0,0,The two moons of Mars are Phobos and Deimos
+mars_moons_valid_paraphrases,1,The two moons of Mars are Phobos and Deimos.,0,mars,deimo,0,1,0,1,1,1,0,0,0,0,The two moons of Mars are Phobos and Deimos
+mars_moons_valid_paraphrases,3,Phobos and Deimos are the moons of Mars.,0,deimo,moons,0,1,0,1,1,1,0,0,0,0,Phobos and Deimos are the moons of Mars
+mars_moons_valid_paraphrases,3,Phobos and Deimos are the moons of Mars.,0,deimo,mars,0,1,0,1,1,1,0,0,0,0,Phobos and Deimos are the moons of Mars
+science_models_valid_paraphrases,2,"Scientific descriptions are tested against observations, measurements, and predictions.",0,description,tested,0,1,0,1,1,1,0,0,0,0,"Scientific descriptions are tested against observations, measurements, and predictions"
+science_models_valid_paraphrases,2,"Scientific descriptions are tested against observations, measurements, and predictions.",0,description,against,0,1,0,1,1,1,0,0,0,0,"Scientific descriptions are tested against observations, measurements, and predictions"
+science_models_valid_paraphrases,2,"Scientific descriptions are tested against observations, measurements, and predictions.",0,description,observation,0,1,0,1,1,1,0,0,0,0,"Scientific descriptions are tested against observations, measurements, and predictions"
+science_models_valid_paraphrases,2,"Scientific descriptions are tested against observations, measurements, and predictions.",0,description,measurement,0,1,0,1,1,1,0,0,0,0,"Scientific descriptions are tested against observations, measurements, and predictions"
+science_models_valid_paraphrases,2,"Scientific descriptions are tested against observations, measurements, and predictions.",0,description,prediction,0,1,0,1,1,1,0,0,0,0,"Scientific descriptions are tested against observations, measurements, and predictions"
+science_models_valid_paraphrases,3,A successful model is not automatically a complete final description of reality.,0,model,automatically,1,0,1,1,1,0,0,0,0,0,A successful model is not automatically a complete final description of reality
+science_models_valid_paraphrases,3,A successful model is not automatically a complete final description of reality.,0,model,complete,1,0,1,1,1,0,0,0,0,0,A successful model is not automatically a complete final description of reality
+science_models_valid_paraphrases,3,A successful model is not automatically a complete final description of reality.,0,model,final,1,0,1,1,1,0,0,0,0,0,A successful model is not automatically a complete final description of reality
+science_models_valid_paraphrases,3,A successful model is not automatically a complete final description of reality.,0,model,descrip,1,0,1,1,1,0,0,0,0,0,A successful model is not automatically a complete final description of reality
+science_models_valid_paraphrases,3,A successful model is not automatically a complete final description of reality.,0,model,reality,1,0,1,1,1,0,0,0,0,0,A successful model is not automatically a complete final description of reality
+temperature_valid_paraphrases,0,Normal human body temperature is often given as about 37 degrees Celsius.,0,temperature,37,0,1,0,1,1,1,0,0,0,0,Normal human body temperature is often given as about 37 degrees Celsius
+temperature_valid_paraphrases,0,Normal human body temperature is often given as about 37 degrees Celsius.,0,temperature,degre,0,1,0,1,1,1,0,0,0,0,Normal human body temperature is often given as about 37 degrees Celsius
+temperature_valid_paraphrases,0,Normal human body temperature is often given as about 37 degrees Celsius.,0,temperature,celsiu,0,1,0,1,1,1,0,0,0,0,Normal human body temperature is often given as about 37 degrees Celsius
+temperature_valid_paraphrases,1,A common reference value for normal human body temperature is around 37°C.,0,temperature,37,0,1,0,1,1,1,0,0,0,0,A common reference value for normal human body temperature is around 37°C
+temperature_valid_paraphrases,1,A common reference value for normal human body temperature is around 37°C.,0,temperature,c,0,1,0,1,1,1,0,0,0,0,A common reference value for normal human body temperature is around 37°C
+temperature_valid_paraphrases,2,"Normal body temperature is approximately 37 degrees Celsius, though it varies.",0,temperature,37,0,1,0,1,1,1,0,0,0,0,"Normal body temperature is approximately 37 degrees Celsius, though it varies"
+temperature_valid_paraphrases,2,"Normal body temperature is approximately 37 degrees Celsius, though it varies.",0,temperature,degre,0,1,0,1,1,1,0,0,0,0,"Normal body temperature is approximately 37 degrees Celsius, though it varies"
+temperature_valid_paraphrases,2,"Normal body temperature is approximately 37 degrees Celsius, though it varies.",0,temperature,celsiu,0,1,0,1,1,1,0,0,0,0,"Normal body temperature is approximately 37 degrees Celsius, though it varies"
+temperature_valid_paraphrases,2,"Normal body temperature is approximately 37 degrees Celsius, though it varies.",0,temperature,though,0,1,0,1,1,1,0,0,0,0,"Normal body temperature is approximately 37 degrees Celsius, though it varies"
+temperature_valid_paraphrases,2,"Normal body temperature is approximately 37 degrees Celsius, though it varies.",0,temperature,vary,0,1,0,1,1,1,0,0,0,0,"Normal body temperature is approximately 37 degrees Celsius, though it varies"
+temperature_valid_paraphrases,3,Human body temperature is commonly described as near 37°C.,0,temperature,37,0,1,0,1,1,1,0,0,0,0,Human body temperature is commonly described as near 37°C
+temperature_valid_paraphrases,3,Human body temperature is commonly described as near 37°C.,0,temperature,c,0,1,0,1,1,1,0,0,0,0,Human body temperature is commonly described as near 37°C
+temperature_valid_paraphrases,4,"Normal human body temperature is about 37°C, though it varies.",0,temperature,37,0,1,0,1,1,1,0,0,0,0,"Normal human body temperature is about 37°C, though it varies"
+temperature_valid_paraphrases,4,"Normal human body temperature is about 37°C, though it varies.",0,temperature,c,0,1,0,1,1,1,0,0,0,0,"Normal human body temperature is about 37°C, though it varies"
+temperature_valid_paraphrases,4,"Normal human body temperature is about 37°C, though it varies.",0,temperature,though,0,1,0,1,1,1,0,0,0,0,"Normal human body temperature is about 37°C, though it varies"
+temperature_valid_paraphrases,4,"Normal human body temperature is about 37°C, though it varies.",0,temperature,vary,0,1,0,1,1,1,0,0,0,0,"Normal human body temperature is about 37°C, though it varies"
+capital_valid_paraphrases,0,The capital of Italy is Rome.,0,italy,rome,0,1,0,1,1,1,0,0,0,0,The capital of Italy is Rome
+capital_valid_paraphrases,1,Rome is the capital city of Italy.,0,rome,capital,0,1,0,1,1,1,0,0,0,0,Rome is the capital city of Italy
+capital_valid_paraphrases,1,Rome is the capital city of Italy.,0,rome,city,0,1,0,1,1,1,0,0,0,0,Rome is the capital city of Italy
+capital_valid_paraphrases,1,Rome is the capital city of Italy.,0,rome,italy,0,1,0,1,1,1,0,0,0,0,Rome is the capital city of Italy
+capital_valid_paraphrases,2,Italy's government is based in Rome.,0,government,based,0,1,0,1,1,1,0,0,0,0,Italy's government is based in Rome
+capital_valid_paraphrases,2,Italy's government is based in Rome.,0,government,rome,0,1,0,1,1,1,0,0,0,0,Italy's government is based in Rome
+capital_valid_paraphrases,4,Italy's capital is Rome.,0,capital,rome,0,0,0,0,1,0,0,0,0,0,Italy's capital is Rome

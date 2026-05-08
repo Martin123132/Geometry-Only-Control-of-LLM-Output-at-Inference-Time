@@ -1,0 +1,1 @@
+suite,case_id,candidate_index,text,label_hallucinated,pred_hallucinated_locked,locked_confusion_class,mbt5_shock,threshold,literal_score,reference_overlap,regulator_score,clamp_summary,novel_numbers,novel_units,novel_entities,novel_content

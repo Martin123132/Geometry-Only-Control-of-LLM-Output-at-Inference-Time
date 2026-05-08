@@ -1,0 +1,9 @@
+case_id,prompt,expected_has_valid,baseline_text,baseline_label_hallucinated,baseline_score,action_v6,emitted_text_v6,emitted_label_hallucinated_v6,emitted_score_v6,num_candidates,num_safe_candidates_v6,correct_case_decision_v6
+orbit_relation_mixed,Which object orbits which?,1,Earth orbits the Moon.,1,0.16581957042217255,emit,Earth orbits the Sun.,0,0.11848203837871552,5,5,1
+orbit_relation_all_bad,Block wrong orbit relations.,0,Earth orbits the Moon.,1,0.26887935400009155,emit,The Sun orbits Earth.,1,0.23501724004745483,5,5,0
+conversion_direction_mixed,What does photosynthesis convert?,1,Photosynthesis converts oxygen into carbon dioxide and water.,1,0.13442744314670563,emit,Photosynthesis converts carbon dioxide and water into sugars and oxygen.,0,0.06163185462355614,5,4,1
+conversion_direction_all_bad,Block wrong conversion relations.,0,Photosynthesis converts oxygen into carbon dioxide and water.,1,0.13442744314670563,emit,Photosynthesis converts sugars into carbon dioxide and water.,1,0.12390463054180145,4,3,0
+containment_direction_mixed,Where is DNA contained?,1,DNA contains the nucleus.,1,0.14642557501792908,emit,The nucleus contains most human cellular DNA.,0,0.062495455145835876,5,4,1
+containment_direction_all_bad,Block wrong containment relations.,0,DNA contains the nucleus.,1,0.14642557501792908,emit,DNA contains the nucleus.,1,0.14642557501792908,4,3,0
+cause_direction_mixed,Which direction is the causal relation?,1,Heat produces friction.,1,0.06041586026549339,emit,Friction converts some motion into heat.,0,0.049299947917461395,5,5,1
+has_count_relation_mixed,Check object-count relations.,1,"Mars has one moon, Phobos.",1,0.19475506246089935,emit,"Mars has two moons, Phobos and Deimos.",0,0.027212930843234062,5,5,1

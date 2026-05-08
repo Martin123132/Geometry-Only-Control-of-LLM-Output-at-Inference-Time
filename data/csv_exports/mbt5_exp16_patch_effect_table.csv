@@ -1,0 +1,11 @@
+suite,N_candidates,accuracy,precision,recall,F1,TN,FP,FN,TP,confusion
+EXP07_adversarial_suite_LOCKED_EXP10B__previous,46,0.9347826086956522,1.0,0.9090909090909091,0.9523809523809523,13,0,3,30,"[[13, 0], [3, 30]]"
+EXP07_adversarial_suite_LOCKED_EXP10B__locked,46,1.0,1.0,1.0,1.0,13,0,0,33,"[[13, 0], [0, 33]]"
+EXP08_false_negative_stress_LOCKED_EXP11__previous,23,0.4782608695652174,1.0,0.42857142857142855,0.6,2,0,12,9,"[[2, 0], [12, 9]]"
+EXP08_false_negative_stress_LOCKED_EXP11__locked,23,1.0,1.0,1.0,1.0,2,0,0,21,"[[2, 0], [0, 21]]"
+EXP13_noncopular_relation_LOCKED_EXP13C__previous,38,0.42105263157894735,0.75,0.125,0.21428571428571427,13,1,21,3,"[[13, 1], [21, 3]]"
+EXP13_noncopular_relation_LOCKED_EXP13C__locked,38,1.0,1.0,1.0,1.0,14,0,0,24,"[[14, 0], [0, 24]]"
+EXP14_valid_paraphrase_LOCKED_EXP14B__previous,50,0.98,0.0,0.0,0.0,49,1,0,0,"[[49, 1], [0, 0]]"
+EXP14_valid_paraphrase_LOCKED_EXP14B__locked,50,1.0,0.0,0.0,0.0,50,0,0,0,"[[50, 0], [0, 0]]"
+EXP15_large_all_bad_LOCKED_EXP15B__previous,50,0.94,1.0,0.94,0.9690721649484536,0,0,3,47,"[[0, 0], [3, 47]]"
+EXP15_large_all_bad_LOCKED_EXP15B__locked,50,1.0,1.0,1.0,1.0,0,0,0,50,"[[0, 0], [0, 50]]"

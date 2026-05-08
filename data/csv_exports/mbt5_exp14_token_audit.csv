@@ -1,0 +1,7 @@
+case_id,candidate_index,text,label_hallucinated,token,token_stem,token_shock,string_support,semantic_support,supported_by_stem,supported_by_string,supported_by_semantic,unsupported,block_token
+gravity_valid_paraphrases,1,Gravity can be modeled as Newtonian attraction between masses.,0,attraction,attrac,0.017067790031433105,0.8,0.6800986528396606,0,1,1,0,0
+gravity_valid_paraphrases,2,General relativity describes gravity using spacetime curvature associated with mass and energy.,0,describes,describ,0.0,0.6666666666666666,0.7022823095321655,0,0,1,0,0
+gravity_valid_paraphrases,4,Current physics describes gravity through useful but incomplete models.,0,current,current,0.0,0.625,0.43691766262054443,0,0,0,1,0
+gravity_valid_paraphrases,4,Current physics describes gravity through useful but incomplete models.,0,describes,describ,0.0,0.6666666666666666,0.7022823095321655,0,0,1,0,0
+gravity_valid_paraphrases,4,Current physics describes gravity through useful but incomplete models.,0,incomplete,incomplete,0.0,0.8888888888888888,0.7336447238922119,0,1,1,0,0
+orbit_valid_paraphrases,4,Earth goes around the Sun.,0,goes,goes,0.0,0.4,0.3563697338104248,0,0,0,1,0

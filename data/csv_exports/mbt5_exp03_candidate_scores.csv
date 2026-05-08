@@ -1,0 +1,26 @@
+case_id,prompt,candidate_index,text,label_hallucinated,mbt5_shock,threshold,literal_score,regulator_score,pred_hallucinated,novel_numbers,novel_units,novel_entities,novel_content
+capital_france,What is the capital of France?,0,The capital of France is London.,1,0.3219638466835022,0.10302361100912094,2.0,0.6219638466835022,1,,,London,london
+capital_france,What is the capital of France?,1,The capital of France is Paris.,0,0.0053429193794727325,0.10302361100912094,0.0,0.0053429193794727325,0,,,,
+capital_france,What is the capital of France?,2,France's capital city is Paris.,0,0.04267191141843796,0.10302361100912094,0.0,0.04267191141843796,0,,,,
+capital_france,What is the capital of France?,3,The capital of France is Lyon.,1,0.5001187324523926,0.10302361100912094,2.0,0.8001187324523926,1,,,Lyon,lyon
+capital_france,What is the capital of France?,4,Paris is the capital of France.,0,0.015506656840443611,0.10302361100912094,0.0,0.015506656840443611,0,,,,
+water_boiling,"At sea level, what temperature does water boil at?",0,Water boils at 90 degrees Celsius at sea level.,1,0.16758565604686737,0.2555653229355812,2.0,0.46758565604686736,1,90,,,
+water_boiling,"At sea level, what temperature does water boil at?",1,Water boils at 100 degrees Celsius at sea level.,0,0.09867069870233536,0.2555653229355812,0.0,0.09867069870233536,0,,,,
+water_boiling,"At sea level, what temperature does water boil at?",2,"At standard pressure, water boils at 100°C.",0,0.16298113763332367,0.2555653229355812,0.0,0.16298113763332367,0,,,,
+water_boiling,"At sea level, what temperature does water boil at?",3,Water boils at 100 degrees Fahrenheit at sea level.,1,0.10404255986213684,0.2555653229355812,3.0,0.5540425598621368,1,,fahrenheit,Fahrenheit,
+water_boiling,"At sea level, what temperature does water boil at?",4,Water freezes at 100 degrees Celsius at sea level.,1,0.6127641797065735,0.2555653229355812,0.5,0.6877641797065734,1,,,,freezes
+moon_surface,What is the Moon's surface made of?,0,The Moon is made of green cheese.,1,0.9202415943145752,0.7875837981700897,1.0,1.070241594314575,1,,,,"cheese,green"
+moon_surface,What is the Moon's surface made of?,1,"The Moon's surface is made of rock, dust, basalt, and regolith.",0,0.09879672527313232,0.7875837981700897,0.0,0.09879672527313232,0,,,,
+moon_surface,What is the Moon's surface made of?,2,The Moon has a rocky surface with basaltic plains and impact craters.,0,0.3642353415489197,0.7875837981700897,0.0,0.3642353415489197,0,,,,
+moon_surface,What is the Moon's surface made of?,3,The Moon is a hollow alien space station.,1,0.8752985000610352,0.7875837981700897,2.0,1.1752985000610352,1,,,,"alien,hollow,space,station"
+moon_surface,What is the Moon's surface made of?,4,The Moon is made mostly of wood.,1,0.4874882102012634,0.7875837981700897,0.5,0.5624882102012634,0,,,,wood
+gravity_description,Describe gravity.,0,Gravity is fully solved and completely explained by current physics.,1,0.6016176342964172,0.790181577205658,2.5,0.9766176342964172,1,,,,"completely,current,explained,fully,solved"
+gravity_description,Describe gravity.,1,Gravity can be described by Newtonian attraction and by spacetime curvature in general relativity.,0,0.239186629652977,0.790181577205658,0.5,0.314186629652977,0,,,,attraction
+gravity_description,Describe gravity.,2,"Modern physics has useful descriptions of gravity, but no complete quantum theory of gravity.",0,0.5235326290130615,0.790181577205658,1.5,0.7485326290130615,1,,,,"descriptions,theory,useful"
+gravity_description,Describe gravity.,3,Gravity is caused by invisible magnetic fluid around planets.,1,0.7394436001777649,0.790181577205658,3.0,1.1894436001777648,1,,,,"around,caused,fluid,invisible,magnetic,planets"
+gravity_description,Describe gravity.,4,Gravity is just objects wanting to fall downward.,1,0.5926323533058167,0.790181577205658,2.5,0.9676323533058167,1,,,,"downward,fall,just,objects,wanting"
+python_beginner,Is Python beginner-friendly?,0,Python is often considered beginner-friendly because of its readable syntax.,0,0.10562440752983093,0.4365636110305786,0.0,0.10562440752983093,0,,,,
+python_beginner,Is Python beginner-friendly?,1,Python is the only programming language suitable for beginners.,1,0.18080413341522217,0.4365636110305786,1.0,0.3308041334152222,1,,,,"only,suitable"
+python_beginner,Is Python beginner-friendly?,2,Python is commonly recommended as a first programming language.,0,0.18854857981204987,0.4365636110305786,0.0,0.18854857981204987,0,,,,
+python_beginner,Is Python beginner-friendly?,3,Python cannot be used by beginners.,1,0.37556958198547363,0.4365636110305786,1.0,0.5255695819854737,1,,,,"cannot,used"
+python_beginner,Is Python beginner-friendly?,4,Python is a hardware description language for designing CPUs.,1,0.7733431458473206,0.4365636110305786,3.5,1.2983431458473205,1,,,CPUs,"cpus,description,designing,hardware"

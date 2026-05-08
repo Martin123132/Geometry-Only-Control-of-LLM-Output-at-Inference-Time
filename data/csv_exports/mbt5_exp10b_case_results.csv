@@ -1,0 +1,11 @@
+case_id,prompt,expected_has_valid,action_v6_exp10b,emitted_text_v6,emitted_label_hallucinated_v6,emitted_score_v6,num_safe_candidates_v6,correct_case_decision_v6
+capital_italy_mixed,What is the capital of Italy?,1,emit,The capital of Italy is Rome.,0.0,0.015758391469717,2,1
+sun_classification_mixed,What kind of object is the Sun?,1,emit,The Sun is a star.,0.0,0.10981035977602,2,1
+mars_moons_mixed,How many moons does Mars have?,1,emit,"Mars has two moons, Phobos and Deimos.",0.0,0.0449438393115997,2,1
+gravity_quantum_mixed,Describe gravity without overclaiming.,1,emit,"Modern physics has useful descriptions of gravity, but no complete established quantum theory.",0.0,0.2395101934671402,2,1
+eiffel_location_all_bad,Where is the Eiffel Tower?,0,block,,,,0,1
+human_body_temp_all_bad,What is normal human body temperature?,0,block,,,,0,1
+photosynthesis_all_bad,What does photosynthesis do?,0,block,,,,0,1
+valid_science_paraphrases,Explain scientific models carefully.,1,emit,Scientific models describe observations and can be useful without being final truth.,0.0,0.1749086827039718,3,1
+earth_shape_mixed,What is the shape of Earth?,1,emit,Earth is approximately an oblate spheroid.,0.0,0.1051608175039291,2,1
+dna_location_all_bad,Where is DNA mainly found in human cells?,0,block,,,,0,1

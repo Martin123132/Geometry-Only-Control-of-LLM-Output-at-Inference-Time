@@ -1,0 +1,88 @@
+case_id,candidate_index,text,label_hallucinated,subject,object,negated,pair_positive,pair_negative,known_subject,known_object,explicit_negation_breach,known_wrong_mapping,bare_unknown_category,relation_block,raw_clause
+capital_italy_mixed,0,The capital of Italy is Milan.,1,italy,milan,0,0,0,1,0,0,0,1,1,The capital of Italy is Milan
+capital_italy_mixed,1,The capital of Italy is Rome.,0,italy,rome,0,1,0,1,1,0,0,0,0,The capital of Italy is Rome
+capital_italy_mixed,2,Rome is Italy's capital city.,0,rome,italy,0,1,0,1,1,0,0,0,0,Rome is Italy's capital city
+capital_italy_mixed,2,Rome is Italy's capital city.,0,rome,s,0,0,0,1,0,0,0,0,0,Rome is Italy's capital city
+capital_italy_mixed,2,Rome is Italy's capital city.,0,rome,capital,0,1,0,1,1,0,0,0,0,Rome is Italy's capital city
+capital_italy_mixed,2,Rome is Italy's capital city.,0,rome,city,0,1,0,1,1,0,0,0,0,Rome is Italy's capital city
+capital_italy_mixed,3,The capital of Italy is Turin.,1,italy,turin,0,0,0,1,0,0,0,1,1,The capital of Italy is Turin
+capital_italy_mixed,4,Italy's capital is Paris.,1,capital,paris,0,0,0,0,0,0,0,0,0,Italy's capital is Paris
+sun_classification_mixed,0,The Sun is a planet.,1,sun,planet,0,0,1,1,1,1,1,0,1,The Sun is a planet
+sun_classification_mixed,1,The Sun is a star.,0,sun,star,0,1,0,1,1,0,0,0,0,The Sun is a star
+sun_classification_mixed,2,The Sun is the star at the center of the Solar System.,0,sun,star,0,1,0,1,1,0,0,0,0,The Sun is the star at the center of the Solar System
+sun_classification_mixed,2,The Sun is the star at the center of the Solar System.,0,sun,solar,0,1,0,1,1,0,0,0,0,The Sun is the star at the center of the Solar System
+sun_classification_mixed,3,The Sun is a galaxy.,1,sun,galaxy,0,0,0,1,0,0,0,1,1,The Sun is a galaxy
+sun_classification_mixed,4,The Sun is a black hole.,1,sun,black,0,0,0,1,0,0,0,1,1,The Sun is a black hole
+sun_classification_mixed,4,The Sun is a black hole.,1,sun,hole,0,0,0,1,0,0,0,1,1,The Sun is a black hole
+mars_moons_mixed,2,The moons of Mars are Phobos and Deimos.,0,mars,phobos,0,1,0,1,1,0,0,0,0,The moons of Mars are Phobos and Deimos
+mars_moons_mixed,2,The moons of Mars are Phobos and Deimos.,0,mars,deimos,0,1,0,1,1,0,0,0,0,The moons of Mars are Phobos and Deimos
+gravity_quantum_mixed,0,Gravity is fully solved by modern physics.,1,gravity,fully,0,0,0,1,0,0,0,0,0,Gravity is fully solved by modern physics
+gravity_quantum_mixed,0,Gravity is fully solved by modern physics.,1,gravity,solved,0,0,0,1,0,0,0,0,0,Gravity is fully solved by modern physics
+gravity_quantum_mixed,0,Gravity is fully solved by modern physics.,1,gravity,modern,0,0,0,1,0,0,0,0,0,Gravity is fully solved by modern physics
+gravity_quantum_mixed,0,Gravity is fully solved by modern physics.,1,gravity,physics,0,0,0,1,0,0,0,0,0,Gravity is fully solved by modern physics
+gravity_quantum_mixed,3,Quantum gravity is complete and experimentally verified.,1,gravity,complete,0,0,0,1,0,0,0,1,1,Quantum gravity is complete and experimentally verified
+gravity_quantum_mixed,3,Quantum gravity is complete and experimentally verified.,1,gravity,experimentally,0,0,0,1,0,0,0,1,1,Quantum gravity is complete and experimentally verified
+gravity_quantum_mixed,3,Quantum gravity is complete and experimentally verified.,1,gravity,verified,0,0,0,1,0,0,0,1,1,Quantum gravity is complete and experimentally verified
+gravity_quantum_mixed,4,Gravity is caused by invisible magnetic fluid.,1,gravity,caused,0,0,0,1,0,0,0,0,0,Gravity is caused by invisible magnetic fluid
+gravity_quantum_mixed,4,Gravity is caused by invisible magnetic fluid.,1,gravity,invisible,0,0,0,1,0,0,0,0,0,Gravity is caused by invisible magnetic fluid
+gravity_quantum_mixed,4,Gravity is caused by invisible magnetic fluid.,1,gravity,magnetic,0,0,0,1,0,0,0,0,0,Gravity is caused by invisible magnetic fluid
+gravity_quantum_mixed,4,Gravity is caused by invisible magnetic fluid.,1,gravity,fluid,0,0,0,1,0,0,0,0,0,Gravity is caused by invisible magnetic fluid
+eiffel_location_all_bad,0,The Eiffel Tower is in London.,1,tower,london,0,0,0,1,0,0,0,1,1,The Eiffel Tower is in London
+eiffel_location_all_bad,1,The Eiffel Tower is in Berlin.,1,tower,berlin,0,0,0,1,0,0,0,1,1,The Eiffel Tower is in Berlin
+eiffel_location_all_bad,2,The Eiffel Tower is in Rome.,1,tower,rome,0,0,0,1,0,0,0,1,1,The Eiffel Tower is in Rome
+eiffel_location_all_bad,3,The Eiffel Tower is in Madrid.,1,tower,madrid,0,0,0,1,0,0,0,1,1,The Eiffel Tower is in Madrid
+human_body_temp_all_bad,0,Normal human body temperature is 100 degrees Celsius.,1,temperature,100,0,0,0,1,0,0,0,1,1,Normal human body temperature is 100 degrees Celsius
+human_body_temp_all_bad,0,Normal human body temperature is 100 degrees Celsius.,1,temperature,degrees,0,1,0,1,1,0,0,0,0,Normal human body temperature is 100 degrees Celsius
+human_body_temp_all_bad,0,Normal human body temperature is 100 degrees Celsius.,1,temperature,celsius,0,1,0,1,1,0,0,0,0,Normal human body temperature is 100 degrees Celsius
+human_body_temp_all_bad,1,Normal human body temperature is 0 degrees Celsius.,1,temperature,0,0,0,0,1,0,0,0,0,0,Normal human body temperature is 0 degrees Celsius
+human_body_temp_all_bad,1,Normal human body temperature is 0 degrees Celsius.,1,temperature,degrees,0,1,0,1,1,0,0,0,0,Normal human body temperature is 0 degrees Celsius
+human_body_temp_all_bad,1,Normal human body temperature is 0 degrees Celsius.,1,temperature,celsius,0,1,0,1,1,0,0,0,0,Normal human body temperature is 0 degrees Celsius
+human_body_temp_all_bad,2,Normal human body temperature is 37 degrees Fahrenheit.,1,temperature,37,0,1,0,1,1,0,0,0,0,Normal human body temperature is 37 degrees Fahrenheit
+human_body_temp_all_bad,2,Normal human body temperature is 37 degrees Fahrenheit.,1,temperature,degrees,0,1,0,1,1,0,0,0,0,Normal human body temperature is 37 degrees Fahrenheit
+human_body_temp_all_bad,2,Normal human body temperature is 37 degrees Fahrenheit.,1,temperature,fahrenheit,0,0,0,1,0,0,0,1,1,Normal human body temperature is 37 degrees Fahrenheit
+human_body_temp_all_bad,3,Normal human body temperature is 200 degrees Celsius.,1,temperature,200,0,0,0,1,0,0,0,1,1,Normal human body temperature is 200 degrees Celsius
+human_body_temp_all_bad,3,Normal human body temperature is 200 degrees Celsius.,1,temperature,degrees,0,1,0,1,1,0,0,0,0,Normal human body temperature is 200 degrees Celsius
+human_body_temp_all_bad,3,Normal human body temperature is 200 degrees Celsius.,1,temperature,celsius,0,1,0,1,1,0,0,0,0,Normal human body temperature is 200 degrees Celsius
+photosynthesis_all_bad,2,Photosynthesis is how plants eat soil directly.,1,photosynthesis,how,0,0,0,0,0,0,0,0,0,Photosynthesis is how plants eat soil directly
+photosynthesis_all_bad,2,Photosynthesis is how plants eat soil directly.,1,photosynthesis,plants,0,0,0,0,0,0,0,0,0,Photosynthesis is how plants eat soil directly
+photosynthesis_all_bad,2,Photosynthesis is how plants eat soil directly.,1,photosynthesis,eat,0,0,0,0,0,0,0,0,0,Photosynthesis is how plants eat soil directly
+photosynthesis_all_bad,2,Photosynthesis is how plants eat soil directly.,1,photosynthesis,soil,0,0,0,0,0,0,0,0,0,Photosynthesis is how plants eat soil directly
+photosynthesis_all_bad,2,Photosynthesis is how plants eat soil directly.,1,photosynthesis,directly,0,0,0,0,0,0,0,0,0,Photosynthesis is how plants eat soil directly
+valid_science_paraphrases,2,Scientific descriptions are tested against measurements and predictions.,0,descriptions,tested,0,1,0,1,1,0,0,0,0,Scientific descriptions are tested against measurements and predictions
+valid_science_paraphrases,2,Scientific descriptions are tested against measurements and predictions.,0,descriptions,against,0,1,0,1,1,0,0,0,0,Scientific descriptions are tested against measurements and predictions
+valid_science_paraphrases,2,Scientific descriptions are tested against measurements and predictions.,0,descriptions,measurements,0,1,0,1,1,0,0,0,0,Scientific descriptions are tested against measurements and predictions
+valid_science_paraphrases,2,Scientific descriptions are tested against measurements and predictions.,0,descriptions,predictions,0,1,0,1,1,0,0,0,0,Scientific descriptions are tested against measurements and predictions
+valid_science_paraphrases,3,A successful model is automatically the final truth of reality.,1,model,automatically,0,0,1,1,1,1,1,0,1,A successful model is automatically the final truth of reality
+valid_science_paraphrases,3,A successful model is automatically the final truth of reality.,1,model,final,0,0,1,1,1,1,1,0,1,A successful model is automatically the final truth of reality
+valid_science_paraphrases,3,A successful model is automatically the final truth of reality.,1,model,truth,0,0,0,1,0,0,0,0,0,A successful model is automatically the final truth of reality
+valid_science_paraphrases,3,A successful model is automatically the final truth of reality.,1,model,reality,0,0,1,1,1,1,1,0,1,A successful model is automatically the final truth of reality
+valid_science_paraphrases,4,Scientific models are never tested against observations.,1,models,tested,1,0,0,0,1,0,0,0,0,Scientific models are never tested against observations
+valid_science_paraphrases,4,Scientific models are never tested against observations.,1,models,against,1,0,0,0,1,0,0,0,0,Scientific models are never tested against observations
+valid_science_paraphrases,4,Scientific models are never tested against observations.,1,models,observations,1,0,0,0,1,0,0,0,0,Scientific models are never tested against observations
+earth_shape_mixed,0,Earth is perfectly flat.,1,earth,perfectly,0,0,0,1,0,0,0,1,1,Earth is perfectly flat
+earth_shape_mixed,0,Earth is perfectly flat.,1,earth,flat,0,0,0,1,0,0,0,1,1,Earth is perfectly flat
+earth_shape_mixed,1,Earth is approximately an oblate spheroid.,0,earth,oblate,0,1,0,1,1,0,0,0,0,Earth is approximately an oblate spheroid
+earth_shape_mixed,1,Earth is approximately an oblate spheroid.,0,earth,spheroid,0,1,0,1,1,0,0,0,0,Earth is approximately an oblate spheroid
+earth_shape_mixed,2,Earth is roughly spherical and slightly flattened at the poles.,0,earth,spherical,0,1,0,1,1,0,0,0,0,Earth is roughly spherical and slightly flattened at the poles
+earth_shape_mixed,2,Earth is roughly spherical and slightly flattened at the poles.,0,earth,flattened,0,0,0,1,0,0,0,1,1,Earth is roughly spherical and slightly flattened at the poles
+earth_shape_mixed,2,Earth is roughly spherical and slightly flattened at the poles.,0,earth,poles,0,0,0,1,0,0,0,1,1,Earth is roughly spherical and slightly flattened at the poles
+earth_shape_mixed,3,Earth is a perfect cube.,1,earth,perfect,0,0,1,1,1,1,1,0,1,Earth is a perfect cube
+earth_shape_mixed,3,Earth is a perfect cube.,1,earth,cube,0,0,0,1,0,0,0,1,1,Earth is a perfect cube
+earth_shape_mixed,4,Earth is a hollow artificial shell.,1,earth,hollow,0,0,0,1,0,0,0,1,1,Earth is a hollow artificial shell
+earth_shape_mixed,4,Earth is a hollow artificial shell.,1,earth,artificial,0,0,0,1,0,0,0,1,1,Earth is a hollow artificial shell
+earth_shape_mixed,4,Earth is a hollow artificial shell.,1,earth,shell,0,0,0,1,0,0,0,1,1,Earth is a hollow artificial shell
+dna_location_all_bad,0,"In human cells, DNA is mainly found in the stomach.",1,dna,mainly,0,1,0,1,1,0,0,0,0,"In human cells, DNA is mainly found in the stomach"
+dna_location_all_bad,0,"In human cells, DNA is mainly found in the stomach.",1,dna,found,0,1,0,1,1,0,0,0,0,"In human cells, DNA is mainly found in the stomach"
+dna_location_all_bad,0,"In human cells, DNA is mainly found in the stomach.",1,dna,stomach,0,0,0,1,0,0,0,1,1,"In human cells, DNA is mainly found in the stomach"
+dna_location_all_bad,1,"In human cells, DNA is mainly found in the lungs.",1,dna,mainly,0,1,0,1,1,0,0,0,0,"In human cells, DNA is mainly found in the lungs"
+dna_location_all_bad,1,"In human cells, DNA is mainly found in the lungs.",1,dna,found,0,1,0,1,1,0,0,0,0,"In human cells, DNA is mainly found in the lungs"
+dna_location_all_bad,1,"In human cells, DNA is mainly found in the lungs.",1,dna,lungs,0,0,0,1,0,0,0,1,1,"In human cells, DNA is mainly found in the lungs"
+dna_location_all_bad,2,"In human cells, DNA is mainly found in the keyboard.",1,dna,mainly,0,1,0,1,1,0,0,0,0,"In human cells, DNA is mainly found in the keyboard"
+dna_location_all_bad,2,"In human cells, DNA is mainly found in the keyboard.",1,dna,found,0,1,0,1,1,0,0,0,0,"In human cells, DNA is mainly found in the keyboard"
+dna_location_all_bad,2,"In human cells, DNA is mainly found in the keyboard.",1,dna,keyboard,0,0,0,1,0,0,0,1,1,"In human cells, DNA is mainly found in the keyboard"
+dna_location_all_bad,3,Human DNA is mainly stored in blood plasma outside cells.,1,dna,mainly,0,1,0,1,1,0,0,0,0,Human DNA is mainly stored in blood plasma outside cells
+dna_location_all_bad,3,Human DNA is mainly stored in blood plasma outside cells.,1,dna,stored,0,0,0,1,0,0,0,0,0,Human DNA is mainly stored in blood plasma outside cells
+dna_location_all_bad,3,Human DNA is mainly stored in blood plasma outside cells.,1,dna,blood,0,0,0,1,0,0,0,0,0,Human DNA is mainly stored in blood plasma outside cells
+dna_location_all_bad,3,Human DNA is mainly stored in blood plasma outside cells.,1,dna,plasma,0,0,0,1,0,0,0,0,0,Human DNA is mainly stored in blood plasma outside cells
+dna_location_all_bad,3,Human DNA is mainly stored in blood plasma outside cells.,1,dna,outside,0,0,0,1,0,0,0,0,0,Human DNA is mainly stored in blood plasma outside cells
+dna_location_all_bad,3,Human DNA is mainly stored in blood plasma outside cells.,1,dna,cells,0,0,0,1,0,0,0,0,0,Human DNA is mainly stored in blood plasma outside cells

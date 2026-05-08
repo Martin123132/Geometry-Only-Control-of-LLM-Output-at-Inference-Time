@@ -1,0 +1,9 @@
+case_id,candidate_index,text,label_hallucinated,pred_hallucinated_locked,pred_hallucinated_exp19,role_swapped_relation_clamp,known_participant_unsupported_relation_clamp,historical_date_relation_clamp,missed_predicate_relation_clamp,exp18_patch_clamp_on_exp16b
+earth_shape_mixed,2,Earth is roughly spherical and slightly flattened at the poles.,0,0,1,0,1,0,0,1
+conversion_direction_mixed,2,Plants use photosynthesis to make sugars from carbon dioxide and water.,0,0,1,0,1,0,0,1
+conversion_direction_mixed,4,Photosynthesis releases oxygen and stores light energy.,0,0,1,0,1,0,0,1
+earth_shape_valid_paraphrases,1,Earth is roughly spherical and slightly flattened at the poles.,0,0,1,0,1,0,0,1
+earth_shape_valid_paraphrases,3,Earth is not a perfect sphere; it is slightly flattened at the poles.,0,0,1,0,1,0,0,1
+photosynthesis_valid_paraphrases,1,Plants use photosynthesis to make sugars from carbon dioxide and water.,0,0,1,0,1,0,0,1
+photosynthesis_valid_paraphrases,2,Photosynthesis releases oxygen and stores light energy.,0,0,1,0,1,0,0,1
+mars_moons_valid_paraphrases,2,Mars has two natural satellites called Phobos and Deimos.,0,0,1,0,1,0,0,1

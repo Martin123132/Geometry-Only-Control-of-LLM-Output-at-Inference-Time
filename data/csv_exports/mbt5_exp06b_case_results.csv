@@ -1,0 +1,9 @@
+case_id,prompt,expected_has_valid,action_v4_exp06b,emitted_text_v4,emitted_label_hallucinated_v4,emitted_score_v4,num_safe_candidates_v4,correct_case_decision_v4
+capital_france_mixed,What is the capital of France?,1,emit,The capital of France is Paris.,0.0,0.0053429193794727,2,1
+water_boiling_mixed,"At sea level, what temperature does water boil at?",1,emit,Water boils at 100 degrees Celsius at sea level.,0.0,0.0986706987023353,2,1
+gravity_description_mixed,Describe gravity.,1,emit,Gravity can be described by Newtonian attraction and by spacetime curvature in general relativity.,0.0,0.314186629652977,2,1
+capital_france_all_bad,What is the capital of France?,0,block,,,,0,1
+water_boiling_all_bad,"At sea level, what temperature does water boil at?",0,block,,,,0,1
+moon_surface_all_bad,What is the Moon's surface made of?,0,block,,,,0,1
+gravity_description_all_bad,Describe gravity.,0,block,,,,0,1
+gravity_valid_paraphrases,Describe gravity carefully.,1,emit,Gravity is modeled as spacetime curvature in general relativity and as attraction in Newtonian physics.,0.0,0.2989147424697876,3,1

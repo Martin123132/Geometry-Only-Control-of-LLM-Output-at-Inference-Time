@@ -1,0 +1,6 @@
+case_id,candidate_index,text,label_hallucinated,token,token_stem,token_shock,string_support,semantic_support,supported_by_stem,supported_by_string,supported_by_semantic,unsupported,block_token
+orbit_relation_mixed,4,Earth orbits Mars.,1,mars,mars,0.09213030338287354,0.4444444444444444,0.5823596715927124,0,0,1,0,0
+conversion_direction_mixed,3,Photosynthesis converts carbon dioxide into plastic.,1,plastic,plastic,0.09859508275985718,0.6153846153846154,0.5156007409095764,0,0,0,1,1
+conversion_direction_all_bad,2,Photosynthesis converts oxygen into plastic.,1,plastic,plastic,0.13213059306144714,0.6153846153846154,0.5156007409095764,0,0,0,1,1
+conversion_direction_all_bad,3,Photosynthesis converts light energy into metal.,1,metal,metal,0.07882291078567505,0.46153846153846156,0.5893800258636475,0,0,1,0,0
+containment_direction_all_bad,3,The nucleus contains keyboards.,1,keyboards,keyboard,0.1543838381767273,0.35294117647058826,0.2479962706565857,0,0,0,1,1
