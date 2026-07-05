@@ -73,6 +73,7 @@ print(result.emitted_text)
 ManifoldGuard is useful when you already have trusted reference statements and
 want to reject outputs that drift away from them.
 For a fuller onboarding path, see `docs/getting_started.md`.
+For a short CLI walkthrough with safe, blocked, and numeric-drift examples, see `docs/cli_quickstart.md`.
 For a starter personal corpus, see `examples/personal_corpus_template.jsonl`.
 For extension guidance, see `docs/extending.md`.
 

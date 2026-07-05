@@ -299,6 +299,7 @@ def parse_args():
             "SECURITY.md",
             "SUPPORT.md",
             "CODE_OF_CONDUCT.md",
+            "docs/cli_quickstart.md",
             "docs/getting_started.md",
             "docs/extending.md",
             "docs/report_schema.md",
@@ -310,6 +311,7 @@ def parse_args():
             "docs/exp21_challenge.md",
             "docs/package_publishing.md",
             "docs/package_installation.md",
+            "docs/v0.1.6_plan.md",
         ],
         help="Markdown or JSON schema docs required for read checks.",
     )
@@ -318,6 +320,7 @@ def parse_args():
         nargs="*",
         default=[
             "examples/batch_input.jsonl",
+            "examples/demo_corpus.jsonl",
             "examples/cli_json_report.md",
             "examples/explain_report.md",
             "examples/markdown_audit_report.md",

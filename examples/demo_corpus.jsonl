@@ -1,0 +1,3 @@
+{"id":"safe_emit_reference_match","references":["The capital of France is Paris."],"candidates":["The capital of France is Paris."]}
+{"id":"blocked_negation","references":["Water is liquid at room temperature."],"candidates":["Water is not liquid at room temperature."]}
+{"id":"blocked_numeric_drift","references":["The medication dose is 10 mg."],"candidates":["The medication dose is 20 mg."]}

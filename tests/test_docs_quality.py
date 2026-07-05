@@ -733,6 +733,19 @@ def test_getting_started_guide_is_manifested_and_required(docs_quality, monkeypa
     assert "docs/getting_started.md" in docs_quality.parse_args().required_markdown
 
 
+def test_cli_quickstart_and_demo_corpus_are_manifested_and_required(docs_quality, monkeypatch):
+    project_root = Path(__file__).resolve().parent.parent
+    manifest_path = project_root / "docs" / "product_readiness_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    monkeypatch.setattr("sys.argv", ["docs_quality.py"])
+    args = docs_quality.parse_args()
+
+    assert "docs/cli_quickstart.md" in manifest["documentation"]
+    assert "docs/cli_quickstart.md" in args.required_markdown
+    assert "examples/demo_corpus.jsonl" in manifest["examples"]
+    assert "examples/demo_corpus.jsonl" in args.required_example_paths
+
+
 def test_extending_guide_is_manifested_and_required(docs_quality, monkeypatch):
     project_root = Path(__file__).resolve().parent.parent
     manifest_path = project_root / "docs" / "product_readiness_manifest.json"
