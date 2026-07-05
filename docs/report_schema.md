@@ -12,6 +12,7 @@ Machine-readable schema file:
 `--format markdown` emits a human-readable single report or batch audit report.
 `--format csv` emits one spreadsheet-friendly row per candidate evaluation.
 `--explain` adds optional per-candidate decision explanations to text, JSON, and Markdown reports.
+`--why` is a friendly alias for `--explain`.
 
 ## Single Report
 

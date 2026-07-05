@@ -74,8 +74,10 @@ def main() -> int:
     )
     parser.add_argument(
         "--explain",
+        "--why",
+        dest="explain",
         action="store_true",
-        help="Include per-candidate decision explanations in text, JSON, and Markdown reports.",
+        help="Include per-candidate decision explanations in text, JSON, and Markdown reports. --why is a friendly alias.",
     )
     parser.add_argument(
         "--token-shock",

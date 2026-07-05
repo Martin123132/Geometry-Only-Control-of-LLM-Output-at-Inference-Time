@@ -100,6 +100,29 @@ def test_cli_regulation_json_report_can_include_explanations(monkeypatch, capsys
     assert "exactly matches a supplied reference" in safe["summary"]
 
 
+def test_cli_why_alias_includes_text_explanations(monkeypatch, capsys):
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "manifold-check",
+            "--reference",
+            "Water is liquid at room temperature.",
+            "--candidate",
+            "Water is not liquid at room temperature.",
+            "--no-embeddings",
+            "--why",
+        ],
+    )
+
+    assert main() == 0
+
+    output = capsys.readouterr().out
+    assert output.startswith("BLOCK | no safe candidate")
+    assert "explain | Blocked because these guards fired:" in output
+    assert "reason | negated_positive_support_clamp" in output
+
+
 def test_cli_regulation_json_report_can_write_output(monkeypatch, capsys, tmp_path):
     output_path = tmp_path / "report.json"
     monkeypatch.setattr(
