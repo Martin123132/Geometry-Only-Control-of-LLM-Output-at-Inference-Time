@@ -357,12 +357,15 @@ manifold-check \
   --candidate "The capital of France is London." \
   --candidate "The capital of France is Paris." \
   --no-embeddings \
-  --explain
+  --why
 ```
 
-`--explain` adds per-candidate summaries and guard reasons to text, JSON, and
-Markdown regulation reports without changing the default report shape.
+`--why` is a friendly alias for `--explain`. It adds per-candidate summaries
+and guard reasons to text, JSON, and Markdown regulation reports without
+changing the default report shape.
 See `examples/explain_report.md` for a complete offline explanation example.
+For a short walkthrough with safe, blocked, and numeric-drift cases, see
+`docs/cli_quickstart.md` and `examples/demo_corpus.jsonl`.
 
 Optional token-level shock details can be included in regulation reports when
 embedding dependencies are installed:
@@ -412,6 +415,18 @@ manifold-check \
 ```
 
 See `examples/markdown_audit_report.md` for a complete Markdown audit demo.
+For a smaller front-door demo, run:
+
+```bash
+manifold-check \
+  --input-jsonl examples/demo_corpus.jsonl \
+  --no-embeddings \
+  --format markdown \
+  --why
+```
+
+That demo shows one supported emit, one blocked negation, and one blocked
+numeric drift.
 
 CSV audit export:
 
