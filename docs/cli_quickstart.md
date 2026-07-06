@@ -46,9 +46,27 @@ The public demo corpus is intentionally small:
 
 Run it as a Markdown audit:
 
+From a repo checkout:
+
 ```bash
 manifold-check \
   --input-jsonl examples/demo_corpus.jsonl \
+  --no-embeddings \
+  --format markdown \
+  --why
+```
+
+From a PyPI-only install, create the demo file first:
+
+```bash
+cat > demo_corpus.jsonl <<'JSONL'
+{"id":"safe_emit_reference_match","references":["The capital of France is Paris."],"candidates":["The capital of France is Paris."]}
+{"id":"blocked_negation","references":["Water is liquid at room temperature."],"candidates":["Water is not liquid at room temperature."]}
+{"id":"blocked_numeric_drift","references":["The medication dose is 10 mg."],"candidates":["The medication dose is 20 mg."]}
+JSONL
+
+manifold-check \
+  --input-jsonl demo_corpus.jsonl \
   --no-embeddings \
   --format markdown \
   --why

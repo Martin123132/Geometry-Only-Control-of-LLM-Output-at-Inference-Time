@@ -417,6 +417,8 @@ manifold-check \
 See `examples/markdown_audit_report.md` for a complete Markdown audit demo.
 For a smaller front-door demo, run:
 
+If you cloned the repo, use the committed demo corpus:
+
 ```bash
 manifold-check \
   --input-jsonl examples/demo_corpus.jsonl \
@@ -425,8 +427,33 @@ manifold-check \
   --why
 ```
 
+If you installed from PyPI without cloning the repo, create the same tiny demo
+file first:
+
+```bash
+cat > demo_corpus.jsonl <<'JSONL'
+{"id":"safe_emit_reference_match","references":["The capital of France is Paris."],"candidates":["The capital of France is Paris."]}
+{"id":"blocked_negation","references":["Water is liquid at room temperature."],"candidates":["Water is not liquid at room temperature."]}
+{"id":"blocked_numeric_drift","references":["The medication dose is 10 mg."],"candidates":["The medication dose is 20 mg."]}
+JSONL
+
+manifold-check \
+  --input-jsonl demo_corpus.jsonl \
+  --no-embeddings \
+  --format markdown \
+  --why
+```
+
 That demo shows one supported emit, one blocked negation, and one blocked
 numeric drift.
+
+Expected case-level actions:
+
+```text
+safe_emit_reference_match -> emit
+blocked_negation -> block
+blocked_numeric_drift -> block
+```
 
 CSV audit export:
 
