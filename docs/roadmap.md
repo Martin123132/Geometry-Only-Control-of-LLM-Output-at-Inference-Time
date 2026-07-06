@@ -5,7 +5,7 @@ working plan, not a public guarantee.
 
 ## Current release baseline
 
-- `manifold-guard==0.1.4` is published to PyPI.
+- `manifold-guard==0.1.6` is published to PyPI.
 - Core regulation remains offline-first when `use_embeddings=False` or
   `--no-embeddings` is selected.
 - EXP22 is closed at `18 / 18` for the checked seed cases.
@@ -15,20 +15,24 @@ working plan, not a public guarantee.
   `0.1.5` development track.
 - EXP25 is closed locally at `18 / 18` for the checked seed cases and should be
   treated as supporting development evidence, not a public benchmark claim.
+- `0.1.6` shipped the built-in offline demo, `--why` alias, public demo corpus,
+  CLI quickstart, and release verification record.
 
 ## Next release-candidate track
 
-The next bounded work is `0.1.5` release-candidate hardening. Keep EXP24 and
-EXP25 as closed milestone corpora, then verify the public release evidence
-without broadening product claims.
+The next bounded work is `0.1.7` candidate-pool ergonomics. Keep EXP24 and
+EXP25 as closed milestone corpora, then improve how large candidate pools can be
+reviewed without changing public safety claims.
 
 Recommended order:
 
-- rerun the frozen regression suite and release evidence checks
-- confirm EXP24 and EXP25 remain reproducible development evidence
-- review `CLAIMS.md`, README, and package metadata for claim/version alignment
-- prepare release notes without promoting challenge-corpus pass rates into
-  benchmark claims
+- add deterministic candidate selection diagnostics to separate blocked
+  candidates, the emitted candidate, and safe alternatives
+- keep emit/block behavior unchanged unless a focused failing fixture justifies
+  a safety change
+- update JSON, Markdown, CSV, and docs contracts together when diagnostics
+  become public report fields
+- add a small roadmap/changelog note before broadening into EXP26-style probes
 - leave public claims tied to release evidence, not exploratory pass rates
 
 ## Product hardening

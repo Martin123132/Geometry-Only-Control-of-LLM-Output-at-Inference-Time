@@ -20,6 +20,9 @@
         "index",
         "text",
         "status",
+        "selection_status",
+        "selection_rank",
+        "selection_reason",
         "safe_to_emit",
         "pred_hallucinated",
         "regulator_score",
@@ -45,6 +48,25 @@
             "safe",
             "blocked"
           ]
+        },
+        "selection_status": {
+          "type": "string",
+          "enum": [
+            "not_ranked",
+            "blocked_before_ranking",
+            "emitted",
+            "safe_alternative"
+          ]
+        },
+        "selection_rank": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "selection_reason": {
+          "type": "string"
         },
         "safe_to_emit": {
           "type": "boolean"

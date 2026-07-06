@@ -28,6 +28,42 @@ def test_mixed_candidate_pool_emits_supported_candidate_without_embeddings():
     assert "known_participant_unsupported_relation_clamp" in result.evaluations[0].clamp_summary
 
 
+def test_candidate_pool_selection_diagnostics_rank_safe_alternatives():
+    result = regulate_candidates(
+        [
+            "Paris is the capital city of France.",
+            "The capital of France is Paris.",
+            "The capital of France is London.",
+        ],
+        [
+            "Paris is the capital city of France.",
+            "The capital of France is Paris.",
+        ],
+        use_embeddings=False,
+    )
+
+    assert result.action == "emit"
+    assert result.emitted_text == "Paris is the capital city of France."
+    assert [evaluation.safe_to_emit for evaluation in result.evaluations] == [
+        True,
+        True,
+        False,
+    ]
+    assert [evaluation.selection_status for evaluation in result.evaluations] == [
+        "emitted",
+        "safe_alternative",
+        "blocked_before_ranking",
+    ]
+    assert [evaluation.selection_rank for evaluation in result.evaluations] == [
+        1,
+        2,
+        None,
+    ]
+    assert "lowest-score safe candidate" in result.evaluations[0].selection_reason
+    assert "retained for audit" in result.evaluations[1].selection_reason
+    assert "dropped from emission ranking" in result.evaluations[2].selection_reason
+
+
 def test_all_bad_candidate_pool_blocks_without_embeddings():
     references = ["The capital of France is Paris."]
 

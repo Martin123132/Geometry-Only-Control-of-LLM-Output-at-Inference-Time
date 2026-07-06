@@ -30,6 +30,9 @@ Each evaluation contains:
 - `index`: zero-based candidate index.
 - `text`: candidate text.
 - `status`: `safe` or `blocked`.
+- `selection_status`: pool-selection state, one of `blocked_before_ranking`, `emitted`, `safe_alternative`, or `not_ranked`.
+- `selection_rank`: one-based rank among safe candidates, or `null` for blocked candidates.
+- `selection_reason`: short explanation of why the candidate was emitted, retained as a safe alternative, or blocked before ranking.
 - `safe_to_emit`: boolean emit eligibility.
 - `pred_hallucinated`: boolean regulator prediction.
 - `regulator_score`: final ranking score.
@@ -88,6 +91,7 @@ Single regulation Markdown includes:
 - report title.
 - action, emitted index, and emitted text.
 - per-candidate status, score, shock, literal score, clamps, relations, and negated relations.
+- per-candidate selection status, rank, and reason.
 - optional per-candidate explanation summaries when `--explain` is used.
 
 Batch Markdown includes:
@@ -112,6 +116,9 @@ CSV output contains one row per candidate evaluation with these columns:
 - `candidate_index`: zero-based candidate index.
 - `candidate_text`: candidate text.
 - `status`: `safe` or `blocked`.
+- `selection_status`: pool-selection state.
+- `selection_rank`: one-based rank among safe candidates, blank for blocked candidates.
+- `selection_reason`: candidate selection explanation.
 - `safe_to_emit`: lowercase boolean.
 - `pred_hallucinated`: lowercase boolean.
 - `regulator_score`: final ranking score.

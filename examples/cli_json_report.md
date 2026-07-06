@@ -50,6 +50,9 @@ Expected output:
         ]
       ],
       "safe_to_emit": false,
+      "selection_rank": null,
+      "selection_reason": "Candidate was dropped from emission ranking because it failed a hard guard or geometry check.",
+      "selection_status": "blocked_before_ranking",
       "status": "blocked",
       "text": "The capital of France is London.",
       "threshold": 0.02
@@ -78,6 +81,9 @@ Expected output:
         ]
       ],
       "safe_to_emit": true,
+      "selection_rank": 1,
+      "selection_reason": "Candidate was selected as the lowest-score safe candidate in the pool.",
+      "selection_status": "emitted",
       "status": "safe",
       "text": "The capital of France is Paris.",
       "threshold": 0.02

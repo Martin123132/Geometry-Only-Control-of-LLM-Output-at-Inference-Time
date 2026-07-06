@@ -51,6 +51,9 @@ Expected output:
 - Shock: 0.0000
 - Literal score: 1.5000
 - Clamps: protected_entity, protected_literal_drift, final_literal_block, content_clamp_flag, known_participant_unsupported_relation_clamp, guarded_known_participant_unsupported_relation_clamp, exp19b_guarded_patch_clamp
+- Selection: blocked_before_ranking
+- Selection rank: `null`
+- Selection reason: Candidate was dropped from emission ranking because it failed a hard guard or geometry check.
 - Relations: capital of france / is / london; france / capital / london
 - Negated relations: none
 
@@ -61,6 +64,9 @@ Expected output:
 - Shock: 0.0000
 - Literal score: 0.0000
 - Clamps: exact_reference_member
+- Selection: emitted
+- Selection rank: 1
+- Selection reason: Candidate was selected as the lowest-score safe candidate in the pool.
 - Relations: capital of france / is / paris; france / capital / paris
 - Negated relations: none
 
@@ -81,6 +87,9 @@ Expected output:
 - Shock: 0.0000
 - Literal score: 0.0000
 - Clamps: negated_positive_support_clamp
+- Selection: blocked_before_ranking
+- Selection rank: `null`
+- Selection reason: Candidate was dropped from emission ranking because it failed a hard guard or geometry check.
 - Relations: none
 - Negated relations: water / is / liquid at room temperature
 ```

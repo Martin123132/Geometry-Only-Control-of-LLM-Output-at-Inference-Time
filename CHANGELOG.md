@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Started the `0.1.7` development track with deterministic candidate-pool
+  selection diagnostics in Python and CLI reports. Reports now distinguish
+  candidates blocked before ranking, the emitted candidate, and safe
+  alternatives retained for audit without changing emit/block safety behavior.
+- Updated the report schema, README guidance, and roadmap to make candidate
+  triage the next bounded hardening target after the `0.1.6` public release.
+
 ## 0.1.6 - 2026-07-06
 
 - Added `manifold-check --demo` for a built-in offline demo that works from a

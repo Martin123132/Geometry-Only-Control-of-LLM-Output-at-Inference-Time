@@ -65,8 +65,12 @@ def test_cli_regulation_json_report_without_embeddings(monkeypatch, capsys):
     assert report["emitted_text"] == "The capital of France is Paris."
     assert report["emitted_index"] == 1
     assert report["evaluations"][0]["status"] == "blocked"
+    assert report["evaluations"][0]["selection_status"] == "blocked_before_ranking"
+    assert report["evaluations"][0]["selection_rank"] is None
     assert "known_participant_unsupported_relation_clamp" in report["evaluations"][0]["clamps"]
     assert report["evaluations"][1]["status"] == "safe"
+    assert report["evaluations"][1]["selection_status"] == "emitted"
+    assert report["evaluations"][1]["selection_rank"] == 1
 
 
 def test_cli_regulation_json_report_can_include_explanations(monkeypatch, capsys):
@@ -583,6 +587,33 @@ def test_build_regulation_report_can_include_token_shock(monkeypatch):
     assert report["evaluations"][0]["token_shock"] == [
         {"token": "London", "shock": 12.5}
     ]
+
+
+def test_report_formats_include_selection_diagnostics():
+    result = regulate_candidates(
+        [
+            "The capital of France is London.",
+            "The capital of France is Paris.",
+        ],
+        ["The capital of France is Paris."],
+        use_embeddings=False,
+    )
+    report = build_regulation_report(result)
+
+    assert report["evaluations"][0]["selection_status"] == "blocked_before_ranking"
+    assert report["evaluations"][1]["selection_status"] == "emitted"
+    assert "lowest-score safe candidate" in report["evaluations"][1]["selection_reason"]
+
+    csv_rows = list(csv.DictReader(StringIO(format_csv_audit([report]))))
+    assert csv_rows[0]["selection_status"] == "blocked_before_ranking"
+    assert csv_rows[0]["selection_rank"] == ""
+    assert csv_rows[1]["selection_status"] == "emitted"
+    assert csv_rows[1]["selection_rank"] == "1"
+
+    markdown = format_markdown_report(report)
+    assert "- Selection: blocked_before_ranking" in markdown
+    assert "- Selection: emitted" in markdown
+    assert "- Selection rank: 1" in markdown
 
 
 def test_build_batch_summary_counts_reports_and_candidates():

@@ -89,6 +89,8 @@ It does:
 - block unsupported candidate drift from supplied references
 - emit a supported candidate when at least one candidate stays inside scope
 - abstain when every candidate is unsafe
+- explain whether each candidate was blocked before ranking, emitted, or kept
+  as a safe alternative
 - run offline by default with `--no-embeddings` / `use_embeddings=False`
 - expose optional embedding-backed diagnostics when explicitly installed
 
@@ -458,6 +460,12 @@ manifold-check \
 
 That demo shows one supported emit, one blocked negation, and one blocked
 numeric drift.
+
+JSON, Markdown, and CSV reports also include candidate-pool selection metadata:
+`selection_status`, `selection_rank`, and `selection_reason`. These fields make
+large candidate pools easier to triage by separating candidates that were
+blocked before ranking from the safe candidate that was emitted and any safe
+alternatives retained for audit.
 
 Expected case-level actions:
 

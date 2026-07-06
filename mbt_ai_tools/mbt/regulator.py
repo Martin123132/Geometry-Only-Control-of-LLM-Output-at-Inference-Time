@@ -272,6 +272,9 @@ class CandidateEvaluation:
     literal_drift: LiteralDrift = field(default_factory=LiteralDrift)
     exact_reference_member: bool = False
     negated_relations: Tuple[Relation, ...] = ()
+    selection_status: str = "not_ranked"
+    selection_rank: Optional[int] = None
+    selection_reason: str = "Candidate was evaluated outside a candidate pool."
 
 
 @dataclass
@@ -1726,9 +1729,48 @@ def regulate_candidates(
     ]
     safe = [e for e in evaluations if e.safe_to_emit]
     if not safe:
+        _annotate_candidate_selection(evaluations, emitted=None)
         return RegulationResult("block", None, None, evaluations)
     emitted = min(safe, key=lambda e: e.regulator_score)
+    _annotate_candidate_selection(evaluations, emitted=emitted)
     return RegulationResult("emit", emitted.text, emitted, evaluations)
+
+
+def _annotate_candidate_selection(
+    evaluations: List[CandidateEvaluation],
+    *,
+    emitted: Optional[CandidateEvaluation],
+) -> None:
+    """Attach deterministic pool-selection diagnostics after safety evaluation."""
+
+    safe_pairs = [
+        (index, evaluation)
+        for index, evaluation in enumerate(evaluations)
+        if evaluation.safe_to_emit
+    ]
+    safe_pairs.sort(key=lambda item: (item[1].regulator_score, item[0]))
+
+    for rank, (_, evaluation) in enumerate(safe_pairs, start=1):
+        evaluation.selection_rank = rank
+
+    for evaluation in evaluations:
+        if not evaluation.safe_to_emit:
+            evaluation.selection_status = "blocked_before_ranking"
+            evaluation.selection_reason = (
+                "Candidate was dropped from emission ranking because it failed "
+                "a hard guard or geometry check."
+            )
+        elif evaluation is emitted:
+            evaluation.selection_status = "emitted"
+            evaluation.selection_reason = (
+                "Candidate was selected as the lowest-score safe candidate in the pool."
+            )
+        else:
+            evaluation.selection_status = "safe_alternative"
+            evaluation.selection_reason = (
+                "Candidate stayed safe and was retained for audit, but a lower-rank "
+                "safe candidate was emitted."
+            )
 
 
 def literal_drift(
