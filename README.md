@@ -462,10 +462,10 @@ That demo shows one supported emit, one blocked negation, and one blocked
 numeric drift.
 
 JSON, Markdown, and CSV reports also include candidate-pool selection metadata:
-`selection_status`, `selection_rank`, and `selection_reason`. These fields make
-large candidate pools easier to triage by separating candidates that were
-blocked before ranking from the safe candidate that was emitted and any safe
-alternatives retained for audit.
+`pool_group_key`, `duplicate_of`, `selection_status`, `selection_rank`, and
+`selection_reason`. These fields make large candidate pools easier to triage by
+separating normalized duplicates, candidates blocked before ranking, the safe
+candidate that was emitted, and any safe alternatives retained for audit.
 
 Expected case-level actions:
 

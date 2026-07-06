@@ -6,6 +6,9 @@
   selection diagnostics in Python and CLI reports. Reports now distinguish
   candidates blocked before ranking, the emitted candidate, and safe
   alternatives retained for audit without changing emit/block safety behavior.
+- Added normalized duplicate grouping for candidate pools. Repeated candidates
+  reuse the first matching safety evaluation, stay visible as output rows, and
+  expose `pool_group_key` plus `duplicate_of` in reports.
 - Updated the report schema, README guidance, and roadmap to make candidate
   triage the next bounded hardening target after the `0.1.6` public release.
 

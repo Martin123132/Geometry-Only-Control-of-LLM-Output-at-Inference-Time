@@ -47,6 +47,8 @@ Expected output:
 #### Candidate 0 - blocked
 
 - Text: The capital of France is London.
+- Pool group: the capital of france is london
+- Duplicate of: `null`
 - Score: 0.2250
 - Shock: 0.0000
 - Literal score: 1.5000
@@ -60,6 +62,8 @@ Expected output:
 #### Candidate 1 - safe
 
 - Text: The capital of France is Paris.
+- Pool group: the capital of france is paris
+- Duplicate of: `null`
 - Score: 0.0000
 - Shock: 0.0000
 - Literal score: 0.0000
@@ -83,6 +87,8 @@ Expected output:
 #### Candidate 0 - blocked
 
 - Text: Water is not liquid at room temperature.
+- Pool group: water is not liquid at room temperature
+- Duplicate of: `null`
 - Score: 0.0000
 - Shock: 0.0000
 - Literal score: 0.0000

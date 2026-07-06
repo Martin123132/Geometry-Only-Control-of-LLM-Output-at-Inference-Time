@@ -19,6 +19,8 @@
       "required": [
         "index",
         "text",
+        "pool_group_key",
+        "duplicate_of",
         "status",
         "selection_status",
         "selection_rank",
@@ -41,6 +43,16 @@
         },
         "text": {
           "type": "string"
+        },
+        "pool_group_key": {
+          "type": "string"
+        },
+        "duplicate_of": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
         },
         "status": {
           "type": "string",

@@ -65,10 +65,14 @@ def test_cli_regulation_json_report_without_embeddings(monkeypatch, capsys):
     assert report["emitted_text"] == "The capital of France is Paris."
     assert report["emitted_index"] == 1
     assert report["evaluations"][0]["status"] == "blocked"
+    assert report["evaluations"][0]["pool_group_key"] == "the capital of france is london"
+    assert report["evaluations"][0]["duplicate_of"] is None
     assert report["evaluations"][0]["selection_status"] == "blocked_before_ranking"
     assert report["evaluations"][0]["selection_rank"] is None
     assert "known_participant_unsupported_relation_clamp" in report["evaluations"][0]["clamps"]
     assert report["evaluations"][1]["status"] == "safe"
+    assert report["evaluations"][1]["pool_group_key"] == "the capital of france is paris"
+    assert report["evaluations"][1]["duplicate_of"] is None
     assert report["evaluations"][1]["selection_status"] == "emitted"
     assert report["evaluations"][1]["selection_rank"] == 1
 
@@ -606,11 +610,17 @@ def test_report_formats_include_selection_diagnostics():
 
     csv_rows = list(csv.DictReader(StringIO(format_csv_audit([report]))))
     assert csv_rows[0]["selection_status"] == "blocked_before_ranking"
+    assert csv_rows[0]["pool_group_key"] == "the capital of france is london"
+    assert csv_rows[0]["duplicate_of"] == ""
     assert csv_rows[0]["selection_rank"] == ""
     assert csv_rows[1]["selection_status"] == "emitted"
+    assert csv_rows[1]["pool_group_key"] == "the capital of france is paris"
+    assert csv_rows[1]["duplicate_of"] == ""
     assert csv_rows[1]["selection_rank"] == "1"
 
     markdown = format_markdown_report(report)
+    assert "- Pool group: the capital of france is london" in markdown
+    assert "- Duplicate of: `null`" in markdown
     assert "- Selection: blocked_before_ranking" in markdown
     assert "- Selection: emitted" in markdown
     assert "- Selection rank: 1" in markdown

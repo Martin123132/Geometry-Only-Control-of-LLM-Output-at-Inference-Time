@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import re
 import string
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from typing import Dict, Iterable, List, Optional, Sequence, Set, Tuple, Union
 
 import numpy as np
@@ -272,6 +272,8 @@ class CandidateEvaluation:
     literal_drift: LiteralDrift = field(default_factory=LiteralDrift)
     exact_reference_member: bool = False
     negated_relations: Tuple[Relation, ...] = ()
+    pool_group_key: str = ""
+    duplicate_of: Optional[int] = None
     selection_status: str = "not_ranked"
     selection_rank: Optional[int] = None
     selection_reason: str = "Candidate was evaluated outside a candidate pool."
@@ -1709,6 +1711,7 @@ def evaluate_candidate(
         literal_drift=literal,
         exact_reference_member=exact_member,
         negated_relations=tuple(sorted(candidate_negations)),
+        pool_group_key=normalize_text(candidate),
     )
 
 
@@ -1724,9 +1727,31 @@ def regulate_candidates(
     manifold = ReferenceManifold.from_texts(
         references, relations=relations, use_embeddings=use_embeddings
     )
-    evaluations = [
-        evaluate_candidate(c, manifold, use_embeddings=use_embeddings) for c in candidates
-    ]
+    evaluations: List[CandidateEvaluation] = []
+    evaluation_cache = {}
+    first_index_by_pool_key = {}
+    for index, candidate in enumerate(candidates):
+        pool_key = normalize_text(candidate)
+        if pool_key in evaluation_cache:
+            evaluations.append(
+                replace(
+                    evaluation_cache[pool_key],
+                    text=candidate,
+                    pool_group_key=pool_key,
+                    duplicate_of=first_index_by_pool_key[pool_key],
+                    selection_status="not_ranked",
+                    selection_rank=None,
+                    selection_reason="Candidate was evaluated outside a candidate pool.",
+                )
+            )
+            continue
+
+        evaluation = evaluate_candidate(candidate, manifold, use_embeddings=use_embeddings)
+        evaluation.pool_group_key = pool_key
+        evaluation_cache[pool_key] = evaluation
+        first_index_by_pool_key[pool_key] = index
+        evaluations.append(evaluation)
+
     safe = [e for e in evaluations if e.safe_to_emit]
     if not safe:
         _annotate_candidate_selection(evaluations, emitted=None)
@@ -1756,10 +1781,16 @@ def _annotate_candidate_selection(
     for evaluation in evaluations:
         if not evaluation.safe_to_emit:
             evaluation.selection_status = "blocked_before_ranking"
-            evaluation.selection_reason = (
-                "Candidate was dropped from emission ranking because it failed "
-                "a hard guard or geometry check."
-            )
+            if evaluation.duplicate_of is not None:
+                evaluation.selection_reason = (
+                    f"Candidate duplicates candidate {evaluation.duplicate_of} after "
+                    "normalization; the reused evaluation was blocked before ranking."
+                )
+            else:
+                evaluation.selection_reason = (
+                    "Candidate was dropped from emission ranking because it failed "
+                    "a hard guard or geometry check."
+                )
         elif evaluation is emitted:
             evaluation.selection_status = "emitted"
             evaluation.selection_reason = (
@@ -1767,10 +1798,16 @@ def _annotate_candidate_selection(
             )
         else:
             evaluation.selection_status = "safe_alternative"
-            evaluation.selection_reason = (
-                "Candidate stayed safe and was retained for audit, but a lower-rank "
-                "safe candidate was emitted."
-            )
+            if evaluation.duplicate_of is not None:
+                evaluation.selection_reason = (
+                    f"Candidate duplicates candidate {evaluation.duplicate_of} after "
+                    "normalization and was retained for audit, but was not emitted."
+                )
+            else:
+                evaluation.selection_reason = (
+                    "Candidate stayed safe and was retained for audit, but a lower-rank "
+                    "safe candidate was emitted."
+                )
 
 
 def literal_drift(

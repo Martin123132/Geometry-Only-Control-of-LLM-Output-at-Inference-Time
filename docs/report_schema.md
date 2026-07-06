@@ -29,6 +29,8 @@ Each evaluation contains:
 
 - `index`: zero-based candidate index.
 - `text`: candidate text.
+- `pool_group_key`: normalized candidate-pool key used for duplicate grouping.
+- `duplicate_of`: first candidate index with the same normalized pool key, or `null`.
 - `status`: `safe` or `blocked`.
 - `selection_status`: pool-selection state, one of `blocked_before_ranking`, `emitted`, `safe_alternative`, or `not_ranked`.
 - `selection_rank`: one-based rank among safe candidates, or `null` for blocked candidates.
@@ -91,7 +93,7 @@ Single regulation Markdown includes:
 - report title.
 - action, emitted index, and emitted text.
 - per-candidate status, score, shock, literal score, clamps, relations, and negated relations.
-- per-candidate selection status, rank, and reason.
+- per-candidate pool group, duplicate source, selection status, rank, and reason.
 - optional per-candidate explanation summaries when `--explain` is used.
 
 Batch Markdown includes:
@@ -115,6 +117,8 @@ CSV output contains one row per candidate evaluation with these columns:
 - `emitted_text`: case-level emitted candidate text, blank when blocked.
 - `candidate_index`: zero-based candidate index.
 - `candidate_text`: candidate text.
+- `pool_group_key`: normalized duplicate-group key.
+- `duplicate_of`: first candidate index with the same normalized pool key, blank when unique.
 - `status`: `safe` or `blocked`.
 - `selection_status`: pool-selection state.
 - `selection_rank`: one-based rank among safe candidates, blank for blocked candidates.

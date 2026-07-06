@@ -64,6 +64,39 @@ def test_candidate_pool_selection_diagnostics_rank_safe_alternatives():
     assert "dropped from emission ranking" in result.evaluations[2].selection_reason
 
 
+def test_candidate_pool_marks_normalized_duplicates_without_changing_output_rows():
+    result = regulate_candidates(
+        [
+            "The capital of France is Paris.",
+            "  The capital of France is Paris.  ",
+            "The capital of France is London.",
+            "the capital of france is london",
+        ],
+        ["The capital of France is Paris."],
+        use_embeddings=False,
+    )
+
+    assert result.action == "emit"
+    assert result.emitted_text == "The capital of France is Paris."
+    assert len(result.evaluations) == 4
+    assert [evaluation.duplicate_of for evaluation in result.evaluations] == [
+        None,
+        0,
+        None,
+        2,
+    ]
+    assert [evaluation.pool_group_key for evaluation in result.evaluations] == [
+        "the capital of france is paris",
+        "the capital of france is paris",
+        "the capital of france is london",
+        "the capital of france is london",
+    ]
+    assert result.evaluations[1].selection_status == "safe_alternative"
+    assert "duplicates candidate 0" in result.evaluations[1].selection_reason
+    assert result.evaluations[3].selection_status == "blocked_before_ranking"
+    assert "duplicates candidate 2" in result.evaluations[3].selection_reason
+
+
 def test_all_bad_candidate_pool_blocks_without_embeddings():
     references = ["The capital of France is Paris."]
 

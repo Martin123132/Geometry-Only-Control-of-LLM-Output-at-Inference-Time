@@ -30,11 +30,13 @@ Expected output:
         "guarded_known_participant_unsupported_relation_clamp",
         "exp19b_guarded_patch_clamp"
       ],
+      "duplicate_of": null,
       "exact_reference_member": false,
       "index": 0,
       "literal_score": 1.5,
       "mbt5_shock": 0.0,
       "negated_relations": [],
+      "pool_group_key": "the capital of france is london",
       "pred_hallucinated": true,
       "regulator_score": 0.22499999999999998,
       "relations": [
@@ -61,11 +63,13 @@ Expected output:
       "clamps": [
         "exact_reference_member"
       ],
+      "duplicate_of": null,
       "exact_reference_member": true,
       "index": 1,
       "literal_score": 0.0,
       "mbt5_shock": 0.0,
       "negated_relations": [],
+      "pool_group_key": "the capital of france is paris",
       "pred_hallucinated": false,
       "regulator_score": 0.0,
       "relations": [
