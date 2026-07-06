@@ -3,7 +3,7 @@
   "project": {
     "name": "manifold-guard",
     "public_name": "ManifoldGuard",
-    "package_version": "0.1.5",
+    "package_version": "0.1.6",
     "repository": "https://github.com/Martin123132/ManifoldGuard",
     "package_urls": {
       "homepage": "https://github.com/Martin123132/ManifoldGuard",

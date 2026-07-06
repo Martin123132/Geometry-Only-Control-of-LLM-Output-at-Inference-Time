@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.1.6 - 2026-07-06
+
+- Added `manifold-check --demo` for a built-in offline demo that works from a
+  PyPI install without requiring a local examples checkout.
+- Added `--why` as a friendly alias for `--explain` across text, JSON, and
+  Markdown regulation reports.
+- Added `examples/demo_corpus.jsonl` and `docs/cli_quickstart.md` to give new
+  users a small safe emit, blocked negation, and blocked numeric-drift
+  walkthrough before reading the full regression corpus.
+- Improved README demo guidance for PyPI-only users, repo-checkout users, and
+  Markdown audit output.
+- Added tests that keep the built-in demo aligned with the committed public
+  demo corpus and verify demo text, JSON summary, Markdown audit, and
+  `--fail-on-block` behavior.
+- Kept the default demo and quickstart paths offline-first with no embedding
+  model downloads.
+
 ## 0.1.5 - 2026-07-01
 
 - Started the 0.1.5 development cycle after the public 0.1.4 PyPI release.
