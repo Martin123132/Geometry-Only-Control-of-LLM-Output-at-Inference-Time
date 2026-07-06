@@ -417,7 +417,19 @@ manifold-check \
 See `examples/markdown_audit_report.md` for a complete Markdown audit demo.
 For a smaller front-door demo, run:
 
-If you cloned the repo, use the committed demo corpus:
+PyPI-only users can run the built-in offline demo directly:
+
+```bash
+manifold-check --demo --why
+```
+
+For a full Markdown audit:
+
+```bash
+manifold-check --demo --format markdown --why
+```
+
+If you cloned the repo, you can also use the committed demo corpus:
 
 ```bash
 manifold-check \
@@ -428,7 +440,7 @@ manifold-check \
 ```
 
 If you installed from PyPI without cloning the repo, create the same tiny demo
-file first:
+file manually when you want to edit the cases yourself:
 
 ```bash
 cat > demo_corpus.jsonl <<'JSONL'

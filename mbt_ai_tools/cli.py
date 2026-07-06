@@ -12,6 +12,25 @@ from .mbt.stability import classify_entropy, confidence_score
 from .mbt.tokens import token_shock_map
 
 
+DEMO_CASES = [
+    {
+        "id": "safe_emit_reference_match",
+        "references": ["The capital of France is Paris."],
+        "candidates": ["The capital of France is Paris."],
+    },
+    {
+        "id": "blocked_negation",
+        "references": ["Water is liquid at room temperature."],
+        "candidates": ["Water is not liquid at room temperature."],
+    },
+    {
+        "id": "blocked_numeric_drift",
+        "references": ["The medication dose is 10 mg."],
+        "candidates": ["The medication dose is 20 mg."],
+    },
+]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="ManifoldGuard geometry-only confidence probe and v11 candidate regulator."
@@ -44,6 +63,11 @@ def main() -> int:
         "--input-jsonl",
         type=Path,
         help="Batch regulation input JSONL. Each line needs references and candidates fields.",
+    )
+    parser.add_argument(
+        "--demo",
+        action="store_true",
+        help="Run the built-in offline demo corpus without needing a local examples checkout.",
     )
     parser.add_argument(
         "--output",
@@ -109,6 +133,26 @@ def main() -> int:
             "--token-shock requires sentence-transformers. "
             "Remove --no-embeddings or install with .[embeddings]."
         )
+
+    if args.demo:
+        if args.input_jsonl or args.reference or args.candidate or args.text:
+            parser.error("--demo cannot be combined with positional text, --input-jsonl, --reference, or --candidate")
+        if args.token_shock:
+            parser.error("--demo runs offline and cannot be combined with --token-shock")
+        reports = list(build_demo_reports(include_explanations=args.explain))
+        if args.format == "markdown":
+            content = format_markdown_audit(reports)
+        elif args.format == "csv":
+            content = format_csv_audit(reports)
+        elif args.format == "json":
+            output_items = reports[:]
+            if args.summary:
+                output_items.append(build_batch_summary(reports))
+            content = "".join(f"{json.dumps(report, sort_keys=True)}\n" for report in output_items)
+        else:
+            content = format_demo_text(reports)
+        _emit_output(content, args.output)
+        return 2 if args.fail_on_block and any(report["action"] == "block" for report in reports) else 0
 
     if args.input_jsonl:
         if args.reference or args.candidate or args.text:
@@ -344,6 +388,23 @@ def build_batch_reports(
             yield report
 
 
+def build_demo_reports(*, include_explanations: bool = False) -> Iterable[Dict[str, Any]]:
+    for line_number, item in enumerate(DEMO_CASES, start=1):
+        result = regulate_candidates(
+            item["candidates"],
+            item["references"],
+            use_embeddings=False,
+        )
+        report = build_regulation_report(
+            result,
+            include_explanations=include_explanations,
+        )
+        report["line"] = line_number
+        report["references"] = item["references"]
+        report["id"] = item["id"]
+        yield report
+
+
 def build_batch_summary(reports: List[Dict[str, Any]]) -> Dict[str, Any]:
     safe_candidates = sum(
         1
@@ -546,6 +607,38 @@ def format_regulation_text(report: Dict[str, Any]) -> str:
             for reason in explanation["reasons"]:
                 lines.append(f"    reason | {reason['code']} | {reason['message']}")
     return "\n".join(lines) + "\n"
+
+
+def format_demo_text(reports: List[Dict[str, Any]]) -> str:
+    lines = [
+        "ManifoldGuard demo (offline)",
+        "",
+    ]
+    for report in reports:
+        lines.append(f"{report['id']} -> {report['action']}")
+        if report["action"] == "emit":
+            lines.append(f"    emit | {report['emitted_text']}")
+        else:
+            blocked = next(
+                (
+                    evaluation
+                    for evaluation in report["evaluations"]
+                    if not evaluation["safe_to_emit"]
+                ),
+                None,
+            )
+            if blocked is not None:
+                primary_guard = next(
+                    (clamp for clamp in blocked["clamps"] if clamp != "none"),
+                    "regulator_block",
+                )
+                lines.append(f"    block | {primary_guard}")
+                explanation = blocked.get("explanation")
+                if explanation:
+                    lines.append(f"    why | {explanation['summary']}")
+        lines.append("")
+    lines.append("Use --format markdown for a full audit report.")
+    return "\n".join(lines).rstrip() + "\n"
 
 
 def _markdown_relations(relations: List[List[str]]) -> str:

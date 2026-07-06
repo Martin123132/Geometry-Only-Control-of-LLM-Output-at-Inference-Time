@@ -46,7 +46,13 @@ The public demo corpus is intentionally small:
 
 Run it as a Markdown audit:
 
-From a repo checkout:
+From any install, use the built-in demo:
+
+```bash
+manifold-check --demo --format markdown --why
+```
+
+From a repo checkout, you can also run the committed JSONL corpus:
 
 ```bash
 manifold-check \
@@ -56,7 +62,8 @@ manifold-check \
   --why
 ```
 
-From a PyPI-only install, create the demo file first:
+From a PyPI-only install, create the demo file manually when you want to edit
+the cases yourself:
 
 ```bash
 cat > demo_corpus.jsonl <<'JSONL'

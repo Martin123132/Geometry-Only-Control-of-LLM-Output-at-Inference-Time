@@ -8,6 +8,7 @@ Machine-readable schema file:
 
 `manifold-check --format json` emits one JSON object for a single regulation run.
 `manifold-check --input-jsonl ...` emits one JSON object per input line.
+`manifold-check --demo` runs the built-in offline demo corpus without requiring an examples checkout.
 `--summary` appends a final summary object in batch JSONL mode.
 `--format markdown` emits a human-readable single report or batch audit report.
 `--format csv` emits one spreadsheet-friendly row per candidate evaluation.

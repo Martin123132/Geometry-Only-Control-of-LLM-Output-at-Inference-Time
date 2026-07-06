@@ -12,6 +12,7 @@ from mbt_ai_tools.cli import (
     build_decision_explanation,
     build_regulation_report,
     format_csv_audit,
+    format_demo_text,
     format_markdown_audit,
     format_markdown_report,
     format_regulation_text,
@@ -349,6 +350,102 @@ def test_cli_batch_csv_audit(monkeypatch, capsys, tmp_path):
     assert "negated_positive_support_clamp" in rows[2]["clamps"]
 
 
+def test_cli_demo_text_runs_built_in_offline_demo(monkeypatch, capsys):
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "manifold-check",
+            "--demo",
+            "--why",
+        ],
+    )
+
+    assert main() == 0
+
+    output = capsys.readouterr().out
+    assert output.startswith("ManifoldGuard demo (offline)\n")
+    assert "safe_emit_reference_match -> emit" in output
+    assert "blocked_negation -> block" in output
+    assert "blocked_numeric_drift -> block" in output
+    assert "why | Blocked because these guards fired:" in output
+
+
+def test_cli_demo_markdown_and_fail_on_block(monkeypatch, capsys):
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "manifold-check",
+            "--demo",
+            "--format",
+            "markdown",
+            "--why",
+            "--fail-on-block",
+        ],
+    )
+
+    assert main() == 2
+
+    output = capsys.readouterr().out
+    assert output.startswith("# ManifoldGuard Audit Report\n")
+    assert "## Case: safe_emit_reference_match" in output
+    assert "## Case: blocked_negation" in output
+    assert "## Case: blocked_numeric_drift" in output
+    assert "- Action: block" in output
+
+
+def test_cli_demo_json_summary(monkeypatch, capsys):
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "manifold-check",
+            "--demo",
+            "--format",
+            "json",
+            "--summary",
+        ],
+    )
+
+    assert main() == 0
+
+    records = [json.loads(line) for line in capsys.readouterr().out.splitlines()]
+    assert [record["id"] for record in records[:3]] == [
+        "safe_emit_reference_match",
+        "blocked_negation",
+        "blocked_numeric_drift",
+    ]
+    assert records[-1] == {
+        "blocked": 2,
+        "blocked_candidates": 2,
+        "emitted": 1,
+        "record_type": "summary",
+        "safe_candidates": 1,
+        "total": 3,
+    }
+
+
+def test_cli_demo_disallows_conflicting_inputs(monkeypatch, capsys):
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "manifold-check",
+            "--demo",
+            "--candidate",
+            "The capital of France is Paris.",
+        ],
+    )
+
+    with pytest.raises(SystemExit) as exc:
+        main()
+    assert exc.value.code == 2
+    captured = capsys.readouterr()
+    assert captured.out == ""
+    assert "--demo cannot be combined" in captured.err
+
+
 def test_cli_disallows_token_shock_with_no_embeddings_in_single_mode(monkeypatch, capsys):
     monkeypatch.setattr(
         sys,
@@ -581,6 +678,38 @@ def test_format_regulation_text_matches_existing_cli_shape():
     assert output.startswith("EMIT | The capital of France is Paris. | score=0.0000\n")
     assert "[0] blocked | score=" in output
     assert "[1] safe | score=0.0000 | clamps=exact_reference_member" in output
+
+
+def test_format_demo_text_summarizes_actions():
+    reports = [
+        {
+            "id": "safe_emit_reference_match",
+            "action": "emit",
+            "emitted_text": "The capital of France is Paris.",
+            "evaluations": [{"safe_to_emit": True, "clamps": ["exact_reference_member"]}],
+        },
+        {
+            "id": "blocked_negation",
+            "action": "block",
+            "emitted_text": None,
+            "evaluations": [
+                {
+                    "safe_to_emit": False,
+                    "clamps": ["negated_positive_support_clamp"],
+                    "explanation": {
+                        "summary": "Blocked because these guards fired: negated_positive_support_clamp."
+                    },
+                }
+            ],
+        },
+    ]
+
+    output = format_demo_text(reports)
+
+    assert "safe_emit_reference_match -> emit" in output
+    assert "blocked_negation -> block" in output
+    assert "block | negated_positive_support_clamp" in output
+    assert "Use --format markdown for a full audit report." in output
 
 
 def test_explain_text_and_markdown_render_decision_reasons():
