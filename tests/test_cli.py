@@ -64,6 +64,13 @@ def test_cli_regulation_json_report_without_embeddings(monkeypatch, capsys):
     assert report["action"] == "emit"
     assert report["emitted_text"] == "The capital of France is Paris."
     assert report["emitted_index"] == 1
+    assert report["candidate_pool"] == {
+        "blocked_candidates": 1,
+        "duplicate_candidates": 0,
+        "safe_candidates": 1,
+        "total_candidates": 2,
+        "unique_pool_groups": 2,
+    }
     assert report["evaluations"][0]["status"] == "blocked"
     assert report["evaluations"][0]["pool_group_key"] == "the capital of france is london"
     assert report["evaluations"][0]["duplicate_of"] is None
@@ -610,6 +617,11 @@ def test_report_formats_include_selection_diagnostics():
 
     csv_rows = list(csv.DictReader(StringIO(format_csv_audit([report]))))
     assert csv_rows[0]["selection_status"] == "blocked_before_ranking"
+    assert csv_rows[0]["pool_total_candidates"] == "2"
+    assert csv_rows[0]["pool_unique_groups"] == "2"
+    assert csv_rows[0]["pool_duplicate_candidates"] == "0"
+    assert csv_rows[0]["pool_safe_candidates"] == "1"
+    assert csv_rows[0]["pool_blocked_candidates"] == "1"
     assert csv_rows[0]["pool_group_key"] == "the capital of france is london"
     assert csv_rows[0]["duplicate_of"] == ""
     assert csv_rows[0]["selection_rank"] == ""
@@ -619,11 +631,38 @@ def test_report_formats_include_selection_diagnostics():
     assert csv_rows[1]["selection_rank"] == "1"
 
     markdown = format_markdown_report(report)
+    assert "### Candidate Pool" in markdown
+    assert "- Total candidates: 2" in markdown
+    assert "- Unique pool groups: 2" in markdown
+    assert "- Duplicate candidates: 0" in markdown
     assert "- Pool group: the capital of france is london" in markdown
     assert "- Duplicate of: `null`" in markdown
     assert "- Selection: blocked_before_ranking" in markdown
     assert "- Selection: emitted" in markdown
     assert "- Selection rank: 1" in markdown
+
+
+def test_candidate_pool_summary_counts_duplicate_candidates():
+    result = regulate_candidates(
+        [
+            "The capital of France is London.",
+            "The capital of France is London.",
+            "The capital of France is Paris.",
+        ],
+        ["The capital of France is Paris."],
+        use_embeddings=False,
+    )
+
+    report = build_regulation_report(result)
+
+    assert report["candidate_pool"] == {
+        "blocked_candidates": 2,
+        "duplicate_candidates": 1,
+        "safe_candidates": 1,
+        "total_candidates": 3,
+        "unique_pool_groups": 2,
+    }
+    assert report["evaluations"][1]["duplicate_of"] == 0
 
 
 def test_build_batch_summary_counts_reports_and_candidates():

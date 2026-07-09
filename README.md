@@ -466,6 +466,9 @@ JSON, Markdown, and CSV reports also include candidate-pool selection metadata:
 `selection_reason`. These fields make large candidate pools easier to triage by
 separating normalized duplicates, candidates blocked before ranking, the safe
 candidate that was emitted, and any safe alternatives retained for audit.
+JSON and Markdown reports also summarize total candidates, unique normalized
+groups, duplicates, safe candidates, and blocked candidates. CSV reports repeat
+the same case-level counts in `pool_*` columns for filtering and pivot tables.
 
 Expected case-level actions:
 

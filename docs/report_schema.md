@@ -23,6 +23,8 @@ Top-level fields:
 - `emitted_text`: emitted candidate text, or `null` when blocked.
 - `emitted_index`: zero-based emitted candidate index, or `null` when blocked.
 - `emitted_score`: emitted candidate regulator score, or `null` when blocked.
+- `candidate_pool`: aggregate counts for total candidates, unique normalized pool
+  groups, duplicates, safe candidates, and blocked candidates.
 - `evaluations`: per-candidate evaluation objects.
 
 Each evaluation contains:
@@ -92,6 +94,8 @@ Single regulation Markdown includes:
 
 - report title.
 - action, emitted index, and emitted text.
+- candidate-pool totals for submitted, unique, duplicate, safe, and blocked
+  candidates.
 - per-candidate status, score, shock, literal score, clamps, relations, and negated relations.
 - per-candidate pool group, duplicate source, selection status, rank, and reason.
 - optional per-candidate explanation summaries when `--explain` is used.
@@ -101,6 +105,7 @@ Batch Markdown includes:
 - audit title.
 - summary totals.
 - one case section per input line.
+- per-case candidate-pool totals.
 - the same per-candidate details as single Markdown reports.
 
 ## CSV Output
@@ -115,6 +120,11 @@ CSV output contains one row per candidate evaluation with these columns:
 - `action`: case-level `emit` or `block`.
 - `emitted_index`: case-level emitted candidate index, blank when blocked.
 - `emitted_text`: case-level emitted candidate text, blank when blocked.
+- `pool_total_candidates`: total submitted candidates for the case.
+- `pool_unique_groups`: unique normalized candidate groups for the case.
+- `pool_duplicate_candidates`: candidates grouped under an earlier candidate.
+- `pool_safe_candidates`: safe candidate evaluations for the case.
+- `pool_blocked_candidates`: blocked candidate evaluations for the case.
 - `candidate_index`: zero-based candidate index.
 - `candidate_text`: candidate text.
 - `pool_group_key`: normalized duplicate-group key.

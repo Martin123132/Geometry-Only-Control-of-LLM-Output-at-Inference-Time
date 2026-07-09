@@ -16,6 +16,13 @@ Expected output:
 ```json
 {
   "action": "emit",
+  "candidate_pool": {
+    "blocked_candidates": 1,
+    "duplicate_candidates": 0,
+    "safe_candidates": 1,
+    "total_candidates": 2,
+    "unique_pool_groups": 2
+  },
   "emitted_index": 1,
   "emitted_score": 0.0,
   "emitted_text": "The capital of France is Paris.",

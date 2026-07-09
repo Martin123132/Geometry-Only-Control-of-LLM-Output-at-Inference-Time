@@ -42,6 +42,14 @@ Expected output:
 - Emitted text: The capital of France is Paris.
 - Input line: 1
 
+### Candidate Pool
+
+- Total candidates: 2
+- Unique pool groups: 2
+- Duplicate candidates: 0
+- Safe candidates: 1
+- Blocked candidates: 1
+
 ### Candidate Evaluations
 
 #### Candidate 0 - blocked
@@ -81,6 +89,14 @@ Expected output:
 - Emitted index: `null`
 - Emitted text: `null`
 - Input line: 2
+
+### Candidate Pool
+
+- Total candidates: 1
+- Unique pool groups: 1
+- Duplicate candidates: 0
+- Safe candidates: 0
+- Blocked candidates: 1
 
 ### Candidate Evaluations
 
