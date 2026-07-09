@@ -187,10 +187,44 @@
       },
       "additionalProperties": false
     },
+    "candidate_pool_object": {
+      "type": "object",
+      "required": [
+        "total_candidates",
+        "unique_pool_groups",
+        "duplicate_candidates",
+        "safe_candidates",
+        "blocked_candidates"
+      ],
+      "properties": {
+        "total_candidates": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "unique_pool_groups": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "duplicate_candidates": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "safe_candidates": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "blocked_candidates": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
     "report_object": {
       "type": "object",
       "required": [
         "action",
+        "candidate_pool",
         "emitted_text",
         "emitted_index",
         "emitted_score",
@@ -203,6 +237,9 @@
             "emit",
             "block"
           ]
+        },
+        "candidate_pool": {
+          "$ref": "#/definitions/candidate_pool_object"
         },
         "emitted_text": {
           "type": [
@@ -237,6 +274,7 @@
       "type": "object",
       "required": [
         "action",
+        "candidate_pool",
         "emitted_text",
         "emitted_index",
         "emitted_score",
@@ -251,6 +289,9 @@
             "emit",
             "block"
           ]
+        },
+        "candidate_pool": {
+          "$ref": "#/definitions/candidate_pool_object"
         },
         "emitted_text": {
           "type": [

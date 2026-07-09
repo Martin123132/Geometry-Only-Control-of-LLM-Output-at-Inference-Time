@@ -9,6 +9,8 @@
 - Added normalized duplicate grouping for candidate pools. Repeated candidates
   reuse the first matching safety evaluation, stay visible as output rows, and
   expose `pool_group_key` plus `duplicate_of` in reports.
+- Added per-report candidate-pool summaries for total, unique, duplicate, safe,
+  and blocked candidates across JSON, Markdown, and CSV audit output.
 - Updated the report schema, README guidance, and roadmap to make candidate
   triage the next bounded hardening target after the `0.1.6` public release.
 

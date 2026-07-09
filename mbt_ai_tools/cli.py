@@ -280,8 +280,25 @@ def build_regulation_report(
             ]
         evaluations.append(item)
 
+    candidate_pool = {
+        "total_candidates": len(evaluations),
+        "unique_pool_groups": len(
+            {evaluation["pool_group_key"] for evaluation in evaluations}
+        ),
+        "duplicate_candidates": sum(
+            1 for evaluation in evaluations if evaluation["duplicate_of"] is not None
+        ),
+        "safe_candidates": sum(
+            1 for evaluation in evaluations if evaluation["safe_to_emit"]
+        ),
+        "blocked_candidates": sum(
+            1 for evaluation in evaluations if not evaluation["safe_to_emit"]
+        ),
+    }
+
     return {
         "action": result.action,
+        "candidate_pool": candidate_pool,
         "emitted_text": result.emitted_text,
         "emitted_index": emitted_index,
         "emitted_score": None
@@ -440,6 +457,11 @@ CSV_FIELDNAMES = [
     "action",
     "emitted_index",
     "emitted_text",
+    "pool_total_candidates",
+    "pool_unique_groups",
+    "pool_duplicate_candidates",
+    "pool_safe_candidates",
+    "pool_blocked_candidates",
     "candidate_index",
     "candidate_text",
     "pool_group_key",
@@ -484,6 +506,11 @@ def format_csv_audit(reports: List[Dict[str, Any]]) -> str:
                     "action": report["action"],
                     "emitted_index": _csv_value(report["emitted_index"]),
                     "emitted_text": _csv_value(report["emitted_text"]),
+                    "pool_total_candidates": report["candidate_pool"]["total_candidates"],
+                    "pool_unique_groups": report["candidate_pool"]["unique_pool_groups"],
+                    "pool_duplicate_candidates": report["candidate_pool"]["duplicate_candidates"],
+                    "pool_safe_candidates": report["candidate_pool"]["safe_candidates"],
+                    "pool_blocked_candidates": report["candidate_pool"]["blocked_candidates"],
                     "candidate_index": evaluation["index"],
                     "candidate_text": evaluation["text"],
                     "pool_group_key": evaluation["pool_group_key"],
@@ -536,7 +563,9 @@ def format_markdown_audit(reports: List[Dict[str, Any]]) -> str:
         )
         if "line" in report:
             lines.append(f"- Input line: {report['line']}")
-        lines.extend(["", *_markdown_evaluations(report), ""])
+        lines.extend(
+            ["", *_markdown_candidate_pool(report), "", *_markdown_evaluations(report), ""]
+        )
 
     return "\n".join(lines).rstrip() + "\n"
 
@@ -549,10 +578,25 @@ def format_markdown_report(report: Dict[str, Any]) -> str:
         f"- Emitted index: {_markdown_value(report['emitted_index'])}",
         f"- Emitted text: {_markdown_value(report['emitted_text'])}",
         "",
+        *_markdown_candidate_pool(report),
+        "",
         *_markdown_evaluations(report),
         "",
     ]
     return "\n".join(lines).rstrip() + "\n"
+
+
+def _markdown_candidate_pool(report: Dict[str, Any]) -> List[str]:
+    summary = report["candidate_pool"]
+    return [
+        "### Candidate Pool",
+        "",
+        f"- Total candidates: {summary['total_candidates']}",
+        f"- Unique pool groups: {summary['unique_pool_groups']}",
+        f"- Duplicate candidates: {summary['duplicate_candidates']}",
+        f"- Safe candidates: {summary['safe_candidates']}",
+        f"- Blocked candidates: {summary['blocked_candidates']}",
+    ]
 
 
 def _markdown_evaluations(report: Dict[str, Any]) -> List[str]:
