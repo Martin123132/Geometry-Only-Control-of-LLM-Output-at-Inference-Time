@@ -17,14 +17,17 @@ working plan, not a public guarantee.
   treated as supporting development evidence, not a public benchmark claim.
 - `0.1.6` shipped the built-in offline demo, `--why` alias, public demo corpus,
   CLI quickstart, and release verification record.
+- `0.1.7` is prepared as a release candidate for candidate-pool diagnostics,
+  duplicate grouping, summary counts, and report-only filtering and ordering.
+  It is not tagged or published yet.
 
-## Next release-candidate track
+## 0.1.7 release-candidate scope
 
-The next bounded work is `0.1.7` candidate-pool ergonomics. Keep EXP24 and
-EXP25 as closed milestone corpora, then improve how large candidate pools can be
-reviewed without changing public safety claims.
+The bounded `0.1.7` candidate-pool ergonomics scope is complete. EXP24 and EXP25
+remain closed milestone corpora, and the release candidate improves how large
+candidate pools are reviewed without changing public safety claims.
 
-Recommended order:
+Completed scope:
 
 - add deterministic candidate selection diagnostics to separate blocked
   candidates, the emitted candidate, and safe alternatives
@@ -40,6 +43,9 @@ Recommended order:
   become public report fields
 - add a small roadmap/changelog note before broadening into EXP26-style probes
 - leave public claims tied to release evidence, not exploratory pass rates
+
+Release boundary: prepare and verify the candidate without creating a tag,
+GitHub Release, TestPyPI upload, or PyPI upload until explicitly authorized.
 
 ## Product hardening
 
