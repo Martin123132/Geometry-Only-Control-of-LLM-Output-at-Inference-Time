@@ -49,6 +49,9 @@ Expected output:
 - Duplicate candidates: 0
 - Safe candidates: 1
 - Blocked candidates: 1
+- View filter: all
+- View order: input
+- Visible candidates: 2
 
 ### Candidate Evaluations
 
@@ -97,6 +100,9 @@ Expected output:
 - Duplicate candidates: 0
 - Safe candidates: 0
 - Blocked candidates: 1
+- View filter: all
+- View order: input
+- Visible candidates: 1
 
 ### Candidate Evaluations
 

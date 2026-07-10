@@ -469,6 +469,19 @@ candidate that was emitted, and any safe alternatives retained for audit.
 JSON and Markdown reports also summarize total candidates, unique normalized
 groups, duplicates, safe candidates, and blocked candidates. CSV reports repeat
 the same case-level counts in `pool_*` columns for filtering and pivot tables.
+Use `--candidate-filter safe|blocked|duplicates|unique` and
+`--candidate-order input|score|selection` to narrow or reorder report rows.
+These are audit-view controls only: the action, emitted candidate, original
+indices, and full-pool totals remain unchanged.
+
+```bash
+manifold-check \
+  --input-jsonl examples/batch_input.jsonl \
+  --no-embeddings \
+  --candidate-filter blocked \
+  --candidate-order score \
+  --format markdown
+```
 
 Expected case-level actions:
 

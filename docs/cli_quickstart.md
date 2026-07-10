@@ -90,6 +90,25 @@ blocked_numeric_drift -> block
 Use `--fail-on-block` when this command is part of CI and any blocked case
 should produce exit status `2`.
 
+## Review a large candidate pool
+
+Filtering and ordering affect report rows only. ManifoldGuard still regulates
+the full pool, preserves original candidate indices, and reports full safe and
+blocked totals.
+
+```bash
+manifold-check \
+  --input-jsonl examples/batch_input.jsonl \
+  --no-embeddings \
+  --candidate-filter blocked \
+  --candidate-order score \
+  --format markdown
+```
+
+Filters are `all`, `safe`, `blocked`, `duplicates`, and `unique`. Orders are
+`input`, `score` (lowest first), and `selection` (emitted candidate, safe
+alternatives, then blocked candidates).
+
 ## When to use batch mode
 
 Use `--input-jsonl` when you want a repeatable audit over many references and

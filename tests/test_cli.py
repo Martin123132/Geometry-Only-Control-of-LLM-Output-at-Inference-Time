@@ -71,6 +71,11 @@ def test_cli_regulation_json_report_without_embeddings(monkeypatch, capsys):
         "total_candidates": 2,
         "unique_pool_groups": 2,
     }
+    assert report["candidate_view"] == {
+        "filter": "all",
+        "order": "input",
+        "visible_candidates": 2,
+    }
     assert report["evaluations"][0]["status"] == "blocked"
     assert report["evaluations"][0]["pool_group_key"] == "the capital of france is london"
     assert report["evaluations"][0]["duplicate_of"] is None
@@ -82,6 +87,47 @@ def test_cli_regulation_json_report_without_embeddings(monkeypatch, capsys):
     assert report["evaluations"][1]["duplicate_of"] is None
     assert report["evaluations"][1]["selection_status"] == "emitted"
     assert report["evaluations"][1]["selection_rank"] == 1
+
+
+def test_cli_candidate_view_filters_duplicates_without_changing_selection(
+    monkeypatch, capsys
+):
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "manifold-check",
+            "--reference",
+            "The capital of France is Paris.",
+            "--candidate",
+            "The capital of France is London.",
+            "--candidate",
+            "The capital of France is Paris.",
+            "--candidate",
+            "The capital of France is Paris.",
+            "--no-embeddings",
+            "--format",
+            "json",
+            "--candidate-filter",
+            "duplicates",
+            "--candidate-order",
+            "selection",
+        ],
+    )
+
+    assert main() == 0
+
+    report = json.loads(capsys.readouterr().out)
+    assert report["action"] == "emit"
+    assert report["emitted_index"] == 1
+    assert report["candidate_pool"]["total_candidates"] == 3
+    assert report["candidate_view"] == {
+        "filter": "duplicates",
+        "order": "selection",
+        "visible_candidates": 1,
+    }
+    assert [evaluation["index"] for evaluation in report["evaluations"]] == [2]
+    assert report["evaluations"][0]["duplicate_of"] == 1
 
 
 def test_cli_regulation_json_report_can_include_explanations(monkeypatch, capsys):
@@ -622,6 +668,9 @@ def test_report_formats_include_selection_diagnostics():
     assert csv_rows[0]["pool_duplicate_candidates"] == "0"
     assert csv_rows[0]["pool_safe_candidates"] == "1"
     assert csv_rows[0]["pool_blocked_candidates"] == "1"
+    assert csv_rows[0]["view_filter"] == "all"
+    assert csv_rows[0]["view_order"] == "input"
+    assert csv_rows[0]["view_visible_candidates"] == "2"
     assert csv_rows[0]["pool_group_key"] == "the capital of france is london"
     assert csv_rows[0]["duplicate_of"] == ""
     assert csv_rows[0]["selection_rank"] == ""
@@ -635,6 +684,9 @@ def test_report_formats_include_selection_diagnostics():
     assert "- Total candidates: 2" in markdown
     assert "- Unique pool groups: 2" in markdown
     assert "- Duplicate candidates: 0" in markdown
+    assert "- View filter: all" in markdown
+    assert "- View order: input" in markdown
+    assert "- Visible candidates: 2" in markdown
     assert "- Pool group: the capital of france is london" in markdown
     assert "- Duplicate of: `null`" in markdown
     assert "- Selection: blocked_before_ranking" in markdown
@@ -665,20 +717,40 @@ def test_candidate_pool_summary_counts_duplicate_candidates():
     assert report["evaluations"][1]["duplicate_of"] == 0
 
 
+def test_candidate_view_orders_selection_and_handles_empty_filters():
+    result = regulate_candidates(
+        [
+            "The capital of France is London.",
+            "The capital of France is Paris.",
+        ],
+        ["The capital of France is Paris."],
+        use_embeddings=False,
+    )
+
+    ordered = build_regulation_report(result, candidate_order="selection")
+    empty = build_regulation_report(result, candidate_filter="duplicates")
+
+    assert ordered["action"] == "emit"
+    assert ordered["emitted_index"] == 1
+    assert [evaluation["index"] for evaluation in ordered["evaluations"]] == [1, 0]
+    assert empty["candidate_pool"]["total_candidates"] == 2
+    assert empty["candidate_view"]["visible_candidates"] == 0
+    assert empty["evaluations"] == []
+    assert "No candidates matched the report filter" in format_markdown_report(empty)
+    assert "VIEW | filter=duplicates | order=input | visible=0/2" in format_regulation_text(empty)
+
+
 def test_build_batch_summary_counts_reports_and_candidates():
     reports = [
         {
             "action": "emit",
-            "evaluations": [
-                {"safe_to_emit": False},
-                {"safe_to_emit": True},
-            ],
+            "candidate_pool": {"safe_candidates": 1, "blocked_candidates": 1},
+            "evaluations": [{"safe_to_emit": True}],
         },
         {
             "action": "block",
-            "evaluations": [
-                {"safe_to_emit": False},
-            ],
+            "candidate_pool": {"safe_candidates": 0, "blocked_candidates": 1},
+            "evaluations": [],
         },
     ]
 

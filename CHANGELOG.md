@@ -11,6 +11,8 @@
   expose `pool_group_key` plus `duplicate_of` in reports.
 - Added per-report candidate-pool summaries for total, unique, duplicate, safe,
   and blocked candidates across JSON, Markdown, and CSV audit output.
+- Added report-only candidate filtering and ordering controls for large pools,
+  with explicit view metadata and full-pool safety totals preserved.
 - Updated the report schema, README guidance, and roadmap to make candidate
   triage the next bounded hardening target after the `0.1.6` public release.
 
