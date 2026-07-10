@@ -30,6 +30,9 @@ DEMO_CASES = [
     },
 ]
 
+CANDIDATE_FILTERS = ("all", "safe", "blocked", "duplicates", "unique")
+CANDIDATE_ORDERS = ("input", "score", "selection")
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(
@@ -97,6 +100,18 @@ def main() -> int:
         help="Output format for regulation reports. Batch mode defaults to JSONL unless markdown or csv is selected.",
     )
     parser.add_argument(
+        "--candidate-filter",
+        choices=CANDIDATE_FILTERS,
+        default="all",
+        help="Limit report rows without changing regulation: all, safe, blocked, duplicates, or unique.",
+    )
+    parser.add_argument(
+        "--candidate-order",
+        choices=CANDIDATE_ORDERS,
+        default="input",
+        help="Order report rows by input position, ascending regulator score, or selection priority.",
+    )
+    parser.add_argument(
         "--explain",
         "--why",
         dest="explain",
@@ -139,7 +154,13 @@ def main() -> int:
             parser.error("--demo cannot be combined with positional text, --input-jsonl, --reference, or --candidate")
         if args.token_shock:
             parser.error("--demo runs offline and cannot be combined with --token-shock")
-        reports = list(build_demo_reports(include_explanations=args.explain))
+        reports = list(
+            build_demo_reports(
+                include_explanations=args.explain,
+                candidate_filter=args.candidate_filter,
+                candidate_order=args.candidate_order,
+            )
+        )
         if args.format == "markdown":
             content = format_markdown_audit(reports)
         elif args.format == "csv":
@@ -167,6 +188,8 @@ def main() -> int:
                     token_shock_max_samples=args.token_shock_max_samples,
                     token_shock_top_k=args.token_shock_top_k,
                     token_shock_order=args.token_shock_order,
+                    candidate_filter=args.candidate_filter,
+                    candidate_order=args.candidate_order,
                 )
             )
         except (OSError, ValueError) as exc:
@@ -202,6 +225,8 @@ def main() -> int:
             token_shock_max_samples=args.token_shock_max_samples,
             token_shock_top_k=args.token_shock_top_k,
             token_shock_order=args.token_shock_order,
+            candidate_filter=args.candidate_filter,
+            candidate_order=args.candidate_order,
         )
         if args.format == "json":
             content = f"{json.dumps(report, indent=2, sort_keys=True)}\n"
@@ -232,6 +257,8 @@ def build_regulation_report(
     token_shock_max_samples: Optional[int] = None,
     token_shock_top_k: Optional[int] = None,
     token_shock_order: str = "score",
+    candidate_filter: str = "all",
+    candidate_order: str = "input",
 ) -> Dict[str, Any]:
     emitted_index = None
     if result.emitted is not None:
@@ -268,16 +295,6 @@ def build_regulation_report(
         }
         if include_explanations:
             item["explanation"] = build_decision_explanation(evaluation)
-        if include_token_shock:
-            item["token_shock"] = [
-                {"token": token, "shock": score}
-                for token, score in token_shock_map(
-                    evaluation.text,
-                    max_samples=token_shock_max_samples,
-                    top_k=token_shock_top_k,
-                    order=token_shock_order,
-                )
-            ]
         evaluations.append(item)
 
     candidate_pool = {
@@ -296,14 +313,70 @@ def build_regulation_report(
         ),
     }
 
+    if candidate_filter not in CANDIDATE_FILTERS:
+        raise ValueError(
+            f"candidate_filter must be one of: {', '.join(CANDIDATE_FILTERS)}"
+        )
+    if candidate_order not in CANDIDATE_ORDERS:
+        raise ValueError(
+            f"candidate_order must be one of: {', '.join(CANDIDATE_ORDERS)}"
+        )
+
+    if candidate_filter == "safe":
+        evaluations = [item for item in evaluations if item["safe_to_emit"]]
+    elif candidate_filter == "blocked":
+        evaluations = [item for item in evaluations if not item["safe_to_emit"]]
+    elif candidate_filter == "duplicates":
+        evaluations = [item for item in evaluations if item["duplicate_of"] is not None]
+    elif candidate_filter == "unique":
+        evaluations = [item for item in evaluations if item["duplicate_of"] is None]
+
+    if candidate_order == "score":
+        evaluations.sort(key=lambda item: (item["regulator_score"], item["index"]))
+    elif candidate_order == "selection":
+        selection_priority = {
+            "emitted": 0,
+            "safe_alternative": 1,
+            "blocked_before_ranking": 2,
+            "not_ranked": 3,
+        }
+        evaluations.sort(
+            key=lambda item: (
+                selection_priority.get(item["selection_status"], 4),
+                item["selection_rank"] is None,
+                item["selection_rank"] or 0,
+                item["regulator_score"],
+                item["index"],
+            )
+        )
+
+    candidate_view = {
+        "filter": candidate_filter,
+        "order": candidate_order,
+        "visible_candidates": len(evaluations),
+    }
+
+    if include_token_shock:
+        for evaluation in evaluations:
+            evaluation["token_shock"] = [
+                {"token": token, "shock": score}
+                for token, score in token_shock_map(
+                    evaluation["text"],
+                    max_samples=token_shock_max_samples,
+                    top_k=token_shock_top_k,
+                    order=token_shock_order,
+                )
+            ]
+
     return {
         "action": result.action,
         "candidate_pool": candidate_pool,
+        "candidate_view": candidate_view,
         "emitted_text": result.emitted_text,
         "emitted_index": emitted_index,
         "emitted_score": None
-        if emitted_index is None
-        else evaluations[emitted_index]["regulator_score"],
+        if result.emitted is None
+        else result.emitted.regulator_score,
         "evaluations": evaluations,
     }
 
@@ -373,6 +446,8 @@ def build_batch_reports(
     token_shock_max_samples: Optional[int] = None,
     token_shock_top_k: Optional[int] = None,
     token_shock_order: str = "score",
+    candidate_filter: str = "all",
+    candidate_order: str = "input",
 ) -> Iterable[Dict[str, Any]]:
     with input_jsonl.open("r", encoding="utf-8") as handle:
         for line_number, raw_line in enumerate(handle, start=1):
@@ -402,6 +477,8 @@ def build_batch_reports(
                 token_shock_max_samples=token_shock_max_samples,
                 token_shock_top_k=token_shock_top_k,
                 token_shock_order=token_shock_order,
+                candidate_filter=candidate_filter,
+                candidate_order=candidate_order,
             )
             report["line"] = line_number
             report["references"] = references
@@ -410,7 +487,12 @@ def build_batch_reports(
             yield report
 
 
-def build_demo_reports(*, include_explanations: bool = False) -> Iterable[Dict[str, Any]]:
+def build_demo_reports(
+    *,
+    include_explanations: bool = False,
+    candidate_filter: str = "all",
+    candidate_order: str = "input",
+) -> Iterable[Dict[str, Any]]:
     for line_number, item in enumerate(DEMO_CASES, start=1):
         result = regulate_candidates(
             item["candidates"],
@@ -420,6 +502,8 @@ def build_demo_reports(*, include_explanations: bool = False) -> Iterable[Dict[s
         report = build_regulation_report(
             result,
             include_explanations=include_explanations,
+            candidate_filter=candidate_filter,
+            candidate_order=candidate_order,
         )
         report["line"] = line_number
         report["references"] = item["references"]
@@ -429,16 +513,10 @@ def build_demo_reports(*, include_explanations: bool = False) -> Iterable[Dict[s
 
 def build_batch_summary(reports: List[Dict[str, Any]]) -> Dict[str, Any]:
     safe_candidates = sum(
-        1
-        for report in reports
-        for evaluation in report["evaluations"]
-        if evaluation["safe_to_emit"]
+        report["candidate_pool"]["safe_candidates"] for report in reports
     )
     blocked_candidates = sum(
-        1
-        for report in reports
-        for evaluation in report["evaluations"]
-        if not evaluation["safe_to_emit"]
+        report["candidate_pool"]["blocked_candidates"] for report in reports
     )
     return {
         "record_type": "summary",
@@ -462,6 +540,9 @@ CSV_FIELDNAMES = [
     "pool_duplicate_candidates",
     "pool_safe_candidates",
     "pool_blocked_candidates",
+    "view_filter",
+    "view_order",
+    "view_visible_candidates",
     "candidate_index",
     "candidate_text",
     "pool_group_key",
@@ -511,6 +592,9 @@ def format_csv_audit(reports: List[Dict[str, Any]]) -> str:
                     "pool_duplicate_candidates": report["candidate_pool"]["duplicate_candidates"],
                     "pool_safe_candidates": report["candidate_pool"]["safe_candidates"],
                     "pool_blocked_candidates": report["candidate_pool"]["blocked_candidates"],
+                    "view_filter": report["candidate_view"]["filter"],
+                    "view_order": report["candidate_view"]["order"],
+                    "view_visible_candidates": report["candidate_view"]["visible_candidates"],
                     "candidate_index": evaluation["index"],
                     "candidate_text": evaluation["text"],
                     "pool_group_key": evaluation["pool_group_key"],
@@ -588,6 +672,7 @@ def format_markdown_report(report: Dict[str, Any]) -> str:
 
 def _markdown_candidate_pool(report: Dict[str, Any]) -> List[str]:
     summary = report["candidate_pool"]
+    view = report["candidate_view"]
     return [
         "### Candidate Pool",
         "",
@@ -596,11 +681,17 @@ def _markdown_candidate_pool(report: Dict[str, Any]) -> List[str]:
         f"- Duplicate candidates: {summary['duplicate_candidates']}",
         f"- Safe candidates: {summary['safe_candidates']}",
         f"- Blocked candidates: {summary['blocked_candidates']}",
+        f"- View filter: {view['filter']}",
+        f"- View order: {view['order']}",
+        f"- Visible candidates: {view['visible_candidates']}",
     ]
 
 
 def _markdown_evaluations(report: Dict[str, Any]) -> List[str]:
     lines = ["### Candidate Evaluations", ""]
+    if not report["evaluations"]:
+        lines.append("- No candidates matched the report filter.")
+        return lines
     for evaluation in report["evaluations"]:
         lines.extend(
             [
@@ -656,6 +747,13 @@ def format_regulation_text(report: Dict[str, Any]) -> str:
         lines = [
             f"EMIT | {report['emitted_text']} | score={report['emitted_score']:.4f}"
         ]
+
+    view = report["candidate_view"]
+    if view["filter"] != "all" or view["order"] != "input":
+        lines.append(
+            f"VIEW | filter={view['filter']} | order={view['order']} | "
+            f"visible={view['visible_candidates']}/{report['candidate_pool']['total_candidates']}"
+        )
 
     for evaluation in report["evaluations"]:
         clamps = "|".join(evaluation["clamps"])

@@ -32,8 +32,8 @@ Recommended order:
   first evaluation while staying visible in audit output
 - add compact per-report candidate-pool counts so large pools expose total,
   unique, duplicate, safe, and blocked volumes before row-level inspection
-- consider optional report sorting and filtering only after the summary contract
-  has settled under real candidate-pool use
+- add optional report sorting and filtering with explicit view metadata while
+  preserving full-pool decisions, totals, and original candidate indices
 - keep emit/block behavior unchanged unless a focused failing fixture justifies
   a safety change
 - update JSON, Markdown, CSV, and docs contracts together when diagnostics

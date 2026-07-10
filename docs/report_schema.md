@@ -25,7 +25,14 @@ Top-level fields:
 - `emitted_score`: emitted candidate regulator score, or `null` when blocked.
 - `candidate_pool`: aggregate counts for total candidates, unique normalized pool
   groups, duplicates, safe candidates, and blocked candidates.
+- `candidate_view`: active report filter, row order, and visible candidate count.
 - `evaluations`: per-candidate evaluation objects.
+
+`--candidate-filter` accepts `all`, `safe`, `blocked`, `duplicates`, or `unique`.
+`--candidate-order` accepts `input`, `score`, or `selection`. These options only
+change report rows; `action`, emitted fields, original candidate indices, and
+`candidate_pool` totals continue to describe the full regulated pool. A filter
+with no matches produces an empty `evaluations` array.
 
 Each evaluation contains:
 
@@ -96,6 +103,7 @@ Single regulation Markdown includes:
 - action, emitted index, and emitted text.
 - candidate-pool totals for submitted, unique, duplicate, safe, and blocked
   candidates.
+- active candidate filter, order, and visible-row count.
 - per-candidate status, score, shock, literal score, clamps, relations, and negated relations.
 - per-candidate pool group, duplicate source, selection status, rank, and reason.
 - optional per-candidate explanation summaries when `--explain` is used.
@@ -125,6 +133,9 @@ CSV output contains one row per candidate evaluation with these columns:
 - `pool_duplicate_candidates`: candidates grouped under an earlier candidate.
 - `pool_safe_candidates`: safe candidate evaluations for the case.
 - `pool_blocked_candidates`: blocked candidate evaluations for the case.
+- `view_filter`: active candidate report filter.
+- `view_order`: active candidate report order.
+- `view_visible_candidates`: candidate rows visible after filtering.
 - `candidate_index`: zero-based candidate index.
 - `candidate_text`: candidate text.
 - `pool_group_key`: normalized duplicate-group key.

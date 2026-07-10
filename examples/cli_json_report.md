@@ -23,6 +23,11 @@ Expected output:
     "total_candidates": 2,
     "unique_pool_groups": 2
   },
+  "candidate_view": {
+    "filter": "all",
+    "order": "input",
+    "visible_candidates": 2
+  },
   "emitted_index": 1,
   "emitted_score": 0.0,
   "emitted_text": "The capital of France is Paris.",
