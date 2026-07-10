@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.1.7 - 2026-07-10
+
 - Started the `0.1.7` development track with deterministic candidate-pool
   selection diagnostics in Python and CLI reports. Reports now distinguish
   candidates blocked before ranking, the emitted candidate, and safe
