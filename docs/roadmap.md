@@ -5,7 +5,7 @@ working plan, not a public guarantee.
 
 ## Current release baseline
 
-- `manifold-guard==0.1.6` is published to PyPI.
+- `manifold-guard==0.1.7` is published to TestPyPI and PyPI.
 - Core regulation remains offline-first when `use_embeddings=False` or
   `--no-embeddings` is selected.
 - EXP22 is closed at `18 / 18` for the checked seed cases.
@@ -17,15 +17,15 @@ working plan, not a public guarantee.
   treated as supporting development evidence, not a public benchmark claim.
 - `0.1.6` shipped the built-in offline demo, `--why` alias, public demo corpus,
   CLI quickstart, and release verification record.
-- `0.1.7` is prepared as a release candidate for candidate-pool diagnostics,
-  duplicate grouping, summary counts, and report-only filtering and ordering.
-  It is not tagged or published yet.
+- `0.1.7` shipped candidate-pool diagnostics, duplicate grouping, summary
+  counts, report-only filtering and ordering, and a public release verification
+  record.
 
-## 0.1.7 release-candidate scope
+## Completed 0.1.7 scope
 
 The bounded `0.1.7` candidate-pool ergonomics scope is complete. EXP24 and EXP25
-remain closed milestone corpora, and the release candidate improves how large
-candidate pools are reviewed without changing public safety claims.
+remain closed milestone corpora, and the release improves how large candidate
+pools are reviewed without changing public safety claims.
 
 Completed scope:
 
@@ -44,8 +44,14 @@ Completed scope:
 - add a small roadmap/changelog note before broadening into EXP26-style probes
 - leave public claims tied to release evidence, not exploratory pass rates
 
-Release boundary: prepare and verify the candidate without creating a tag,
-GitHub Release, TestPyPI upload, or PyPI upload until explicitly authorized.
+Release result: `v0.1.7` is tagged at `babe86d`, published through trusted
+publishing, and verified from clean TestPyPI and PyPI installations.
+
+## Next development track
+
+Start `0.1.8` with a measured 257-candidate scale benchmark covering runtime,
+memory, normalized duplicate compression, and serialized report size. Optimize
+only where the measured baseline identifies a meaningful bottleneck.
 
 ## Product hardening
 
