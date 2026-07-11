@@ -141,7 +141,8 @@
     "docs/package_publishing.md",
     "docs/package_installation.md",
     "docs/v0.1.6_plan.md",
-    "docs/v0.1.7_release_notes.md"
+    "docs/v0.1.7_release_notes.md",
+    "docs/v0.1.7_release_verification.md"
   ],
   "json_schema_examples": [
     "examples/single_report_example.json",
