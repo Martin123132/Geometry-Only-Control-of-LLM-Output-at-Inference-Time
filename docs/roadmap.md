@@ -53,6 +53,12 @@ Start `0.1.8` with a measured 257-candidate scale benchmark covering runtime,
 memory, normalized duplicate compression, and serialized report size. Optimize
 only where the measured baseline identifies a meaningful bottleneck.
 
+The first baseline is recorded in `docs/v0.1.8_scale_baseline.md`: normalized
+duplicate grouping avoids `69 / 257` evaluations (`26.8482%`), median offline
+regulation is `758.628 ms`, and report construction plus JSON serialization is
+about `6 ms`. The next bounded target is profiling reference-side preprocessing
+and per-unique-candidate regulation while preserving behavior parity.
+
 ## Product hardening
 
 - Keep default installs lightweight and offline-first.
