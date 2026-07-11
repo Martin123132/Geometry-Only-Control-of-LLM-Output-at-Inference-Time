@@ -142,7 +142,8 @@
     "docs/package_installation.md",
     "docs/v0.1.6_plan.md",
     "docs/v0.1.7_release_notes.md",
-    "docs/v0.1.7_release_verification.md"
+    "docs/v0.1.7_release_verification.md",
+    "docs/v0.1.8_scale_baseline.md"
   ],
   "json_schema_examples": [
     "examples/single_report_example.json",
@@ -225,6 +226,11 @@
       "name": "release_check",
       "path": "scripts/release_check.py",
       "scope": "one-command release evidence generation and readiness summary"
+    },
+    {
+      "name": "benchmark_candidate_pool",
+      "path": "scripts/benchmark_candidate_pool.py",
+      "scope": "offline runtime, Python allocation, duplicate compression, and report-size measurement on the frozen 257-row EXP20 candidate ledger"
     }
   ],
   "support_boundaries": [

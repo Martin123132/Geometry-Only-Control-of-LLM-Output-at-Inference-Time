@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Started the `0.1.8` development track with a reproducible offline
+  257-candidate scale benchmark covering runtime, Python peak allocations,
+  normalized duplicate compression, and serialized report size.
+
 ## 0.1.7 - 2026-07-10
 
 - Started the `0.1.7` development track with deterministic candidate-pool

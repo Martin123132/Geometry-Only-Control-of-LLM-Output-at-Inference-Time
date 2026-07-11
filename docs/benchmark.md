@@ -92,6 +92,26 @@ python -m pytest -q tests/test_cli.py
 python -m pytest -q tests/test_challenge_corpus.py
 ```
 
+### Tier 4: Development performance baselines
+
+Performance baselines measure implementation cost; they are not accuracy or
+generalization claims. The `0.1.8` track begins with the frozen EXP20 candidate
+ledger because it contains exactly 257 labelled candidate rows with natural
+duplicate text across 53 cases.
+
+Run the offline scale benchmark with outputs kept outside the repository:
+
+```bash
+python -B scripts/benchmark_candidate_pool.py \
+  --warmup 3 \
+  --iterations 10 \
+  --output D:\Temp\ManifoldGuard\v0.1.8-candidate-pool-baseline.json
+```
+
+The benchmark reports regulation, report-construction, serialization, Python
+peak-allocation, duplicate-compression, and JSON/Markdown/CSV size metrics. See
+`docs/v0.1.8_scale_baseline.md` for the checked baseline and interpretation.
+
 ## Public claim boundary
 
 Supported public claims should be tied to:
