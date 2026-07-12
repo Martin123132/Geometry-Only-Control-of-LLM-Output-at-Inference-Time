@@ -2048,7 +2048,11 @@ def _has_unsupported_negation(
     if not manifold.relations and not manifold.negated_relations:
         return False
 
-    negations = candidate_negations or _extract_negated_relations(text)
+    negations = (
+        candidate_negations
+        if candidate_negations is not None
+        else _extract_negated_relations(text)
+    )
     if not negations:
         return False
 

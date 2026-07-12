@@ -13,6 +13,10 @@
   extraction while preserving whole-text handling for coordinated clauses.
   Frozen-workload relation sets and all `257` candidate records remained exact,
   while isolated positive-relation parser median time fell by `27.025%`.
+- Reused precomputed empty candidate-negation sets instead of reparsing the
+  `172` non-negated unique candidates in the frozen pool. Candidate records
+  remained exact while a 16-pair full-pool comparison measured a `12.750%`
+  median regulation reduction.
 
 ## 0.1.7 - 2026-07-10
 
