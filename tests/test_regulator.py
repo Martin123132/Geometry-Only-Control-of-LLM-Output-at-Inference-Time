@@ -162,6 +162,34 @@ def test_single_clause_negation_is_parsed_once(monkeypatch):
     assert calls == ["photosynthesis does not release oxygen"]
 
 
+def test_empty_precomputed_candidate_negations_are_not_reparsed(monkeypatch):
+    manifold = regulator_module.ReferenceManifold.from_texts(
+        ["Water is liquid."],
+        use_embeddings=False,
+    )
+    calls = []
+    original = regulator_module._extract_negated_relations
+
+    def recording_extractor(text):
+        calls.append(text)
+        return original(text)
+
+    monkeypatch.setattr(
+        regulator_module,
+        "_extract_negated_relations",
+        recording_extractor,
+    )
+
+    evaluation = evaluate_candidate(
+        "Water is liquid.",
+        manifold,
+        use_embeddings=False,
+    )
+
+    assert evaluation.safe_to_emit is True
+    assert calls == ["Water is liquid."]
+
+
 def test_single_clause_positive_relation_runs_common_helper_once(monkeypatch):
     calls = []
     original = regulator_module._extract_temporal_binding_relations
