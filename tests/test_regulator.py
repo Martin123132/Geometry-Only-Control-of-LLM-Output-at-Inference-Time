@@ -3,6 +3,7 @@ import builtins
 import numpy as np
 import pytest
 
+from mbt_ai_tools.mbt import regulator as regulator_module
 from mbt_ai_tools import evaluate_candidate, extract_relations, regulate_candidates
 from mbt_ai_tools.mbt.regulator import _extract_negated_relations
 
@@ -137,6 +138,28 @@ def test_relation_direction_and_shared_subject_coordination():
     assert valid.safe_to_emit is True
     assert invalid.safe_to_emit is False
     assert "known_participant_unsupported_relation_clamp" in invalid.clamp_summary
+
+
+def test_single_clause_negation_is_parsed_once(monkeypatch):
+    calls = []
+    original = regulator_module._extract_negated_relations_from_segment
+
+    def recording_extractor(segment):
+        calls.append(segment)
+        return original(segment)
+
+    monkeypatch.setattr(
+        regulator_module,
+        "_extract_negated_relations_from_segment",
+        recording_extractor,
+    )
+
+    relations = _extract_negated_relations(
+        "Photosynthesis does not release oxygen."
+    )
+
+    assert ("photosynthesis", "release", "oxygen") in relations
+    assert calls == ["photosynthesis does not release oxygen"]
 
 
 def test_negated_contraction_is_blocked_without_explicit_token_overlap():

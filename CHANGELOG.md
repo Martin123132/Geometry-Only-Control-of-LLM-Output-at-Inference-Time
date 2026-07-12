@@ -5,6 +5,10 @@
 - Started the `0.1.8` development track with a reproducible offline
   257-candidate scale benchmark covering runtime, Python peak allocations,
   normalized duplicate compression, and serialized report size.
+- Removed a redundant single-clause negation-extraction pass identified by the
+  scale profile, preserving coordinated-clause handling and all candidate
+  decisions while reducing isolated negation-parser median time by `13.636%`
+  on the frozen workload.
 
 ## 0.1.7 - 2026-07-10
 

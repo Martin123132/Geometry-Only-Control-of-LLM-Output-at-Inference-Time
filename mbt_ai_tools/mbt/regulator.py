@@ -396,11 +396,17 @@ def _extract_negated_relations(text: str) -> Set[Relation]:
     if not normalized:
         return set()
 
+    segments = _split_relation_segments(normalized)
     negated: Set[Relation] = set()
     negated.update(_extract_scope_negated_relations(normalized))
     negated.update(_extract_exception_scope_negated_relations(normalized))
-    negated.update(_extract_negated_relations_from_segment(normalized))
-    for segment in _split_relation_segments(normalized):
+    # Preserve the whole-text pass for coordinated clauses, where it can bind
+    # context across segments. A single clause is already handled by the loop
+    # below, so parsing it once is set-equivalent to the previous duplicate
+    # union and avoids repeating the most expensive negation helper.
+    if segments != [normalized]:
+        negated.update(_extract_negated_relations_from_segment(normalized))
+    for segment in segments:
         negated.update(_extract_negated_relations_from_segment(segment))
     return {_normalize_relation(r) for r in negated if r[0] and r[2]}
 
