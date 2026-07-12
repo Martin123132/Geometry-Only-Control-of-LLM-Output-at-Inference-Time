@@ -162,6 +162,26 @@ def test_single_clause_negation_is_parsed_once(monkeypatch):
     assert calls == ["photosynthesis does not release oxygen"]
 
 
+def test_single_clause_positive_relation_runs_common_helper_once(monkeypatch):
+    calls = []
+    original = regulator_module._extract_temporal_binding_relations
+
+    def recording_extractor(text):
+        calls.append(text)
+        return original(text)
+
+    monkeypatch.setattr(
+        regulator_module,
+        "_extract_temporal_binding_relations",
+        recording_extractor,
+    )
+
+    relations = extract_relations("Photosynthesis releases oxygen.")
+
+    assert ("photosynthesis", "release", "oxygen") in relations
+    assert calls == ["photosynthesis releases oxygen"]
+
+
 def test_negated_contraction_is_blocked_without_explicit_token_overlap():
     evaluation = evaluate_candidate(
         "Water isn't liquid at room temperature.",

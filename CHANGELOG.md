@@ -9,6 +9,10 @@
   scale profile, preserving coordinated-clause handling and all candidate
   decisions while reducing isolated negation-parser median time by `13.636%`
   on the frozen workload.
+- Removed duplicate common-helper passes from single-clause positive-relation
+  extraction while preserving whole-text handling for coordinated clauses.
+  Frozen-workload relation sets and all `257` candidate records remained exact,
+  while isolated positive-relation parser median time fell by `27.025%`.
 
 ## 0.1.7 - 2026-07-10
 
