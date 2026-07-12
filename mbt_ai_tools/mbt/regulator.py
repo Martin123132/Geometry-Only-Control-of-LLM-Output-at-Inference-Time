@@ -368,23 +368,32 @@ def extract_relations(text: str) -> Set[Relation]:
     if not normalized:
         return set()
 
+    segments = _split_relation_segments(normalized)
     relations: Set[Relation] = set()
-    relations.update(_extract_temporal_binding_relations(normalized))
-    relations.update(_extract_temporal_order_relations(normalized))
-    relations.update(_extract_ordinal_binding_relations(normalized))
-    relations.update(_extract_conditional_scope_relations(normalized))
-    relations.update(_extract_permission_scope_relations(normalized))
-    relations.update(_extract_token_reuse_binding_relations(normalized))
-    relations.update(_extract_aggregate_binding_relations(normalized))
-    relations.update(_extract_range_bound_relations(normalized))
-    relations.update(_extract_scope_binding_relations(normalized))
-    relations.update(_extract_alias_binding_relations(normalized))
+    if segments == [normalized]:
+        # The segment extractor below already runs the common helpers. Keep the
+        # permissive whole-text conditional pass, but avoid repeating every
+        # other common helper for a single clause.
+        relations.update(_extract_conditional_scope_relations(normalized))
+    else:
+        # Coordinated text retains the whole-text passes that can bind context
+        # across the individual relation segments.
+        relations.update(_extract_temporal_binding_relations(normalized))
+        relations.update(_extract_temporal_order_relations(normalized))
+        relations.update(_extract_ordinal_binding_relations(normalized))
+        relations.update(_extract_conditional_scope_relations(normalized))
+        relations.update(_extract_permission_scope_relations(normalized))
+        relations.update(_extract_token_reuse_binding_relations(normalized))
+        relations.update(_extract_aggregate_binding_relations(normalized))
+        relations.update(_extract_range_bound_relations(normalized))
+        relations.update(_extract_scope_binding_relations(normalized))
+        relations.update(_extract_alias_binding_relations(normalized))
+        relations.update(_extract_role_binding_relations(normalized))
+        relations.update(_extract_shared_subject_verb_chain(normalized))
     relations.update(_extract_identity_binding_relations(normalized))
     relations.update(_extract_comparative_binding_relations(normalized))
     relations.update(_extract_exception_scope_relations(normalized))
-    relations.update(_extract_role_binding_relations(normalized))
-    relations.update(_extract_shared_subject_verb_chain(normalized))
-    for segment in _split_relation_segments(normalized):
+    for segment in segments:
         relations.update(_extract_relations_from_segment(segment))
     return {_normalize_relation(r) for r in relations if r[0] and r[2]}
 
