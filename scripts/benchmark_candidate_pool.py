@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import importlib
 import json
 import math
 import platform
@@ -13,7 +14,7 @@ import sys
 import time
 import tracemalloc
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any, Callable, Iterable
 
 from mbt_ai_tools.cli import (
     build_regulation_report,
@@ -31,6 +32,7 @@ DEFAULT_LEDGER = (
     / "mbt5_exp20_master_candidate_ledger.csv"
 )
 DEFAULT_EXPECTED_CANDIDATES = 257
+RegulatorCallable = Callable[..., Any]
 
 
 def unique_in_order(values: Iterable[str]) -> list[str]:
@@ -89,6 +91,150 @@ def timing_summary(samples_seconds: list[float]) -> dict[str, Any]:
 
 def encoded_size(text: str) -> int:
     return len(text.encode("utf-8"))
+
+
+def load_callable(specification: str) -> RegulatorCallable:
+    """Load a benchmark callable from ``module:attribute`` notation."""
+
+    module_name, separator, attribute_path = specification.partition(":")
+    if not separator or not module_name or not attribute_path:
+        raise ValueError("callable must use module:attribute notation")
+    value: Any = importlib.import_module(module_name)
+    for attribute in attribute_path.split("."):
+        value = getattr(value, attribute)
+    if not callable(value):
+        raise TypeError(f"{specification}: resolved value is not callable")
+    return value
+
+
+def run_paired_comparison(
+    candidates: list[str],
+    references: list[str],
+    *,
+    baseline_regulator: RegulatorCallable,
+    candidate_regulator: RegulatorCallable,
+    pairs: int = 10,
+    warmup: int = 2,
+    baseline_label: str = "baseline",
+    candidate_label: str = "candidate",
+    max_regression_percent: float = 3.0,
+    cases: int = 0,
+    source: str = "synthetic",
+) -> dict[str, Any]:
+    """Compare two offline regulators with alternating order and exact parity."""
+
+    if not candidates:
+        raise ValueError("at least one candidate is required")
+    if not references:
+        raise ValueError("at least one reference is required")
+    if pairs < 1:
+        raise ValueError("pairs must be at least 1")
+    if warmup < 0:
+        raise ValueError("warmup must be zero or greater")
+    if max_regression_percent < 0:
+        raise ValueError("max regression percent must be zero or greater")
+    if not baseline_label or not candidate_label or baseline_label == candidate_label:
+        raise ValueError("baseline and candidate labels must be non-empty and distinct")
+    if baseline_regulator is candidate_regulator:
+        raise ValueError("baseline and candidate callables must be distinct")
+
+    implementations = (
+        ("baseline", baseline_regulator),
+        ("candidate", candidate_regulator),
+    )
+
+    for pair_index in range(warmup):
+        order = implementations if pair_index % 2 == 0 else implementations[::-1]
+        for _, implementation in order:
+            implementation(candidates, references, use_embeddings=False)
+
+    samples: dict[str, list[float]] = {"baseline": [], "candidate": []}
+    mismatch_pairs: list[int] = []
+    final_report: dict[str, Any] | None = None
+
+    for pair_index in range(pairs):
+        order = implementations if pair_index % 2 == 0 else implementations[::-1]
+        reports: dict[str, dict[str, Any]] = {}
+        for role, implementation in order:
+            started = time.perf_counter()
+            result = implementation(candidates, references, use_embeddings=False)
+            samples[role].append(time.perf_counter() - started)
+            reports[role] = build_regulation_report(result)
+        if reports["baseline"] != reports["candidate"]:
+            mismatch_pairs.append(pair_index)
+        final_report = reports["candidate"]
+
+    if final_report is None:  # pragma: no cover - guarded by pairs validation
+        raise RuntimeError("paired benchmark produced no result")
+
+    baseline_timing = timing_summary(samples["baseline"])
+    candidate_timing = timing_summary(samples["candidate"])
+    deltas_ms = [
+        round((baseline - candidate) * 1000.0, 3)
+        for baseline, candidate in zip(samples["baseline"], samples["candidate"])
+    ]
+    baseline_median = baseline_timing["median_ms"]
+    candidate_median = candidate_timing["median_ms"]
+    speedup_percent = round(
+        (1.0 - candidate_median / baseline_median) * 100.0,
+        3,
+    )
+    performance_pass = candidate_median <= baseline_median * (
+        1.0 + max_regression_percent / 100.0
+    )
+    behavior_parity = not mismatch_pairs
+
+    return {
+        "schema_version": "1.0",
+        "benchmark": "offline_candidate_pool_paired_comparison",
+        "evidence_tier": "development_performance",
+        "source": {
+            "path": source,
+            "cases": cases,
+            "candidate_rows": len(candidates),
+            "reference_rows": len(references),
+        },
+        "configuration": {
+            "use_embeddings": False,
+            "warmup_pairs": warmup,
+            "measured_pairs": pairs,
+            "alternating_order": True,
+            "max_regression_percent": max_regression_percent,
+        },
+        "implementations": {
+            "baseline": baseline_label,
+            "candidate": candidate_label,
+        },
+        "behavior": {
+            "exact_report_parity": behavior_parity,
+            "mismatch_pairs": mismatch_pairs,
+        },
+        "pool": {
+            **final_report["candidate_pool"],
+            "action": final_report["action"],
+        },
+        "timings": {
+            "baseline": baseline_timing,
+            "candidate": candidate_timing,
+        },
+        "paired": {
+            "delta_definition": "baseline_ms_minus_candidate_ms",
+            "deltas_ms": deltas_ms,
+            "median_delta_ms": round(statistics.median(deltas_ms), 3),
+            "median_speedup_percent": speedup_percent,
+            "candidate_faster_or_equal_pairs": sum(delta >= 0 for delta in deltas_ms),
+        },
+        "acceptance": {
+            "behavior_parity_pass": behavior_parity,
+            "performance_threshold_pass": performance_pass,
+            "accepted": behavior_parity and performance_pass,
+        },
+        "environment": {
+            "python": platform.python_version(),
+            "implementation": platform.python_implementation(),
+            "platform": platform.platform(),
+        },
+    }
 
 
 def run_benchmark(
@@ -261,6 +407,18 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         help="Required candidate-row count; use 0 to disable the check.",
     )
     parser.add_argument("--output", type=Path)
+    parser.add_argument(
+        "--baseline-callable",
+        help="Baseline regulator in module:attribute notation for paired comparison.",
+    )
+    parser.add_argument(
+        "--candidate-callable",
+        help="Candidate regulator in module:attribute notation for paired comparison.",
+    )
+    parser.add_argument("--compare-pairs", type=int, default=10)
+    parser.add_argument("--baseline-label", default="baseline")
+    parser.add_argument("--candidate-label", default="candidate")
+    parser.add_argument("--max-regression-percent", type=float, default=3.0)
     return parser.parse_args(argv)
 
 
@@ -277,14 +435,40 @@ def main(argv: list[str] | None = None) -> int:
         source = str(args.ledger.resolve().relative_to(PROJECT_ROOT))
     except ValueError:
         source = str(args.ledger.resolve())
-    report = run_benchmark(
-        ledger["candidates"],
-        ledger["references"],
-        cases=len(ledger["cases"]),
-        iterations=args.iterations,
-        warmup=args.warmup,
-        source=source,
-    )
+    comparison_requested = bool(args.baseline_callable or args.candidate_callable)
+    if comparison_requested and not (
+        args.baseline_callable and args.candidate_callable
+    ):
+        raise ValueError(
+            "paired comparison requires both --baseline-callable and "
+            "--candidate-callable"
+        )
+
+    if comparison_requested:
+        report = run_paired_comparison(
+            ledger["candidates"],
+            ledger["references"],
+            baseline_regulator=load_callable(args.baseline_callable),
+            candidate_regulator=load_callable(args.candidate_callable),
+            pairs=args.compare_pairs,
+            warmup=args.warmup,
+            baseline_label=args.baseline_label,
+            candidate_label=args.candidate_label,
+            max_regression_percent=args.max_regression_percent,
+            cases=len(ledger["cases"]),
+            source=source,
+        )
+        exit_code = 0 if report["acceptance"]["accepted"] else 1
+    else:
+        report = run_benchmark(
+            ledger["candidates"],
+            ledger["references"],
+            cases=len(ledger["cases"]),
+            iterations=args.iterations,
+            warmup=args.warmup,
+            source=source,
+        )
+        exit_code = 0
     payload = json.dumps(report, indent=2, sort_keys=True) + "\n"
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -292,7 +476,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Wrote candidate-pool benchmark to {args.output}")
     else:
         print(payload, end="")
-    return 0
+    return exit_code
 
 
 if __name__ == "__main__":
