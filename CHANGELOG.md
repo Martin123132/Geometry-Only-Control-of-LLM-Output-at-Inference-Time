@@ -17,6 +17,9 @@
   `172` non-negated unique candidates in the frozen pool. Candidate records
   remained exact while a 16-pair full-pool comparison measured a `12.750%`
   median regulation reduction.
+- Added a permanent paired candidate-pool comparison mode with alternating
+  execution order, exact report-parity enforcement, per-pair deltas, labelled
+  callables, and a configurable performance-regression acceptance threshold.
 
 ## 0.1.7 - 2026-07-10
 
