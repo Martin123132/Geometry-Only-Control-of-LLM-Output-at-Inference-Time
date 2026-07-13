@@ -3,7 +3,7 @@
   "project": {
     "name": "manifold-guard",
     "public_name": "ManifoldGuard",
-    "package_version": "0.1.7",
+    "package_version": "0.1.8",
     "repository": "https://github.com/Martin123132/ManifoldGuard",
     "package_urls": {
       "homepage": "https://github.com/Martin123132/ManifoldGuard",
@@ -143,7 +143,8 @@
     "docs/v0.1.6_plan.md",
     "docs/v0.1.7_release_notes.md",
     "docs/v0.1.7_release_verification.md",
-    "docs/v0.1.8_scale_baseline.md"
+    "docs/v0.1.8_scale_baseline.md",
+    "docs/v0.1.8_release_notes.md"
   ],
   "json_schema_examples": [
     "examples/single_report_example.json",
@@ -230,7 +231,7 @@
     {
       "name": "benchmark_candidate_pool",
       "path": "scripts/benchmark_candidate_pool.py",
-      "scope": "offline runtime, Python allocation, duplicate compression, and report-size measurement on the frozen 257-row EXP20 candidate ledger"
+      "scope": "offline runtime, Python allocation, duplicate compression, report-size measurement, and paired behavior/performance acceptance on the frozen 257-row EXP20 candidate ledger"
     }
   ],
   "support_boundaries": [
