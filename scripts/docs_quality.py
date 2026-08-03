@@ -314,6 +314,7 @@ def parse_args():
             "docs/v0.1.6_plan.md",
             "docs/v0.1.8_scale_baseline.md",
             "docs/v0.1.8_release_notes.md",
+        "docs/v0.1.8_release_verification.md",
         ],
         help="Markdown or JSON schema docs required for read checks.",
     )

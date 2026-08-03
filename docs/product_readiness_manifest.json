@@ -144,7 +144,8 @@
     "docs/v0.1.7_release_notes.md",
     "docs/v0.1.7_release_verification.md",
     "docs/v0.1.8_scale_baseline.md",
-    "docs/v0.1.8_release_notes.md"
+    "docs/v0.1.8_release_notes.md",
+    "docs/v0.1.8_release_verification.md"
   ],
   "json_schema_examples": [
     "examples/single_report_example.json",
