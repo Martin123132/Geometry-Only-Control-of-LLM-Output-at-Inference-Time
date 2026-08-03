@@ -4,7 +4,7 @@
 
 - No unreleased changes.
 
-## 0.1.8 Release Candidate - 2026-07-13
+## 0.1.8 - 2026-08-03
 
 - Started the `0.1.8` development track with a reproducible offline
   257-candidate scale benchmark covering runtime, Python peak allocations,
