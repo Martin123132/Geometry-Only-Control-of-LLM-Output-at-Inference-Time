@@ -299,6 +299,7 @@ def parse_args():
             "SECURITY.md",
             "SUPPORT.md",
             "CODE_OF_CONDUCT.md",
+            "docs/ai_authorship_signals.md",
             "docs/cli_quickstart.md",
             "docs/getting_started.md",
             "docs/extending.md",
@@ -322,6 +323,7 @@ def parse_args():
         "--required-example-paths",
         nargs="*",
         default=[
+            "examples/ai_authorship_fixture_corpus.jsonl",
             "examples/batch_input.jsonl",
             "examples/demo_corpus.jsonl",
             "examples/cli_json_report.md",

@@ -109,6 +109,7 @@
     ]
   },
   "examples": [
+    "examples/ai_authorship_fixture_corpus.jsonl",
     "examples/batch_input.jsonl",
     "examples/demo_corpus.jsonl",
     "examples/cli_json_report.md",
@@ -128,6 +129,7 @@
     "SECURITY.md",
     "SUPPORT.md",
     "CODE_OF_CONDUCT.md",
+    "docs/ai_authorship_signals.md",
     "docs/cli_quickstart.md",
     "docs/getting_started.md",
     "docs/extending.md",
@@ -210,6 +212,11 @@
       "scope": "Markdown benchmark report generation from regulator evaluation JSON artifacts"
     },
     {
+      "name": "evaluate_authorship_signals",
+      "path": "scripts/evaluate_authorship_signals.py",
+      "scope": "research-only offline structural authorship-signal evaluation with explicit provenance and abstention"
+    },
+    {
       "name": "preflight",
       "path": "scripts/preflight.py",
       "scope": "combined docs checks and pytest execution for release-quality local validation"
@@ -240,6 +247,7 @@
     "ManifoldGuard is not a universal fact checker.",
     "Public performance claims are limited to the frozen supplied corpus and reference manifolds.",
     "Embedding-backed behavior depends on the optional sentence-transformers extra.",
-    "Token-shock reporting is available only in embedding-enabled mode."
+    "Token-shock reporting is available only in embedding-enabled mode.",
+    "The exploratory authorship-signal evaluator reports corpus-relative similarity and abstention, not authorship proof."
   ]
 }

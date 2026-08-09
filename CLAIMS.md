@@ -9,8 +9,14 @@ This repository treats claims as scoped engineering statements tied to the publi
 | ManifoldGuard is a universal fact checker. | None. The regulator compares candidates against supplied references/manifolds rather than external truth. | Not claimed |
 | ManifoldGuard guarantees correctness outside the supplied reference structure and labelled corpus. | None. Out-of-distribution behavior requires separate validation. | Not claimed |
 | Semantic embedding mode generalizes broadly. | EXP20 lineage records include semantic-geometry work, but public broad-generalization replication should be handled separately from the offline clamp result. | Provisional |
+| ManifoldGuard can prove whether a person or model authored a text. | None. The same text can arise through human writing, model generation, and hybrid editing, while this repository does not observe the writing event. | Not claimed |
+| The exploratory authorship-signal evaluator is a production AI detector. | None. It is an offline research harness with an explicit abstention state and a fixture-only shipped corpus. | Not claimed |
 
 ## Current public scope
+
+The exploratory authorship-signal evaluator is outside the current release
+claim surface. It produces a corpus-relative structural signal, not an
+authorship verdict. See docs/ai_authorship_signals.md for its evidence boundary.
 
 The current public scope is deterministic offline regulation with `use_embeddings=False`, plus the documented EXP01-EXP20 lineage. Semantic embedding extensions should be released and replicated separately from the offline clamp baseline.
 

@@ -112,6 +112,30 @@ The benchmark reports regulation, report-construction, serialization, Python
 peak-allocation, duplicate-compression, and JSON/Markdown/CSV size metrics. See
 `docs/v0.1.8_scale_baseline.md` for the checked baseline and interpretation.
 
+### Tier 5: Exploratory authorship-signal research
+
+The authorship-signal evaluator is a separate, research-only experiment. It
+does not determine who wrote a text and is not release evidence for
+ManifoldGuard regulation.
+
+Path:
+
+    examples/ai_authorship_fixture_corpus.jsonl
+
+The committed corpus is an intentionally non-evidential fixture. Its labels
+exercise the pipeline, but its provenance status is fixture rather than
+verified. The evaluator therefore reports no agreement metric for it.
+
+Run:
+
+    python -B scripts/evaluate_authorship_signals.py \
+      --corpus examples/ai_authorship_fixture_corpus.jsonl \
+      --output D:\Temp\ManifoldGuard\authorship-fixture-report.json
+
+The corpus contract, structural features, abstention rule, privacy boundary,
+and requirements for a genuine verified research corpus are documented in
+docs/ai_authorship_signals.md.
+
 ## Public claim boundary
 
 Supported public claims should be tied to:
@@ -128,6 +152,7 @@ Avoid claims that imply:
 - access to external truth
 - correctness outside supplied references
 - broad embedding-mode generalization without separate evidence
+- binary proof that a person or AI authored text from the final text alone
 
 ## Comparing evidence runs
 
